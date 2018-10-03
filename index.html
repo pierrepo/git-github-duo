@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Git et GitHub</title>
+
+		<link rel="stylesheet" href="assets/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="assets/reveal.js/css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="assets/reveal.js/lib/css/zenburn.css">
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="assets/css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'assets/reveal.js/css/print/pdf.css' : 'assets/reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown
+         data-separator="^---"
+		 data-separator-notes="^Notes:">
+<textarea data-template>
+
+# Git et GitHub
+
+Pierre Poulain / @pierrepo
+
+10/2018
+
+<div>
+<img src="assets/img/logo_DUO.png"
+	 height="100px" style="vertical-align:midle;">
+ </img>
+<div style="display: inline-block; width:100px;"></div>
+<img src="assets/img/logo_UPD_USPC.png"
+ 	 height="120px" style="vertical-align:midle;">
+ </img>
+</div>
+
+---
+
+<img src="assets/img/PhD_Comics__Final.doc__1531__20121212.gif"
+	 height="650px" style="margin-top:-20px;">
+</img>
+<div class="ref">
+	<http://phdcomics.com/comics/archive.php?comicid=1531>
+</div>
+
+---
+
+## Votre script R... 6 mois après
+
+---
+
+## Lequel choisir ?
+
+```bash
+$ ls
+R_script_03-04-2018.R        R_script_final_modified2.R
+R_script_17-06-2018.R        R_script_final.R
+R_script_18-03-2018.R        R_script_OK.R
+R_script_final_2018-09-20.R  R_script.R
+R_script_final_final.R       R_script_really_final.R
+```
+
+---
+
+## Tri par date
+
+```bash
+$ ls -lt
+total 40
+-rw-r--r-- 1 pierre pierre 3015 oct.   2 16:45 R_script_final_modified2.R
+-rw-r--r-- 1 pierre pierre 2124 sept. 28 11:58 R_script_really_final.R
+-rw-r--r-- 1 pierre pierre 2167 sept. 25 01:05 R_script_final_final.R
+-rw-r--r-- 1 pierre pierre 2167 sept. 22 09:56 R_script_OK.R
+-rw-r--r-- 1 pierre pierre 2130 sept. 20 10:36 R_script_final_2018-09-20.R
+-rw-r--r-- 1 pierre pierre 3700 sept.  1 16:41 R_script_final.R
+-rw-r--r-- 1 pierre pierre 2125 juin  19 18:15 R_script_17-06-2018.R
+-rw-r--r-- 1 pierre pierre 1067 avril  3  2018 R_script_03-04-2018.R
+-rw-r--r-- 1 pierre pierre 1485 mars  18  2018 R_script_18-03-2018.R
+-rw-r--r-- 1 pierre pierre 1670 févr. 24  2018 R_script.R
+```
+<!-- .element: class="fragment" style="font-size:1.1rem" -->
+
+---
+
+## Tri par taille
+
+```bash
+$ ls -lS
+total 40
+-rw-r--r-- 1 pierre pierre 3700 sept.  1 16:41 R_script_final.R
+-rw-r--r-- 1 pierre pierre 3015 oct.   2 16:45 R_script_final_modified2.R
+-rw-r--r-- 1 pierre pierre 2167 sept. 25 01:05 R_script_final_final.R
+-rw-r--r-- 1 pierre pierre 2167 sept. 22 09:56 R_script_OK.R
+-rw-r--r-- 1 pierre pierre 2130 sept. 20 10:36 R_script_final_2018-09-20.R
+-rw-r--r-- 1 pierre pierre 2125 juin  19 18:15 R_script_17-06-2018.R
+-rw-r--r-- 1 pierre pierre 2124 sept. 28 11:58 R_script_really_final.R
+-rw-r--r-- 1 pierre pierre 1670 févr. 24  2018 R_script.R
+-rw-r--r-- 1 pierre pierre 1485 mars  18  2018 R_script_18-03-2018.R
+-rw-r--r-- 1 pierre pierre 1067 avril  3  2018 R_script_03-04-2018.R
+```
+<!-- .element: style="font-size:1.1rem" -->
+
+---
+
+# Qui ? Quand ? Quoi ?
+
+gestionnaires de versions
+
+ (*version control systems*)
+
+---
+
+## Gestionnaires de versions
+
+CVS (1990)
+
+Subversion / SVN (2000)
+
+Git (2005)
+
+Mercurial (2005)
+
+Bazaar (2005)
+
+Veracity (2011)
+
+
+---
+
+### Activités préparatoires
+
+<div class="container">
+
+<div class="col">
+	<span style="font-size:1.2rem">Débuter avec Git et Github en 30 min</span>
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hPfgekYUKgk?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	<div class="ref" style="margin-top:-10px;">
+		<https://www.youtube.com/watch?v=hPfgekYUKgk>
+	</div>
+</div>
+
+<div class="col">
+	<img src="assets/img/ten-simple-rules-git-github.png"
+		 height="400px" class="framed">
+	</img>
+	<div class="ref" style="margin-top:-20px;">
+		[DOI 10.1371/journal.pcbi.1004947](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947)
+	</div>
+</div>
+
+<div class="col">
+	<img src="assets/img/science-on-github.png"
+		 height="400px" class="framed">
+	</img>
+	<div class="ref" style="margin-top:-20px;">
+		[DOI 10.1038/538127a](https://www.nature.com/news/democratic-databases-science-on-github-1.20719)
+	</div>
+</div>
+
+</div>
+
+<div class="fragment">
+💡 1  - 2 - tous
+</div>
+
+---
+
+---
+
+</textarea>
+</section>
+			</div>
+		</div>
+
+		<footer>
+            <p>
+            	This content is licensed under
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY 4.0</a>.
+            </p>
+        </footer>
+
+		<script src="assets/reveal.js/lib/js/head.min.js"></script>
+		<script src="assets/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				// Display the page number of the current slide
+				slideNumber: true,
+				// Push each slide change to the browser history
+				history: true,
+
+				dependencies: [
+					{ src: 'assets/reveal.js/plugin/markdown/marked.js' },
+					{ src: 'assets/reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'assets/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'assets/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'assets/reveal.js/plugin/math/math.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
