@@ -16,8 +16,6 @@
 
 [Tutoriel](tutoriel.md)
 
-[*Check list*](analyse_RNA-seq_O_tauri_check-list.md) pour ne rien oublier.
-
 
 ### Pour aller plus loin
 
