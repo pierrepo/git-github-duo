@@ -22,7 +22,7 @@ Dans un terminal Bash Ubuntu :
     $ git config --global user.email "moi@mail.com"
     ```
 
-Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 minutes](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant un peu l'exemple :
+Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant un peu l'exemple :
 - Le répertoire s'appellera `test-git`
 - Le fichier s'appellera `mon_script.R`. Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
 
