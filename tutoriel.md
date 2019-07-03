@@ -22,14 +22,14 @@ Dans un terminal Bash Ubuntu :
     $ git config --global user.email "moi@mail.com"
     ```
 
-Reprenez les étapes de la vidéo « Débuter avec Git et Github en 30 mi» à partir de 3'20 en modifiant un peu l'exemple :
+Reprenez les étapes de la vidéo « Débuter avec Git et Github en 30 minutes » à partir de 3'20 en modifiant un peu l'exemple :
 - Le répertoire s'appellera `test-git`
 - Le fichier s'appellera `mon_script.R`. Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
 
 
 # Un peu de spéléo
 
-*Remarque : cette section est l'occasion de découvrir des commandes qui n'ont pas encore été abordées jusq'à présent. Notamment `git clone` et `git show`*
+*Remarque : cette section est l'occasion de découvrir des commandes qui n'ont pas encore été abordées jusqu'à présent. Notamment `git clone` et `git show`*
 
 Je développe actuellement [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/).
 
@@ -47,7 +47,7 @@ Quand a été créé le premier commit ?
 
 Combien de commits ont été enregistrés jusqu'à présent ?
 
-Trouvez dans quel commit j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? Vous pourrez utilisez la commande `grep` avec l'option `-B3`.
+Trouvez dans quel commit j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? Vous pourrez utilisez la commande `grep` avec l'option `-B4`.
 
 
 Combien de fichiers ont été modifiés dans le commit correspondant ?
@@ -68,8 +68,9 @@ $ git show  <identifiant-du-commit>
 ## Créer un compte sur GitHub
 
 Créez un compte sur la plateforme de développement collaborative [GitHub](https://github.com/) en cliquant [ici](https://github.com/join).
-    + Entrez un login, une adresse e-mail et un mot de passe.
-    + Pensez à valider votre compte en cliquant sur le lien qui vous sera envoyé par e-mail par GitHub.
+
+    - Entrez un login, une adresse e-mail et un mot de passe.
+    - Pensez à valider votre compte en cliquant sur le lien qui vous sera envoyé par e-mail par GitHub.
 
 ##  Gérer les fins de lignes
 
