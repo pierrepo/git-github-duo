@@ -23,8 +23,8 @@ Dans un terminal Bash Ubuntu :
     ```
 
 Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant un peu l'exemple :
-- Le répertoire s'appellera `test-git`
-- Le fichier s'appellera `mon_script.R`. Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
+- Le répertoire s'appellera `test-git` (à la place de `landingpage`).
+- Le fichier s'appellera `mon_script.R` (à la place de `index.html`). Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
 
 
 # Un peu de spéléo
