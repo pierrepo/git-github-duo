@@ -61,7 +61,7 @@ DU Omiques 2019
 
 ---
 
-## Votre script R... 6 mois après
+## Votre script R... 3 mois... 1 an après
 
 ---
 template: contentleft
@@ -148,15 +148,19 @@ Veracity (2011)
 
 Qui a modifié le fichier ? 💻
 
-Quand ce fichier a été modifié ? 💻
+Quand le fichier a été modifié ? 💻
 
-Pourquoi ce fichier a été modifié ? 🤓
+Pourquoi le fichier a été modifié ? 🤓
 
 ]
 
+--
+
+<div style="clear:both;"></div>
+
 ### Quoi ?
 
-Des fichiers textes relativement « petits » (< 100 Mo)
+Des fichiers **textes** relativement « petits » (< 100 Mo)
 
 ---
 
@@ -170,27 +174,30 @@ Des fichiers textes relativement « petits » (< 100 Mo)
 
 <div style="background: #dfdfdf;
 			font-size: 1.5rem;
-			padding: 20px;
+			padding: 15px;
 			border-radius: 15px;
 			diplay: block;
 			position: absolute;
 			bottom: 150px;
 			right: 220px;">
-<quote>Rule 4: Version Control All Custom Scripts</quote>
+<q>Rule 4: Version Control All Custom Scripts</q>
 </div>
 
 ---
 template: contentleft
 
-.bigger[
-> When it comes to reproducible science, Git is code for success
-... and the key to its popularity is the online repository and social network, GitHub.
-
-<br /><br /><br />
-> “Most researchers are primarily collaborating with themselves,” [Tracy] Teal explains. “So, we teach it from the perspective of being helpful to a ‘future you’."
+.leftcol[
+<img src="img/git_for_success.png"
+		 height="500px" class="framed">
 ]
 
-.footnote[
+.rightcol[
+.bigger[
+> “Most researchers are primarily collaborating with themselves,” [Tracy] Teal explains. “So, we teach it from the perspective of being helpful to a ‘future you’."
+]
+]
+
+.footnote.ref[
 	J. Perkel, [Nature Index, 2018](https://www.natureindex.com/news-blog/when-it-comes-to-reproducible-science-git-is-code-for-success)
 ]
 
@@ -235,14 +242,12 @@ $ git status
 
 # Sélectionner les fichiers à enregistrer.
 $ git add <nom-du-fichier>
-# Enregistrer l'état (prendre la photo).
+# Enregistrer l'état (= prendre la photo).
 $ git commit -m "Texte d'explication"
 
 # Afficher l'historique.
 # Touche q pour quitter.
 $ git log
-
-
 ```
 
 ]
@@ -275,17 +280,22 @@ $ git push origin master
 ]
 
 ---
+template: title
+
+# Récap ?
+
+[www.wooclap.com/DUOGIT](https://app.wooclap.com/DUOGIT)
+
+---
 template: contentleft
 
 ## Bonnes pratiques
 
 ### Que met-on dans un dépôt Git ?
 
-Des fichiers avec lesquels Git peut calculer la différence entre deux versions.
-
 --
 
-[www.wooclap.com/DUOGIT](https://app.wooclap.com/DUOGIT)
+Des fichiers avec lesquels Git peut « calculer » la différence entre deux versions.
 
 --
 
@@ -302,12 +312,12 @@ Le plus souvent des fichiers *texte* de taille *raisonnable* :
 ---
 template: contentleft
 
-### C'est pas toujours si simple ;-)
+### Pas toujours simple ;-)
 
 .center[
 	<img src="img/XKCD__git__1597__CC-BY-NC.png"
-		height="550px"
-		style="margin-top: -20px;">
+		height="600px"
+		style="margin-top:-60px;">
 	</img>
 ]
 
@@ -315,4 +325,12 @@ template: contentleft
 	[XKCD](https://xkcd.com/1597/)
 ]
 
+---
+template: contentleft
+background-color: #cccccc
 
+# C'est parti ! 🚀
+
+## 💻 [Tutoriel](https://omics-school.github.io/git-github/tutoriel/)
+
+## Le cours [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry
