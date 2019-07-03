@@ -19,27 +19,28 @@
 
 ### Pour aller plus loin
 
-Si vous souhaitez aller plus loin et avez plus de temps, vous pouvez :
+Pour aller plus loin, vous pouvez :
 
 1. Visionner l'introduction très pédagogique de Sébastien Saunier : [Débuter avec Git et Github](https://www.youtube.com/watch?v=V6Zo68uQPqE) (1h27)
 
 2. Lire les articles scientifiques
+
    -  [A Quick Introduction to Version Control with Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668), Blischak, Davenport & Wilson, *PLOS Comput Biol*, 2016.
    -  [Democratic databases: science on GitHub](https://www.nature.com/news/democratic-databases-science-on-github-1.20719), Perkel, *Nature*, 2016.
-    - [Ten Simple Rules for Taking Advantage of Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947), Perez-Riverol et al., *PLOS Comput Biol*, 2016
+   - [Ten Simple Rules for Taking Advantage of Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947), Perez-Riverol et al., *PLOS Comput Biol*, 2016
 
 3. Lire les articles du blog de Christophe Ducamp :
 
     - [GitHub Pour les Nuls : Pas de Panique, Lancez-Vous ! (Première Partie)](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/)
     - [GitHub pour les Débutants : Consignez, Poussez et Foncez !](https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/)
 
-4. Le cours [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry.
+4. Tester le tutoriel [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry.
 
-5. [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) : comment configurer RStudio pour qu'il utilise Git et GitHub.
+5. Jeter un oeil à la page [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) qui détaille comment configurer RStudio pour qu'il utilise Git et GitHub.
 
-6. [Pro Git](https://git-scm.com/book/en/v2) (2e édition) : le bouquin de référence sur Git. PDF, en anglais et en français. [Version papier](https://www.amazon.fr/Pro-Git-Scott-Chacon/dp/1484200772/) (anglais seulement).
+6. Lire [Pro Git](https://git-scm.com/book/en/v2) (2e édition), le bouquin de référence sur Git. Il est disponible en PDF, en anglais et en français. Une [version papier](https://www.amazon.fr/Pro-Git-Scott-Chacon/dp/1484200772/) existe mais en anglais seulement.
 
-7. Modestement [Git et GitHub](http://cupnet.net/git-github/).
+7. Enfin, explorer la page dédiée [Git et GitHub](http://cupnet.net/git-github/) de votre humble serviteur.
 
 
 
