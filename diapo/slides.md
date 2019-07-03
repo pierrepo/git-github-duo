@@ -50,6 +50,17 @@ DU Omiques 2019
 ]
 
 ---
+template: contentleft
+
+# Objectifs d'apprentissage 
+
+- Expliquer l'utilité de Git et la différence entre Git et GitHub.
+- Citer les types de fichiers que Git peut prendre en charge.
+- Appliquer les principales commandes Git.
+- Créer et alimenter un dépôt distant sur GitHub.
+- Explorer un dépôt Git existant.
+
+---
 
 .center[
 <img height="600px" src="img/PhD_Comics__Final.doc__1531__20121212.gif">
