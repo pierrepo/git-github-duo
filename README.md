@@ -35,6 +35,15 @@ Si vous souhaitez aller plus loin et avez plus de temps, vous pouvez :
     - [GitHub Pour les Nuls : Pas de Panique, Lancez-Vous ! (Première Partie)](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/)
     - [GitHub pour les Débutants : Consignez, Poussez et Foncez !](https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/)
 
+4. Le cours [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry.
+
+5. [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) : comment configurer RStudio pour qu'il utilise Git et GitHub.
+
+6. [Pro Git](https://git-scm.com/book/en/v2) (2e édition) : le bouquin de référence sur Git. PDF, en anglais et en français. [Version papier](https://www.amazon.fr/Pro-Git-Scott-Chacon/dp/1484200772/) (anglais seulement).
+
+7. Modestement [Git et GitHub](http://cupnet.net/git-github/).
+
+
 
 ### Licence
 
