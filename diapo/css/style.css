@@ -14,6 +14,12 @@ h1, h2, h3 {
 }
 .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 
+/*
+slide number size
+ */
+.remark-slide-number {
+    font-size: 70%;
+}
 
 /*
 hands-on style
