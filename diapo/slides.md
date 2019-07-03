@@ -245,6 +245,9 @@ Dans un terminal, dans un répertoire
 $ git config --global user.name "Prénom Nom"
 $ git config --global user.email "moi@mail.com"
 
+# Vérifier si Git est bien installé (et afficher la version).
+$ git --version
+
 # Initialiser le répertoire (= dépôt).
 $ git init
 
