@@ -271,6 +271,8 @@ Avec Github
 ```bash
 # Ajouter un dépôt distant (sur GitHub).
 $ git remote add <adresse-du-dépôt>
+# Affichez les dépôts distants.
+$ git remote
 # Récupérer les modifications depuis GitHub.
 $ git pull origin master
 # Envoyer les modifications sur Github.
