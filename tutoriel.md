@@ -22,7 +22,7 @@ Dans un terminal Bash Ubuntu :
     $ git config --global user.email "moi@mail.com"
     ```
 
-Reprenez les étapes de la vidéo « Débuter avec Git et Github en 30 minutes » à partir de 3'20 en modifiant un peu l'exemple :
+Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 minutes](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant un peu l'exemple :
 - Le répertoire s'appellera `test-git`
 - Le fichier s'appellera `mon_script.R`. Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
 
@@ -50,9 +50,7 @@ Combien de commits ont été enregistrés jusqu'à présent ?
 Trouvez dans quel commit j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? Vous pourrez utilisez la commande `grep` avec l'option `-B4`.
 
 
-Combien de fichiers ont été modifiés dans le commit correspondant ?
-
-Utilisez pour cela la commande
+Combien de fichiers ont été modifiés dans le commit correspondant ? Utilisez pour cela la commande
 
 ```bash
 $ git show --name-only <identifiant-du-commit>
@@ -65,14 +63,14 @@ $ git show  <identifiant-du-commit>
 
 # Trucs et astuces
  
-## Créer un compte sur GitHub
+### Créer un compte sur GitHub
 
 Créez un compte sur la plateforme de développement collaborative [GitHub](https://github.com/) en cliquant [ici](https://github.com/join).
 
 - Entrez un login, une adresse e-mail et un mot de passe.
 - Pensez à valider votre compte en cliquant sur le lien qui vous sera envoyé par e-mail par GitHub.
 
-##  Gérer les fins de lignes
+###  Gérer les fins de lignes
 
 Sous Windows, si Git pose des problèmes avec les fin de lignes, utilisez la commande suivante (une seule fois) :
 ```bash
