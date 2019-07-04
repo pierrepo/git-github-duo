@@ -352,6 +352,12 @@ background-color: #cccccc
 
 # C'est parti ! 🚀
 
-## 💻 [Tutoriel](https://omics-school.github.io/git-github/tutoriel/)
+### 💻 [Tutoriel](https://omics-school.github.io/git-github/tutoriel.html)
 
-## Le cours [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry
+### Le cours [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry
+
+.center[
+	<img src="img/train.gif"
+		height="350px">
+	</img>
+]
