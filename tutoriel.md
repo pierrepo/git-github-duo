@@ -29,7 +29,7 @@ Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](htt
 Conseils :
 
 - Juste après avoir créé un dépôt sur GitHub, au moment d'ajouter votre dépôt distant avec la commande `git remote add origin`, préférez la connexion **HTTPS** plutôt que SSH. Concrètement l'adresse de votre dépôt doit ressembler à `https://github.com/login/depot.git` (et pas `git@github.com:login/depot.git`).
-- Si vous trouvez pénible de rentrer votre login / mot de passe à chaque fois que vous lancez les commande `git pull` ou `git push`, vous pouvez mettre en cache vos identifiants GitHub avec la commande :
+- Si vous trouvez pénible d'entrer votre login / mot de passe à chaque fois que vous lancez les commande `git pull` ou `git push`, vous pouvez mettre en cache vos identifiants GitHub avec la commande :
     ```bash
     $ git config --global credential.helper "cache --timeout=3600"
     ``` 
