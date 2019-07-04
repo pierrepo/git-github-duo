@@ -24,7 +24,7 @@ Dans un terminal Bash Ubuntu :
 
 Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant un peu l'exemple :
 - Le répertoire s'appellera `test-git` (à la place de `landingpage`).
-- Le fichier s'appellera `mon_script.R` (à la place de `index.html`). Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
+- Le fichier s'appellera `script.R` (à la place de `index.html`). Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
 
 
 # Un peu de spéléo
@@ -33,7 +33,7 @@ Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](htt
 
 Je développe actuellement [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/).
 
-Depuis votre répertoire Windows, téléchargez l'intégralité du projet avec la commande :
+Depuis votre répertoire utilisateur Windows, téléchargez l'intégralité du projet avec la commande :
 ```bash
 $ git clone https://github.com/pierrepo/autoclasswrapper.git
 ```
