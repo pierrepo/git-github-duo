@@ -281,7 +281,7 @@ $ git branch <nom-d-une-branche>
 # Changer de branche.
 $ git checkout <nom-d-une-branche-existante>
 # Fusionner deux branches.
-$ git branch <nom-d-une-branche-existante>
+$ git merge <nom-d-une-branche-existante>
 # Supprimer une branche.
 $ git branch -d <nom-d-une-branche-existante>
 ```
