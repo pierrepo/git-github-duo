@@ -468,4 +468,5 @@ Envoyez toutes vos modifications sur GitHub.
 
 Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
 
-Explorer le travail collaboratif avec 1 ou plusieurs autres personnes.
+Explorer le travail collaboratif avec 1 ou plusieurs autres personnes. Comme votre dépôt est déjà sur GitHub, vous n'aurez pas besoin d'exécuter la commande `git remote add...`
+
