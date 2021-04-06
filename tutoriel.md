@@ -16,6 +16,11 @@ Ouvrez un terminal Bash Ubuntu, puis entrez la commande suivante :
 $ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
 ```
 
+🔔 Rappels :
+
+- Ne tapez pas le `$` en début de ligne et faites attention aux majuscules et aux minuscules.
+- Utilisez le copier / coller.
+
 Validez en appuyant **4** fois sur la touche <kbd>Entrée</kbd>.
 
 Affichez le contenu du répertoire `$HOME/.ssh/` :
@@ -41,7 +46,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjNrLoIXHG3NHp2eucFnOqicMz2b4I6FvjxVYMEwzO
 Copiez cette clé, depuis `ssh-rsa` jusqu'à `connexion github duo` inclus.
 
 
-## Ajout de la clé dans GitHub
+## Ajout de la clé publique dans GitHub
 
 Ouvrez maintenant l'interface de gestion des clés de GitHub : <https://github.com/settings/keys>
 
@@ -70,7 +75,7 @@ Avec `<login> l'identifiant de votre compte sur GitHub.
 
 # Création d'un nouveau dépôt sur GitHub
 
-Dans l'interface de GitHub, tout en  haut à droite, cliquez sur le symbole **+* puis sur *New repository* :
+Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole **+* puis sur *New repository* :
 
 ![](img/github_create_repo1.png)
 
@@ -84,7 +89,7 @@ Puis cliquez sur le bouton vert « *Create repository* ».
 
 Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `git@github...` :
 
-![](img/github_create_repo2.png)
+![](img/github_create_repo3.png)
 
 Vous en aurez besoin pour la suite.
 
@@ -97,10 +102,23 @@ Ouvrez un terminal Bash Ubuntu, puis déplacez-vous dans le répertoire `/mnt/c/
 $ cd /mnt/c/Users/omics/
 ```
 
+Créez ensuite le répertoire `intro-git` et déplacez-vous à l'intérieur :
+```bash
+$ mkdir -p /mnt/c/Users/omics/intro-git
+$ cd intro-git
+```
+
+Vérifiez avec la commande `pwd` que vous êtes dans le bon répertoire :
+```bash
+$ pwd
+/mnt/c/Users/omics/intro-git
+```
+
 Exécutez ensuite la commande suivante pour cloner votre dépôt distant (depuis GitHub) sur votre machine locale :
 ```bash
 $ git clone git@github...
 ```
+Pour l'utilisateur `pierrepo`, la commande est : `git clone git@github.com:pierrepo/duo-test.git`
 
 Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :
 ```bash
@@ -109,11 +127,11 @@ $ cd duo-test
 
 Affichez le contenu du répertoire.
 
-Ce répertoire ne contient rien. C'est normal, votre dépôt est vite. Cependant, ce répertoire est un peu particulier car il contient un répertoire caché `.git`. Affichez ce répertoire avec la commande :
+Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Cependant, ce répertoire est un peu particulier car il contient en fait un répertoire caché `.git`. Affichez ce répertoire avec la commande :
 ```bash
 $ ls -al
 ```
-C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt.
+C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. Ne le supprimez pas.
 
 
 # Configuration du dépôt local
@@ -168,7 +186,8 @@ Modifications qui seront validées :
 ```bash
 $ git commit -m "Premier commit"
 ```
-vous devriez obtenir un résultat du type :
+
+Vous devriez obtenir un résultat du type :
 ```bash
 $ git commit -m "Premier commit"
 [master (commit racine) a7b7006] Premier commit
@@ -176,7 +195,7 @@ $ git commit -m "Premier commit"
  create mode 100644 test1.txt
 ```
 
-Parfait ! Il est maintenant temps d'envoyer ce premier *commit* sut GitHub :
+Parfait ! Il est maintenant temps d'envoyer ce premier *commit* sur GitHub :
 ```bash
 $ git push
 Énumération des objets: 3, fait.
@@ -191,46 +210,144 @@ Retournez maintenant sur votre navigateur internet et rafraichissez la page de v
 
 Vous devriez voir le fichier `test1.txt` !
 
+![](img/github_first_commit.png)
 
----
 
-Dans un terminal Bash Ubuntu :
+Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier `test1.txt` :
+```bash
+$ echo "et hop une deuxième ligne !" >> test1.txt
+```
 
-- Déplacez-vous dans votre répertoire personnel Windows :
-    ```bash
-    $ cd /mnt/c/Users/omics
-    ```
-- Vérifiez que Git est bien installé avec la commande :
-    ```bash
-    $ git --version
-    ```
-- Définissez votre identité pour Git :
-    ```bash
-    $ git config --global user.name "Prénom Nom"
-    $ git config --global user.email "moi@mail.com"
-    ```
+Vous pouvez aussi visualiser les différences par rapport au *commit* précédent avec la commande
+```bash
+$ git diff
+```
 
-Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant un peu l'exemple :
-- Le répertoire s'appellera `test-git` (à la place de `landingpage`).
-- Le fichier s'appellera `script.R` (à la place de `index.html`). Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
+Une nouvelle ligne est marquée par le symbole `+`. Une ligne supprimée est marquée par le symbole `-`. Les lignes modifiées apparaissent avcec le symbole `+` et `-`.
 
-Conseils :
+Exemple de résultat :
+```bash
+ git diff
+diff --git a/test1.txt b/test1.txt
+index 0d8e693..f9f2480 100644
+--- a/test1.txt
++++ b/test1.txt
+@@ -1 +1,2 @@
+ une première ligne
++et hop une deuxième ligne !
+```
 
-- Juste après avoir créé un dépôt sur GitHub, au moment d'ajouter votre dépôt distant avec la commande `git remote add origin`, préférez la connexion **HTTPS** plutôt que SSH. Concrètement l'adresse de votre dépôt doit ressembler à `https://github.com/login/depot.git` (et pas `git@github.com:login/depot.git`).
-- Si vous trouvez pénible d'entrer votre login / mot de passe à chaque fois que vous lancez les commande `git pull` ou `git push`, vous pouvez mettre en cache vos identifiants GitHub avec la commande :
-    ```bash
-    $ git config --global credential.helper "cache --timeout=3600"
-    ``` 
-    Ici, vos identifiants seront mis en cache (mémorisés) pendant 1 heure.
+Ajoutez (encore) le fichier modifié puis créez un nouveau *commit* :
+```bash
+$ git add test1.txt
+$ git commit -m "Ajout d'un nouveau message"
+```
 
+Et envoyez ce nouveau *commit* sur Github :
+```bash
+$ git push
+Énumération des objets: 5, fait.
+Décompte des objets: 100% (5/5), fait.
+Écriture des objets: 100% (3/3), 305 octets | 305.00 Kio/s, fait.
+Total 3 (delta 0), réutilisés 0 (delta 0)
+To github.com:pierrepo/duo-test.git
+   404b6ff..5adb360  master -> master
+```
+
+Retournez sur GitHub pour observer ce nouveau *commit* :
+
+![](img/github_second_commit.png)
+
+
+Depuis le terminal Bash Ubuntu, affichez l'historique avec la commande `git log` :
+```bash
+$ git log
+commit 5adb360b9682320e4fe32382d79d9b9454d657b3 (HEAD -> master, origin/master)
+Author: Pierre Poulain <pierre.poulain@cupnet.net>
+Date:   Tue Apr 6 21:00:36 2021 +0200
+
+    Ajout d'un nouveau message
+
+commit 404b6ff031bd9ba0daa586c7a524eb8ef409ec1c
+Author: Pierre Poulain <pierre.poulain@cupnet.net>
+Date:   Tue Apr 6 20:52:47 2021 +0200
+
+    Premier commit
+```
+
+Pressez la touche <kbd>q</kbd> pour quitter le journal de git.
+
+Vous constatez que git mémorise :
+
+- qui a créé le *commit* (par exemple : *Pierre Poulain <pierre.poulain@cupnet.net>*) ;
+- quand le *commit* a été créé (par exemple : *Tue Apr 6 21:00:36 2021 +0200*) ;
+- et pourquoi il a été créé (par exempe : *Ajout d'un nouveau message*).
+
+De plus, git attribue un identifiant à chaque *commit* (ici : `404b6ff031bd9ba0daa586c7a524eb8ef409ec1c`). Cet indentifiant est unique et permet de retrouver un *commit* particulier.
+
+Depuis l'interface de GitHub, cliquez sur le bouton vert « *Add a README »
+
+Dans l'éditeur en ligne, ajoutez le texte suivant :
+```
+# duo-test
+
+Dépôt git de test pour le **DU omiques**.
+```
+
+![](img/github_readme_1.png)
+
+En bas de la page, indiquez comme titre de *commit* : « Création README.md », puis cliquez sur le bouton vert « *Commit new file* ».
+
+![](img/github_readme_2.png)
+
+Bravo ! Vous avez créé un nouveau *commit* depuis l'interface de GitHub :
+
+![](img/github_readme_3.png)
+
+
+Retournez dans le terminal Bash Ubuntu et synchronisez votre dépôt git local avec GitHub :
+```bash
+ git pull
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Dépaquetage des objets: 100% (3/3), 716 octets | 358.00 Kio/s, fait.
+Depuis github.com:pierrepo/duo-test
+   5adb360..4c65a31  master     -> origin/master
+Mise à jour 5adb360..4c65a31
+Fast-forward
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+```
+
+Vérifiez que le fichier `README.md` est bien présent avec la commande :
+```bash
+$ cat README.md
+```
+
+Vérfiez également que le *commit* créé sur GitHub est bien enregistré dans l'historique :
+```bash
+$ git log
+```
+
+N'oubliez pas de pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
 # Un peu de spéléo
 
-*Remarque : cette section est l'occasion de découvrir des commandes qui n'ont pas encore été abordées jusqu'à présent. Notamment `git clone` et `git show`*
+*Remarque : cette section est l'occasion de découvrir des commandes qui n'ont pas encore été abordées jusqu'à présent. Notamment `git show`*
 
-Je développe actuellement [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/).
+J'ai développé il y a quelques années [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/).
 
-Depuis votre répertoire utilisateur Windows, téléchargez l'intégralité du projet avec la commande :
+
+Depuis votre terminal Bash Ubuntu, déplacez-vous dans le répertoire `/mnt/c/Users/omics/intro-git` :
+```bash
+$ cd /mnt/c/Users/omics/intro-git
+```
+
+
+Téléchargez l'intégralité du projet avec la commande :
 ```bash
 $ git clone https://github.com/pierrepo/autoclasswrapper.git
 ```
@@ -240,11 +357,23 @@ puis déplacez-vous dans le répertoire du projet :
 $ cd autoclasswrapper
 ```
 
-Quand a été créé le premier commit ?
+De quand date le dernier commit ?
+
+*Astuce : combinez les commandes `git log` et `head`*
+
+
+Quand a été créé le tout premier commit ?
+
+*Astuce : combinez les commandes `git log` et `tail`*
+
 
 Combien de commits ont été enregistrés jusqu'à présent ?
 
-Trouvez dans quel commit j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? Vous pourrez utilisez la commande `grep` avec l'option `-B4`.
+*Astuce : combinez les commandes `git log`, `grep -c` et un mot-clé pertinent. Vérifiez cette valeur sur le site du dépôt : <https://github.com/pierrepo/autoclasswrapper>*
+
+Trouvez dans quel commit j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? 
+
+*Astuce : combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.*
 
 
 Combien de fichiers ont été modifiés dans le commit correspondant ? Utilisez pour cela la commande
@@ -253,23 +382,73 @@ Combien de fichiers ont été modifiés dans le commit correspondant ? Utilisez 
 $ git show --name-only <identifiant-du-commit>
 ```
 
-Notez la différence avec
+avec `<identifiant-du-commit>` l'identifiant du commit intéressant. Aide : il commence par `2d1c`.
+
+Notez la différence avec la commande :
 ```bash
 $ git show  <identifiant-du-commit>
 ```
+Pressez la touche <kbd>q</kbd> pour quitter.
 
-# Trucs et astuces
- 
-### Créer un compte sur GitHub
 
-Créez un compte sur la plateforme de développement collaborative [GitHub](https://github.com/) en cliquant [ici](https://github.com/join).
+# Bonus : utilisez les clés privée et publique pour se connecter en SSH au serveur
 
-- Entrez un login, une adresse e-mail et un mot de passe.
-- Pensez à valider votre compte en cliquant sur le lien qui vous sera envoyé par e-mail par GitHub.
+La paire de clés que vous avez créée peuvent également être utile pour vous connecter rapidement sur le serveur de l'IFB.
 
-###  Gérer les fins de lignes
-
-Sous Windows, si Git pose des problèmes avec les fin de lignes, utilisez la commande suivante (une seule fois) :
-```bash
-$ git config --global core.autocrlf true
+Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l'IFB :
 ```
+$ ssh-copy-id -i id_rsa.pub <login>@core.cluster.france-bioinformatique.fr
+```
+
+avec `<login>` votre identifiant sur le serveur de l'IFB.
+
+Entrez votre mot de passe lorsqu'il est demandé.
+
+Exécutez ensuite la commande suivante :
+```bash
+$ ssh <login>@core.cluster.france-bioinformatique.fr
+```
+avec `<login>` votre identifiant sur le serveur de l'IFB.
+
+Si la manipulation précédente avec `ssh-copy-id` s'est bien passée, vous devriez pouvoir vous connecter sur le serveur de l'IFB sans entrer de mot de passe. Pratique non ?
+
+Encore plus fort, déconnectez-vous du serveur de l'IFB en exécutant la commande `exit`.
+
+Depuis le terminal Bash Ubuntu de votre machine locale, copiez votre paire de clés sur le serveur de l'IFB :
+```bash
+$ cp $HOME/.ssh/i_rsa* <login>@core.cluster.france-bioinformatique.fr:.ssh/
+```
+avec `<login>` votre identifiant sur le serveur de l'IFB.
+
+Connectez-vous au serveur de l'IFB : 
+```bash
+$ ssh <login>@core.cluster.france-bioinformatique.fr
+```
+
+Puis clonez votre dépôt git depuis GitHub :
+
+```bash
+$ git clone git@github.com:<login>/duo-test.git
+```
+
+avec `<login>` votre identifiant GitHub (pas celui de l'IFB).
+
+Déplacez-vous ensuite dans le nouveau répertoire créé :
+```bash
+$ cd duo-test
+```
+
+Vérifiez avec la commande `git log` que vous avez récupéré tout l'historique du projet.
+
+Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou le serveur de l'IFB, à votre convenance. Pensez à envoyer sur GitHub (`git push`) ou à télécharger depuis GitHub (`git pull`) vos modifications régulièrement.
+
+Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Ammusez-vous !
+
+
+# Bonus 2
+
+Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant l'exemple de la vidéo:
+- Le répertoire s'appellera `test-git` (à la place de `landingpage`).
+- Le fichier s'appellera `script.R` (à la place de `index.html`). Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
+
+---
