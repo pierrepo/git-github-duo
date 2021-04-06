@@ -391,7 +391,7 @@ $ git show  <identifiant-du-commit>
 Pressez la touche <kbd>q</kbd> pour quitter.
 
 
-# Bonus : utilisez les clés privée et publique pour se connecter en SSH au serveur
+# Bonus : utiliser les clés privée et publique pour une connexion en SSH au serveur de l'IFB
 
 La paire de clés que vous avez créée peuvent également être utile pour vous connecter rapidement sur le serveur de l'IFB.
 
@@ -445,10 +445,27 @@ Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou l
 Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Ammusez-vous !
 
 
-# Bonus 2
+# Les branches
 
-Reprenez les étapes de la vidéo « [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk) » à partir de 3'20 en modifiant l'exemple de la vidéo:
-- Le répertoire s'appellera `test-git` (à la place de `landingpage`).
-- Le fichier s'appellera `script.R` (à la place de `index.html`). Vous l'éditerez avec `nano` et entrerez bien sûr le contenu qui vous intéresse (du code R par exemple).
+Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=634) » à partir de 10'34 sur les branches.
 
----
+Depuis le terminal Bash Ubuntu de votre machine locale, créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche.
+
+Créez un nouveau fichier `test2.txt` avec le texte qui vous convient.
+
+Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt`.
+
+Revenez sur la branche *master* puis fusionnez sur *master* la branche *nouveau-fichier*.
+
+Vérifiez que le fichier `test2.txt` est présent et contient vos modifications.
+
+Supprimez l'ancienne branche *nouveau-fichier*.
+
+Envoyez toutes vos modifications sur GitHub.
+
+
+# Collaboration avec GitHub
+
+Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
+
+Explorer le travail collaboratif avec 1 ou plusieurs autres personnes.
