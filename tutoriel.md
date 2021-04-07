@@ -6,7 +6,7 @@ license: Creative Commons Attribution-ShareAlike (CC BY-SA 4.0)
 
 # Utilisation des clés privée et publique
 
-Le combinaison de clés privée et publique est une mécanisme très sécurisé à un serveur distant. La connexion est authentifiée par l'utilisation  conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
+🔑 La combinaison de clés privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
 
 ## Création des clés
 
@@ -19,13 +19,13 @@ $ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
 🔔 Rappels :
 
 - Ne tapez pas le `$` en début de ligne et faites attention aux majuscules et aux minuscules.
-- Utilisez le copier / coller.
+- Copiez / collez les commandes pour aller plus vite et faire moins d'erreur.
 
 Validez en appuyant **4** fois sur la touche <kbd>Entrée</kbd>.
 
-Affichez le contenu du répertoire `$HOME/.ssh/` :
+Affichez maintenant le contenu du répertoire `~/.ssh/` :
 ```bash
-$ ls $HOME/.ssh/
+$ ls ~/.ssh/
 ```
 
 Vous devriez obtenir deux fichiers :
@@ -35,12 +35,20 @@ Vous devriez obtenir deux fichiers :
 
 Toujours dans votre terminal Bash Ubuntu, affichez à l'écran le contenu du fichier `id_rsa.pub` :
 ```bash
-cat $HOME/.ssh/id_rsa.pub
+$ cat ~/.ssh/id_rsa.pub
 ```
 
 Vous devriez obtenir quelque chose du type :
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjNrLoIXHG3NHp2eucFnOqicMz2b4I6FvjxVYMEwzO40syopxd7YtQXzWp9EpuO7n9wWZnZ5uR6bXPqXp9VdN3MviI8PsvvjDbp4AfNz4Onunpy0mIjUarRL5evEPKI2iuqO7pUC9mqV2tAPopsjfSuj+gBEcMAZU8gMK1o/eBqD+tpuGrNiE1Zq8PDQPOO7HStG09tZ3ABDPBSISun7GAC3ytbYJtL4+A3IEgUX1oCGbrzVGhIB0pK/xKVVpmG6KplVOjsSgYCivfOIJ05GJQk0LuizGWg1rKt4yYZgXjoMW4F+hz/+c9xnDuRq8ZAQLBAm+NWU91Nczb5OzAfWYVY9BlES35YfcFRLuWP8ArXLHRtZJq48B7+wIN39im72iYcKXcOzeyYRZQFKMb0z9PuDrpZ6LpQZQw04i7CWJZca7Auwtd3yyC+PfuvyeuFhODqktP0rdKtTEQdrUTdaxb+K1k8FPmZMc/o91sBJ1u6dceccjpO1LTK/I1w9xmbQAxi0hLDCRN9hm/RUkOvzxZJed6kBzozvZ8vCi+Afv1BXjkv+jrezkkqsFl5YA01nLxyUzo1LFBNZ41+wRHQXCQKENzsHnuVwZ0CcXRfFoZnDCn9Hs0L7kBH02O2JPbFlIVw/72XaZundqjczcp1w0gou0+UqTRTPvbaUnz17wffw== connexion github duo
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjNrLoIXHG3NHp2eucFnOqicMz2b4I6FvjxVYMEwzO40syopxd
+7YtQXzWp9EpuO7n9wWZnZ5uR6bXPqXp9VdN3MviI8PsvvjDbp4AfNz4Onunpy0mIjUarRL5evEPKI2iuqO7pUC9m
+qV2tAPopsjfSuj+gBEcMAZU8gMK1o/eBqD+tpuGrNiE1Zq8PDQPOO7HStG09tZ3ABDPBSISun7GAC3ytbYJtL4A3
+IEgUX1oCGbrzVGhIB0pK/xKVVpmG6KplVOjsSgYCivfOIJ05GJQk0LuizGWg1rKt4yYZgXjoMW4F+hz/+c9xnDuR
+q8ZAQLBAm+NWU91Nczb5OzAfWYVY9BlES35YfcFRLuWP8ArXLHRtZJq48B7wIN39im72iYcKXcOzeyYRZQFKMb0z
+9PuDrpZ6LpQZQw04i7CWJZca7Auwtd3yyC+PfuvyeuFhODqktP0rdKtTEQdrUTdaxb+K1k8FPmZMc/o91sBJ1u6d
+ceccjpO1LTK/I1w9xmbQAxi0hLDCRN9hm/RUkOvzxZJed6kBzozvZ8vCi+Afv1BXjkv+jrezkkqsFl5YA01nLxyU
+zo1LFBNZ41+wRHQXCQKENzsHnuVwZ0CcXRfFoZnDCn9Hs0L7kBH02O2JPbFlIVw/72XaZundqjczcp1w0gou0+Uq
+TRTPvbaUnz17wffw== connexion github duo
 ```
 
 Copiez cette clé, depuis `ssh-rsa` jusqu'à `connexion github duo` inclus.
@@ -60,7 +68,7 @@ Collez votre clé dans le champ *Key* (tout depuis `ssh-rsa` jusqu'à `connexion
 
 Enfin, cliquez sur le bouton vert « *Add SSH key* ».
 
-Pour tester si cela a bien fonctionné, tapez la commande suivante dans le terminal Bash Ubuntu :
+Pour tester si cela a bien fonctionné, tapez la commande suivante dans le terminal Bash Ubuntu de votre machine :
 ```bash
 $ ssh -T git@github.com
 ```
@@ -70,12 +78,12 @@ Si votre clé privée a bien été importée dans GitHub, vous devriez obtenir l
 ```
 Hi <login>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-Avec `<login> l'identifiant de votre compte sur GitHub.
+Avec `<login>` l'identifiant de votre compte sur GitHub.
 
 
 # Création d'un nouveau dépôt sur GitHub
 
-Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole **+* puis sur *New repository* :
+Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole `+` puis sur « *New repository* » :
 
 ![](img/github_create_repo1.png)
 
@@ -114,11 +122,11 @@ $ pwd
 /mnt/c/Users/omics/intro-git
 ```
 
-Exécutez ensuite la commande suivante pour cloner votre dépôt distant (depuis GitHub) sur votre machine locale :
+Exécutez ensuite la commande suivante pour cloner votre dépôt distant (qui est sur GitHub) sur votre machine locale :
 ```bash
 $ git clone git@github...
 ```
-Pour l'utilisateur `pierrepo`, la commande est : `git clone git@github.com:pierrepo/duo-test.git`
+Pour l'utilisateur `pierrepo`, la commande complète est : `git clone git@github.com:pierrepo/duo-test.git`
 
 Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :
 ```bash
@@ -127,11 +135,11 @@ $ cd duo-test
 
 Affichez le contenu du répertoire.
 
-Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Cependant, ce répertoire est un peu particulier car il contient en fait un répertoire caché `.git`. Affichez ce répertoire avec la commande :
+Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier car il contient en fait un répertoire caché `.git`. Affichez ce répertoire avec la commande :
 ```bash
 $ ls -al
 ```
-C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. Ne le supprimez pas.
+C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. 🧐 Ne le supprimez pas.
 
 
 # Configuration du dépôt local
@@ -206,7 +214,7 @@ To github.com:pierrepo/duo-test.git
  * [new branch]      master -> master
 ```
 
-Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori `https://github.com/login/duo-test` avec *login* votre identifiant GitHub).
+Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori `https://github.com/<login>/duo-test` avec `<login>` votre identifiant GitHub).
 
 Vous devriez voir le fichier `test1.txt` !
 
@@ -218,16 +226,16 @@ Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier `test1.txt`
 $ echo "et hop une deuxième ligne !" >> test1.txt
 ```
 
-Vous pouvez aussi visualiser les différences par rapport au *commit* précédent avec la commande
+Visualisez les différences par rapport au *commit* précédent avec la commande
 ```bash
 $ git diff
 ```
 
-Une nouvelle ligne est marquée par le symbole `+`. Une ligne supprimée est marquée par le symbole `-`. Les lignes modifiées apparaissent avcec le symbole `+` et `-`.
+Une nouvelle ligne est marquée par le symbole `+`. Une ligne supprimée est marquée par le symbole `-`. Les lignes modifiées apparaissent avec le symbole `+` et `-`.
 
 Exemple de résultat :
 ```bash
- git diff
+$ git diff
 diff --git a/test1.txt b/test1.txt
 index 0d8e693..f9f2480 100644
 --- a/test1.txt
@@ -279,13 +287,15 @@ Pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
 Vous constatez que git mémorise :
 
-- qui a créé le *commit* (par exemple : *Pierre Poulain <pierre.poulain@cupnet.net>*) ;
-- quand le *commit* a été créé (par exemple : *Tue Apr 6 21:00:36 2021 +0200*) ;
-- et pourquoi il a été créé (par exempe : *Ajout d'un nouveau message*).
+- **qui** a créé le *commit* (par exemple : *Pierre Poulain <pierre.poulain@cupnet.net>*) ;
+- **quand** le *commit* a été créé (par exemple : *Tue Apr 6 21:00:36 2021 +0200*) ;
+- et **pourquoi** il a été créé (par exempe : *Ajout d'un nouveau message*).
 
-De plus, git attribue un identifiant à chaque *commit* (ici : `404b6ff031bd9ba0daa586c7a524eb8ef409ec1c`). Cet indentifiant est unique et permet de retrouver un *commit* particulier.
+Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard comment les retrouver.
 
-Depuis l'interface de GitHub, cliquez sur le bouton vert « *Add a README »
+De plus, git attribue un identifiant à chaque *commit* (ici : `404b6ff031bd9ba0daa586c7a524eb8ef409ec1c`). Cet identifiant est unique et permet de retrouver un *commit* particulier.
+
+Depuis l'interface de GitHub, cliquez sur le bouton vert « *Add a README* »
 
 Dans l'éditeur en ligne, ajoutez le texte suivant :
 ```
@@ -296,18 +306,18 @@ Dépôt git de test pour le **DU omiques**.
 
 ![](img/github_readme_1.png)
 
-En bas de la page, indiquez comme titre de *commit* : « Création README.md », puis cliquez sur le bouton vert « *Commit new file* ».
+En bas de la page, indiquez comme titre de *commit* : « Création README.md » (sans les guillemets), puis cliquez sur le bouton vert « *Commit new file* ».
 
 ![](img/github_readme_2.png)
 
-Bravo ! Vous avez créé un nouveau *commit* depuis l'interface de GitHub :
+Bravo ! Vous avez créé un nouveau *commit*, mais cette fois dans l'interface de GitHub :
 
 ![](img/github_readme_3.png)
 
 
 Retournez dans le terminal Bash Ubuntu et synchronisez votre dépôt git local avec GitHub :
 ```bash
- git pull
+$ git pull
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
 remote: Compressing objects: 100% (3/3), done.
@@ -322,12 +332,12 @@ Fast-forward
  create mode 100644 README.md
 ```
 
-Vérifiez que le fichier `README.md` est bien présent avec la commande :
+Vérifiez que le fichier `README.md` est bien présent avec la commande `ls` puis affichez son contenu :
 ```bash
 $ cat README.md
 ```
 
-Vérfiez également que le *commit* créé sur GitHub est bien enregistré dans l'historique :
+Vérifiez également que le *commit* créé sur GitHub est bien enregistré dans l'historique :
 ```bash
 $ git log
 ```
@@ -336,7 +346,7 @@ N'oubliez pas de pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
 # Un peu de spéléo
 
-*Remarque : cette section est l'occasion de découvrir des commandes qui n'ont pas encore été abordées jusqu'à présent. Notamment `git show`*
+*Remarque : cette section est l'occasion d'explorer l'historique d'un dépôt git et d'aborder une nouvelle commande, `git show`.*
 
 J'ai développé il y a quelques années [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/).
 
@@ -347,7 +357,7 @@ $ cd /mnt/c/Users/omics/intro-git
 ```
 
 
-Téléchargez l'intégralité du projet avec la commande :
+Téléchargez l'intégralité du projet *autoclasswrapper* avec la commande :
 ```bash
 $ git clone https://github.com/pierrepo/autoclasswrapper.git
 ```
@@ -357,36 +367,38 @@ puis déplacez-vous dans le répertoire du projet :
 $ cd autoclasswrapper
 ```
 
-De quand date le dernier commit ?
+### De quand date le dernier *commit* ?
 
-*Astuce : combinez les commandes `git log` et `head`*
-
-
-Quand a été créé le tout premier commit ?
-
-*Astuce : combinez les commandes `git log` et `tail`*
+Astuce : combinez les commandes `git log` et `head`.
 
 
-Combien de commits ont été enregistrés jusqu'à présent ?
+### Quand a été créé le tout premier *commit* ?
 
-*Astuce : combinez les commandes `git log`, `grep -c` et un mot-clé pertinent. Vérifiez cette valeur sur le site du dépôt : <https://github.com/pierrepo/autoclasswrapper>*
-
-Trouvez dans quel commit j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? 
-
-*Astuce : combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.*
+Astuce : combinez les commandes `git log` et `tail`.
 
 
-Combien de fichiers ont été modifiés dans le commit correspondant ? Utilisez pour cela la commande
+### Combien de *commits* ont été enregistrés jusqu'à présent ?
 
-```bash
+Astuce : combinez les commandes `git log`, `grep -c` et un mot-clé pertinent. Vérifiez cette valeur sur le site du dépôt : <https://github.com/pierrepo/autoclasswrapper>
+
+### Trouvez dans quel *commit* j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? 
+
+Astuce : combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.
+
+
+### Combien de fichiers ont été modifiés dans le *commit* correspondant ?
+
+Utilisez pour cela la commande
+
+```
 $ git show --name-only <identifiant-du-commit>
 ```
 
-avec `<identifiant-du-commit>` l'identifiant du commit intéressant. Aide : il commence par `2d1c`.
+avec `<identifiant-du-commit>` l'identifiant du *commit* intéressant. Aide : il commence par `2d1c`.
 
 Notez la différence avec la commande :
-```bash
-$ git show  <identifiant-du-commit>
+```
+$ git show <identifiant-du-commit>
 ```
 Pressez la touche <kbd>q</kbd> pour quitter.
 
