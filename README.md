@@ -1,5 +1,5 @@
 # Git et GitHub
-### Tutoriel
+### Tutoriels
 
 [Tutoriel](tutoriel.md) maison.
 
@@ -12,7 +12,7 @@ Pour aller plus loin, vous pouvez :
 
 1. Visionner l'introduction très pédagogique de Sébastien Saunier : [Débuter avec Git et Github](https://www.youtube.com/watch?v=V6Zo68uQPqE) (1h27)
 
-2. Lire les articles scientifiques
+2. Lire les articles scientifiques :
 
    - [A Quick Introduction to Version Control with Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668), Blischak, Davenport & Wilson, *PLOS Comput Biol*, 2016.
    - [Ten Simple Rules for Taking Advantage of Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947), Perez-Riverol et al., *PLOS Comput Biol*, 2016
