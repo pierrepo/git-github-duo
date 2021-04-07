@@ -1,12 +1,5 @@
 # Git et GitHub
 
-
-### Activité préparatoire
-
-1. Visionnez la vidéo : [Débuter avec Git et Github en 30 min](https://www.youtube.com/watch?v=hPfgekYUKgk)
-2. Notez sur une feuille de papier une chose que vous avez comprise et une autre que vous n'avez pas comprise dans cette vidéo.
-
-
 ### Objectifs et contexte
 
 [Diapo](diapo)
