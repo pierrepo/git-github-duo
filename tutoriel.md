@@ -410,7 +410,9 @@ Pressez la touche <kbd>q</kbd> pour quitter.
 
 # Partie 4 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l'IFB
 
-La paire de clés que vous avez créée peuvent également être utile pour vous connecter rapidement sur le serveur de l'IFB.
+## 4.1 Enregistrement de la clé publique sur le serveur de l'IFB
+
+La paire de clés que vous avez créée peut également être utile pour vous connecter rapidement sur le serveur de l'IFB.
 
 Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l'IFB :
 ```
@@ -429,15 +431,20 @@ avec `<login>` votre identifiant sur le serveur de l'IFB.
 
 Si la manipulation précédente avec `ssh-copy-id` s'est bien passée, vous devriez pouvoir vous connecter sur le serveur de l'IFB sans entrer de mot de passe. Pratique non ?
 
-Encore plus fort, déconnectez-vous du serveur de l'IFB en exécutant la commande `exit`.
+
+## 4.2 Copie de la paire de clés sur le serveur de l'IFB
+
+On peut faire encore plus intéressant en copiant la paire de clés sur le serveur de l'IFB.
+
+Déconnectez-vous du serveur de l'IFB en exécutant la commande `exit`.
 
 Depuis le terminal Bash Ubuntu de votre machine locale, copiez votre paire de clés sur le serveur de l'IFB :
 ```bash
-$ cp $HOME/.ssh/i_rsa* <login>@core.cluster.france-bioinformatique.fr:.ssh/
+$ cp $HOME/.ssh/id_rsa* <login>@core.cluster.france-bioinformatique.fr:.ssh/
 ```
 avec `<login>` votre identifiant sur le serveur de l'IFB.
 
-Connectez-vous au serveur de l'IFB : 
+Connectez-vous au serveur de l'IFB (normalement sans mot de passe) : 
 ```bash
 $ ssh <login>@core.cluster.france-bioinformatique.fr
 ```
@@ -469,22 +476,59 @@ Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be
 
 Depuis le terminal Bash Ubuntu de votre machine locale, créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche.
 
+```bash
+$ git checkout -b nouveau-fichier
+```
+
 Créez un nouveau fichier `test2.txt` avec le texte qui vous convient.
+
+```bash
+$ echo "Nouveau fichier pour tester une branche" > test2.txt
+```
 
 Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt`.
 
+```bash
+$ git add test2.txt
+$ git commit -m "Création d'un nouveau fichier"
+$ echo "Une ligne supplémentaire" >> test2.txt
+$ git add test2.txt
+$ git commit -m "Ajout d'une ligne"
+```
+
 Revenez sur la branche *master* puis fusionnez sur *master* la branche *nouveau-fichier*.
+
+```bash
+$ git checkout master
+$ git merge nouveau-fichier
+```
 
 Vérifiez que le fichier `test2.txt` est présent et contient vos modifications.
 
+```bash
+$ ls
+$ cat test2.txt
+```
+
 Supprimez l'ancienne branche *nouveau-fichier*.
+
+```bash
+$ git branch -d nouveau-fichier
+```
 
 Envoyez toutes vos modifications sur GitHub.
 
+```bash
+$ git push
+```
+
+Vérifiez que le dépôt sur GitHub a bien été mis à jour.
 
 ## 5.2 Collaboration avec GitHub
 
 Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
 
-Explorer le travail collaboratif avec 1 ou plusieurs autres personnes. Comme votre dépôt est déjà sur GitHub, vous n'aurez pas besoin d'exécuter la commande `git remote add...`
+Explorez le travail collaboratif avec une ou plusieurs autres personnes. 
+
+Remarque : Comme votre dépôt est déjà sur GitHub, vous n'aurez pas besoin d'exécuter la commande `git remote add...`
 
