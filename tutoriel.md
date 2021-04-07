@@ -23,7 +23,7 @@ $ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
 
 Validez en appuyant **4** fois sur la touche <kbd>Entrée</kbd>.
 
-A la fin, vous devriez obtenir quelque chose du type :
+À la fin, vous devriez obtenir quelque chose du type :
 ```
 The key's randomart image is:
 +---[RSA 4096]----+
@@ -54,7 +54,7 @@ Toujours dans votre terminal Bash Ubuntu, affichez à l'écran le contenu du fic
 $ cat ~/.ssh/id_rsa.pub
 ```
 
-Vous devriez obtenir quelque chose du type :
+Vous devriez obtenir une clé qui ressemble à cela :
 ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjNrLoIXHG3NHp2eucFnOqicMz2b4I6FvjxVYMEwzO40syopxd
 7YtQXzWp9EpuO7n9wWZnZ5uR6bXPqXp9VdN3MviI8PsvvjDbp4AfNz4Onunpy0mIjUarRL5evEPKI2iuqO7pUC9m
@@ -431,7 +431,7 @@ Pressez la touche <kbd>q</kbd> pour quitter.
 
 ## 4.1 Enregistrement de la clé publique sur le serveur de l'IFB
 
-La paire de clés que vous avez créée peut également être utile pour vous connecter rapidement sur le serveur de l'IFB.
+La paire de clés que vous avez créée peut également être utile pour vous connecter rapidement sur le serveur de l'IFB, c'est-à-dire sans entrer votre mot de passe à chaque fois.
 
 Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l'IFB :
 ```
@@ -498,19 +498,19 @@ Depuis le terminal Bash Ubuntu de votre machine locale, revenez dans votre dép�
 $ cd /mnt/c/Users/omics/intro-git/duo-test
 ```
 
-Créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche.
+Créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche :
 
 ```bash
 $ git checkout -b nouveau-fichier
 ```
 
-Créez un nouveau fichier `test2.txt` avec le texte qui vous convient.
+Créez un nouveau fichier `test2.txt` avec le texte qui vous convient :
 
 ```bash
 $ echo "Nouveau fichier pour tester une branche" > test2.txt
 ```
 
-Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt`.
+Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt` :
 
 ```bash
 $ git add test2.txt
@@ -532,7 +532,7 @@ Fusionnez maintenant sur *master* la branche *nouveau-fichier* :
 $ git merge nouveau-fichier
 ```
 
-Vérifiez que le fichier `test2.txt` est présent et contient vos modifications.
+Vérifiez que le fichier `test2.txt` est présent et contient vos modifications :
 
 ```bash
 $ ls
