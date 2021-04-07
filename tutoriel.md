@@ -25,7 +25,18 @@ Validez en appuyant **4** fois sur la touche <kbd>Entrée</kbd>.
 
 A la fin, vous devriez obtenir quelque chose du type :
 ```
-The key's randomart image is:                                                                                           +---[RSA 4096]----+                                                                                                     |==..  o          |                                                                                                     |.o+.o. o .       |                                                                                                     | o.+o = =        |                                                                                                     |o +  O . =       |                                                                                                     |.o o  = S +      |                                                                                                     |. . .o + =       |                                                                                                     |   +ooo =        |                                                                                                     |  +o+++o         |                                                                                                     | ..Eo++o.        |                                                                                                     +----[SHA256]-----+                        
+The key's randomart image is:
++---[RSA 4096]----+
+|==..  o          |
+|.o+.o. o .       |
+| o.+o = =        |
+|o +  O . =       |
+|.o o  = S +      |
+|. . .o + =       |
+|   +ooo =        |
+|  +o+++o         |
+| ..Eo++o.        |
++----[SHA256]-----+
 ```
 
 Affichez maintenant le contenu du répertoire `~/.ssh/` :
