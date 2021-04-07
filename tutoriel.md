@@ -4,11 +4,11 @@ author: Pierre Poulain
 license: Creative Commons Attribution-ShareAlike (CC BY-SA 4.0)
 ---
 
-# Utilisation des clés privée et publique
+# Partie 1 : Utilisation des clés privée et publique
 
 🔑 La combinaison de clés privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
 
-## Création des clés
+## 1.1 Création des clés
 
 Ouvrez un terminal Bash Ubuntu, puis entrez la commande suivante :
 
@@ -54,7 +54,7 @@ TRTPvbaUnz17wffw== connexion github duo
 Copiez cette clé, depuis `ssh-rsa` jusqu'à `connexion github duo` inclus.
 
 
-## Ajout de la clé publique dans GitHub
+## 1.2 Ajout de la clé publique dans GitHub
 
 Ouvrez maintenant l'interface de gestion des clés de GitHub : <https://github.com/settings/keys>
 
@@ -68,6 +68,9 @@ Collez votre clé dans le champ *Key* (tout depuis `ssh-rsa` jusqu'à `connexion
 
 Enfin, cliquez sur le bouton vert « *Add SSH key* ».
 
+
+## 1.3 Test de la connexion à GitHub
+
 Pour tester si cela a bien fonctionné, tapez la commande suivante dans le terminal Bash Ubuntu de votre machine :
 ```bash
 $ ssh -T git@github.com
@@ -80,8 +83,8 @@ Hi <login>! You've successfully authenticated, but GitHub does not provide shell
 ```
 Avec `<login>` l'identifiant de votre compte sur GitHub.
 
-
-# Création d'un nouveau dépôt sur GitHub
+# Partie 2 : Premier dépôt
+## 2.1 Création d'un nouveau dépôt sur GitHub
 
 Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole `+` puis sur « *New repository* » :
 
@@ -102,7 +105,7 @@ Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `
 Vous en aurez besoin pour la suite.
 
 
-# Connexion du dépôt distant (sur GitHub) à votre machine locale
+## 2.2 Connexion du dépôt distant (sur GitHub) à votre machine locale
 
 Ouvrez un terminal Bash Ubuntu, puis déplacez-vous dans le répertoire `/mnt/c/Users/omics/` :
 
@@ -142,7 +145,7 @@ $ ls -al
 C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. 🧐 Ne le supprimez pas.
 
 
-# Configuration du dépôt local
+## 2.3 Configuration du dépôt local
 
 Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :
 ```bash
@@ -152,7 +155,9 @@ $ git config --global user.email "moi@mail.com"
 
 *Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas.*
 
-# Exploration des commandes de base
+Remarque : ces commmandes `git config` ne sont à lancer qu'une seule fois sur votre machine (même si vous avez plusieurs dépôts).
+
+## 2.4 Exploration des commandes de base
 
 Toujours dans votre dépôt git, créez le fichier `test1.txt` et ajoutez-y du contenu. Vous pouvez faire cela avec l'éditeur de texte `nano` ou plus rapidement avec la commande suivante :
 ```bash
@@ -344,7 +349,7 @@ $ git log
 
 N'oubliez pas de pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
-# Un peu de spéléo
+# Partie 3 : Un peu de spéléo
 
 *Remarque : cette section est l'occasion d'explorer l'historique d'un dépôt git et d'aborder une nouvelle commande, `git show`.*
 
@@ -403,7 +408,7 @@ $ git show <identifiant-du-commit>
 Pressez la touche <kbd>q</kbd> pour quitter.
 
 
-# Bonus : utiliser les clés privée et publique pour une connexion en SSH au serveur de l'IFB
+# Partie 4 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l'IFB
 
 La paire de clés que vous avez créée peuvent également être utile pour vous connecter rapidement sur le serveur de l'IFB.
 
@@ -457,7 +462,8 @@ Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou l
 Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Ammusez-vous !
 
 
-# Les branches
+# Partie 5 : Branches et collaboration
+## 5.1 Les branches
 
 Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=634) » à partir de 10'34 sur les branches.
 
@@ -476,7 +482,7 @@ Supprimez l'ancienne branche *nouveau-fichier*.
 Envoyez toutes vos modifications sur GitHub.
 
 
-# Collaboration avec GitHub
+## 5.2 Collaboration avec GitHub
 
 Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
 
