@@ -19,8 +19,9 @@ Pour aller plus loin, vous pouvez :
 2. Lire les articles scientifiques
 
    - [A Quick Introduction to Version Control with Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668), Blischak, Davenport & Wilson, *PLOS Comput Biol*, 2016.
-   - [Democratic databases: science on GitHub](https://www.nature.com/news/democratic-databases-science-on-github-1.20719), Perkel, *Nature*, 2016.
    - [Ten Simple Rules for Taking Advantage of Git and GitHub](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947), Perez-Riverol et al., *PLOS Comput Biol*, 2016
+   - [Democratic databases: science on GitHub](https://www.nature.com/news/democratic-databases-science-on-github-1.20719), Perkel, *Nature*, 2016.
+
 
 3. Lire les articles du blog de Christophe Ducamp :
 
@@ -31,9 +32,7 @@ Pour aller plus loin, vous pouvez :
 
 5. Jeter un oeil à la page [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) de Julie Lowndes, qui détaille comment configurer RStudio pour qu'il utilise Git et GitHub.
 
-6. Lire [Pro Git](https://git-scm.com/book/en/v2) (2e édition), le bouquin de référence sur Git. Il est disponible en PDF, en anglais et en français. Une [version papier](https://www.amazon.fr/Pro-Git-Scott-Chacon/dp/1484200772/) existe mais en anglais seulement.
-
-7. Enfin, explorer la page dédiée à [Git et GitHub](http://cupnet.net/git-github/) de votre humble serviteur.
+6. Enfin, explorer la page dédiée à [Git et GitHub](http://cupnet.net/git-github/) de votre humble serviteur.
 
 
 ### Licence
