@@ -4,7 +4,7 @@
 [Tutoriel](tutoriel.md) maison.
 
 
-Tutoriel [Version Control with Git](https://swcarpentry.github.io/git-novice/) de Software Carpentry.
+Tutoriel [*Version Control with Git*](https://swcarpentry.github.io/git-novice/) de Software Carpentry.
 
 ### Pour aller plus loin
 
