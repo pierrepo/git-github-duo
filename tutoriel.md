@@ -23,12 +23,17 @@ $ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
 
 Validez en appuyant **4** fois sur la touche <kbd>Entrée</kbd>.
 
+A la fin, vous devriez obtenir quelque chose du type :
+```
+The key's randomart image is:                                                                                           +---[RSA 4096]----+                                                                                                     |==..  o          |                                                                                                     |.o+.o. o .       |                                                                                                     | o.+o = =        |                                                                                                     |o +  O . =       |                                                                                                     |.o o  = S +      |                                                                                                     |. . .o + =       |                                                                                                     |   +ooo =        |                                                                                                     |  +o+++o         |                                                                                                     | ..Eo++o.        |                                                                                                     +----[SHA256]-----+                        
+```
+
 Affichez maintenant le contenu du répertoire `~/.ssh/` :
 ```bash
 $ ls ~/.ssh/
 ```
 
-Vous devriez obtenir deux fichiers :
+Vous devriez trouver :
 
 - `id_rsa` : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.
 - `id_rsa.pub` : votre clé privée, que vous allez déposer sur le site de GitHub.
@@ -62,7 +67,7 @@ Ouvrez maintenant l'interface de gestion des clés de GitHub : <https://github.c
 
 Cliquez sur le bouton vert « *New SSH key* ».
 
-Indiquez comme titre « Connexion DUO ».
+Indiquez comme titre « Connexion DUO » (sans les guillemets).
 
 Collez votre clé dans le champ *Key* (tout depuis `ssh-rsa` jusqu'à `connexion github duo` inclus).
 
@@ -71,17 +76,18 @@ Enfin, cliquez sur le bouton vert « *Add SSH key* ».
 
 ## 1.3 Test de la connexion à GitHub
 
-Pour tester si cela a bien fonctionné, tapez la commande suivante dans le terminal Bash Ubuntu de votre machine :
+Pour tester si l'enregistrement de votre clé publique dans GitHub a bien fonctionné, tapez la commande suivante dans le terminal Bash Ubuntu de votre machine :
 ```bash
 $ ssh -T git@github.com
 ```
-Validez en tapant `yes` puis appuyant sur <kbd>Entrée</kbd>.
+Validez en tapant `yes` puis en appuyant sur <kbd>Entrée</kbd>.
 
-Si votre clé privée a bien été importée dans GitHub, vous devriez obtenir le message :
+Si votre clé privée a bien été enregistrée dans GitHub, vous devriez obtenir le message :
 ```
 Hi <login>! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-Avec `<login>` l'identifiant de votre compte sur GitHub.
+Avec `<login>` l'identifiant de votre compte sur GitHub. 🎉
+
 
 # Partie 2 : Premier dépôt
 ## 2.1 Création d'un nouveau dépôt sur GitHub
@@ -131,6 +137,8 @@ $ git clone git@github...
 ```
 Pour l'utilisateur `pierrepo`, la commande complète est : `git clone git@github.com:pierrepo/duo-test.git`
 
+Remarque : git pourra éventuellement se plaindre avec le message `warning: You appear to have cloned an empty repository.` C'est tout à fait normal, le dépôt est vide pour le momment, mais nous allons rapidement y ajouter des fichiers.
+
 Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :
 ```bash
 $ cd duo-test
@@ -165,7 +173,7 @@ $ echo "une première ligne" > test1.txt
 ```
 
 Si vous tapez maintenant la commande `git status` pour savoir ce qui se passe, vous devriez obtenir :
-```bash
+```
 $ git status
 Sur la branche master
 
@@ -184,7 +192,7 @@ $ git add test1.txt
 ```
 
 Un nouveau `git status` renvoie :
-```bash
+```
 $ git status
 Sur la branche master
 
@@ -221,7 +229,7 @@ To github.com:pierrepo/duo-test.git
 
 Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori `https://github.com/<login>/duo-test` avec `<login>` votre identifiant GitHub).
 
-Vous devriez voir le fichier `test1.txt` !
+Vous devriez voir le fichier `test1.txt` ! 🥳
 
 ![](img/github_first_commit.png)
 
@@ -288,7 +296,7 @@ Date:   Tue Apr 6 20:52:47 2021 +0200
     Premier commit
 ```
 
-Pressez la touche <kbd>q</kbd> pour quitter le journal de git.
+Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
 Vous constatez que git mémorise :
 
@@ -347,7 +355,7 @@ Vérifiez également que le *commit* créé sur GitHub est bien enregistré dans
 $ git log
 ```
 
-N'oubliez pas de pressez la touche <kbd>q</kbd> pour quitter le journal de git.
+Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
 # Partie 3 : Un peu de spéléo
 
@@ -416,7 +424,7 @@ La paire de clés que vous avez créée peut également être utile pour vous co
 
 Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l'IFB :
 ```
-$ ssh-copy-id -i id_rsa.pub <login>@core.cluster.france-bioinformatique.fr
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub <login>@core.cluster.france-bioinformatique.fr
 ```
 
 avec `<login>` votre identifiant sur le serveur de l'IFB.
@@ -440,7 +448,7 @@ Déconnectez-vous du serveur de l'IFB en exécutant la commande `exit`.
 
 Depuis le terminal Bash Ubuntu de votre machine locale, copiez votre paire de clés sur le serveur de l'IFB :
 ```bash
-$ cp $HOME/.ssh/id_rsa* <login>@core.cluster.france-bioinformatique.fr:.ssh/
+$ scp ~/.ssh/id_rsa* <login>@core.cluster.france-bioinformatique.fr:.ssh/
 ```
 avec `<login>` votre identifiant sur le serveur de l'IFB.
 
@@ -474,7 +482,12 @@ Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de crée
 
 Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=634) » à partir de 10'34 sur les branches.
 
-Depuis le terminal Bash Ubuntu de votre machine locale, créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche.
+Depuis le terminal Bash Ubuntu de votre machine locale, revenez dans votre dépôt `duo-test` :
+```bash
+$ cd /mnt/c/Users/omics/intro-git/duo-test
+```
+
+Créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche.
 
 ```bash
 $ git checkout -b nouveau-fichier
@@ -496,10 +509,15 @@ $ git add test2.txt
 $ git commit -m "Ajout d'une ligne"
 ```
 
-Revenez sur la branche *master* puis fusionnez sur *master* la branche *nouveau-fichier*.
+Revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **pas** présent :
 
 ```bash
 $ git checkout master
+$ ls
+```
+Fusionnez maintenant sur *master* la branche *nouveau-fichier* :
+
+```bash
 $ git merge nouveau-fichier
 ```
 
@@ -510,19 +528,20 @@ $ ls
 $ cat test2.txt
 ```
 
-Supprimez l'ancienne branche *nouveau-fichier*.
+Supprimez l'ancienne branche *nouveau-fichier* :
 
 ```bash
 $ git branch -d nouveau-fichier
 ```
 
-Envoyez toutes vos modifications sur GitHub.
+Envoyez toutes vos modifications sur GitHub :
 
 ```bash
 $ git push
 ```
 
 Vérifiez que le dépôt sur GitHub a bien été mis à jour.
+
 
 ## 5.2 Collaboration avec GitHub
 
