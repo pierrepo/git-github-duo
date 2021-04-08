@@ -121,7 +121,7 @@ Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `
 
 Vous en aurez besoin pour la suite.
 
-⚠️ **Attention** ⚠️ Si vous l'adresse de votre dépôt ne débute pas par `git@github...` mais par `https://github...` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github...`
+⚠️ **Attention** ⚠️ Si l'adresse de votre dépôt ne débute pas par `git@github...` mais par `https://github...` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github...`
 
 
 ## 2.2 Connexion du dépôt distant (sur GitHub) à votre machine locale
