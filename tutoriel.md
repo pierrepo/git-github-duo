@@ -148,7 +148,7 @@ $ git clone git@github...
 ```
 Pour l'utilisateur `pierrepo`, la commande complète est : `git clone git@github.com:pierrepo/duo-test.git`
 
-Remarque : git pourra éventuellement se plaindre avec le message `warning: You appear to have cloned an empty repository.` C'est tout à fait normal, le dépôt est vide pour le momment, mais nous allons rapidement y ajouter des fichiers.
+Remarque : git pourra éventuellement se plaindre avec le message `warning: You appear to have cloned an empty repository.` C'est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.
 
 Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :
 ```bash
