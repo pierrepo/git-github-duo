@@ -487,7 +487,7 @@ Vérifiez avec la commande `git log` que vous avez récupéré tout l'historique
 
 Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou le serveur de l'IFB, à votre convenance. Pensez à envoyer sur GitHub (`git push`) ou à télécharger depuis GitHub (`git pull`) vos modifications régulièrement.
 
-Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Ammusez-vous !
+Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Amusez-vous !
 
 
 # Partie 5 : Branches et collaboration
