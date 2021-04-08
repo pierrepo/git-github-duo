@@ -487,6 +487,15 @@ Vérifiez avec la commande `git log` que vous avez récupéré tout l'historique
 
 Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou le serveur de l'IFB, à votre convenance. Pensez à envoyer sur GitHub (`git push`) ou à télécharger depuis GitHub (`git pull`) vos modifications régulièrement.
 
+Si vous travaillez sur le serveur de l'IFB, pensez à relancer les commandes :
+
+```bash
+$ git config --global user.name "Prénom Nom"
+$ git config --global user.email "moi@mail.com"
+```
+
+*Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas.*
+
 Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Amusez-vous !
 
 
