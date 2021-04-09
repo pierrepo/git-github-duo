@@ -115,13 +115,11 @@ Laissez tous les autres paramètres par défaut.
 
 Puis cliquez sur le bouton vert « *Create repository* ».
 
-Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `git@github...` :
+Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `git@github.com`, vous en aurez besoin pour la suite :
 
 ![](img/github_create_repo3.png)
 
-Vous en aurez besoin pour la suite.
-
-⚠️ **Attention** ⚠️ Si l'adresse de votre dépôt ne débute pas par `git@github...` mais par `https://github...` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github...`
+⚠️ **Attention** ⚠️ Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `https://github.com` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github.com`
 
 
 ## 2.2 Connexion du dépôt distant (sur GitHub) à votre machine locale
@@ -509,11 +507,37 @@ Depuis le terminal Bash Ubuntu de votre machine locale, revenez dans votre dép�
 $ cd /mnt/c/Users/omics/intro-git/duo-test
 ```
 
-Créez une nouvelle branche, par exemple *nouveau-fichier* et basculez sur cette branche :
+Créez une nouvelle branche, par exemple *nouveau-fichier* :
 
 ```bash
-$ git checkout -b nouveau-fichier
+$ git branch nouveau-fichier
 ```
+
+Vérifiez que cette branche existe bien :
+
+```bash
+$ git branch
+* master
+  nouveau-fichier
+```
+
+Le symbole `*` à gauche de *master* indique que la branche courante est *master*.
+
+Basculez maintenant sur la branche que vous venez de créer :
+
+```bash
+$ git checkout nouveau-fichier
+```
+
+Vérifiez que vous êtes désormais sur la bonne branche :
+
+```bash
+$ git branch
+  master
+* nouveau-fichier
+```
+
+Le symbole `*` à gauche de *nouveau-fichier* indique que la branche courante est *nouveau-fichier*.
 
 Créez un nouveau fichier `test2.txt` avec le texte qui vous convient :
 
@@ -521,7 +545,7 @@ Créez un nouveau fichier `test2.txt` avec le texte qui vous convient :
 $ echo "Nouveau fichier pour tester une branche" > test2.txt
 ```
 
-Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt` :
+Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt`, par exemple :
 
 ```bash
 $ git add test2.txt
@@ -556,7 +580,14 @@ Supprimez l'ancienne branche *nouveau-fichier* :
 $ git branch -d nouveau-fichier
 ```
 
-Envoyez toutes vos modifications sur GitHub :
+Puis vérifiez qu'elle a bien été détruite :
+
+```bash
+$ git branch
+* master
+```
+
+Enfin, envoyez toutes vos modifications sur GitHub :
 
 ```bash
 $ git push
