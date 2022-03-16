@@ -95,9 +95,9 @@ Validez en tapant `yes` puis en appuyant sur <kbd>Entrée</kbd>.
 
 Si votre clé privée a bien été enregistrée dans GitHub, vous devriez obtenir le message :
 ```
-Hi <login>! You've successfully authenticated, but GitHub does not provide shell access.
+Hi LOGIN! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-Avec `<login>` l'identifiant de votre compte sur GitHub. 🎉
+Avec `LOGIN` l'identifiant de votre compte sur GitHub. 🎉
 
 
 # Partie 2 : Premier dépôt
@@ -238,7 +238,7 @@ To github.com:pierrepo/duo-test.git
  * [new branch]      master -> master
 ```
 
-Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori `https://github.com/<login>/duo-test` avec `<login>` votre identifiant GitHub).
+Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori `https://github.com/LOGIN/duo-test` avec `LOGIN` votre identifiant GitHub).
 
 Vous devriez voir le fichier `test1.txt` ! 🥳
 
@@ -368,7 +368,79 @@ $ git log
 
 Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 
-# Partie 3 : Un peu de spéléo
+
+# Partie 3 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l'IFB
+
+## 3.1 Enregistrement de la clé publique sur le serveur de l'IFB
+
+La paire de clés que vous avez créée peut également être utile pour vous connecter rapidement sur le serveur de l'IFB, c'est-à-dire sans entrer votre mot de passe à chaque fois.
+
+Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l'IFB :
+```
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub LOGIN@core.cluster.france-bioinformatique.fr
+```
+
+avec `LOGIN` votre identifiant sur le serveur de l'IFB.
+
+Entrez votre mot de passe lorsqu'il est demandé.
+
+Exécutez ensuite la commande suivante :
+```bash
+$ ssh LOGIN@core.cluster.france-bioinformatique.fr
+```
+avec `LOGIN` votre identifiant sur le serveur de l'IFB.
+
+Si la manipulation précédente avec `ssh-copy-id` s'est bien passée, vous devriez pouvoir vous connecter sur le serveur de l'IFB sans entrer de mot de passe. Pratique non ?
+
+
+## 3.2 Copie de la paire de clés sur le serveur de l'IFB
+
+On peut faire encore plus intéressant en copiant la paire de clés sur le serveur de l'IFB.
+
+Déconnectez-vous du serveur de l'IFB en exécutant la commande `exit`.
+
+Depuis le terminal Bash Ubuntu de votre machine locale, copiez votre paire de clés sur le serveur de l'IFB :
+```bash
+$ scp ~/.ssh/id_rsa* LOGIN@core.cluster.france-bioinformatique.fr:.ssh/
+```
+avec `LOGIN` votre identifiant sur le serveur de l'IFB.
+
+Connectez-vous au serveur de l'IFB (normalement sans mot de passe) : 
+```bash
+$ ssh LOGIN@core.cluster.france-bioinformatique.fr
+```
+
+Puis clonez votre dépôt git depuis GitHub :
+
+```bash
+$ git clone git@github.com:LOGIN/duo-test.git
+```
+
+avec `LOGIN` votre identifiant GitHub (pas celui de l'IFB).
+
+Déplacez-vous ensuite dans le nouveau répertoire créé :
+```bash
+$ cd duo-test
+```
+
+Vérifiez avec la commande `git log` que vous avez récupéré tout l'historique du projet.
+
+Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou le serveur de l'IFB, à votre convenance. Pensez à envoyer sur GitHub (`git push`) ou à télécharger depuis GitHub (`git pull`) vos modifications régulièrement.
+
+Si vous travaillez sur le serveur de l'IFB, pensez à relancer les commandes :
+
+```bash
+$ git config --global user.name "Prénom Nom"
+$ git config --global user.email "moi@mail.com"
+```
+
+*Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas.*
+
+Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Amusez-vous !
+
+
+
+# Partie 4 : Un peu de spéléo
 
 *Remarque : cette section est l'occasion d'explorer l'historique d'un dépôt git et d'aborder une nouvelle commande, `git show`.*
 
@@ -427,74 +499,6 @@ $ git show <identifiant-du-commit>
 Pressez la touche <kbd>q</kbd> pour quitter.
 
 
-# Partie 4 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l'IFB
-
-## 4.1 Enregistrement de la clé publique sur le serveur de l'IFB
-
-La paire de clés que vous avez créée peut également être utile pour vous connecter rapidement sur le serveur de l'IFB, c'est-à-dire sans entrer votre mot de passe à chaque fois.
-
-Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l'IFB :
-```
-$ ssh-copy-id -i ~/.ssh/id_rsa.pub <login>@core.cluster.france-bioinformatique.fr
-```
-
-avec `<login>` votre identifiant sur le serveur de l'IFB.
-
-Entrez votre mot de passe lorsqu'il est demandé.
-
-Exécutez ensuite la commande suivante :
-```bash
-$ ssh <login>@core.cluster.france-bioinformatique.fr
-```
-avec `<login>` votre identifiant sur le serveur de l'IFB.
-
-Si la manipulation précédente avec `ssh-copy-id` s'est bien passée, vous devriez pouvoir vous connecter sur le serveur de l'IFB sans entrer de mot de passe. Pratique non ?
-
-
-## 4.2 Copie de la paire de clés sur le serveur de l'IFB
-
-On peut faire encore plus intéressant en copiant la paire de clés sur le serveur de l'IFB.
-
-Déconnectez-vous du serveur de l'IFB en exécutant la commande `exit`.
-
-Depuis le terminal Bash Ubuntu de votre machine locale, copiez votre paire de clés sur le serveur de l'IFB :
-```bash
-$ scp ~/.ssh/id_rsa* <login>@core.cluster.france-bioinformatique.fr:.ssh/
-```
-avec `<login>` votre identifiant sur le serveur de l'IFB.
-
-Connectez-vous au serveur de l'IFB (normalement sans mot de passe) : 
-```bash
-$ ssh <login>@core.cluster.france-bioinformatique.fr
-```
-
-Puis clonez votre dépôt git depuis GitHub :
-
-```bash
-$ git clone git@github.com:<login>/duo-test.git
-```
-
-avec `<login>` votre identifiant GitHub (pas celui de l'IFB).
-
-Déplacez-vous ensuite dans le nouveau répertoire créé :
-```bash
-$ cd duo-test
-```
-
-Vérifiez avec la commande `git log` que vous avez récupéré tout l'historique du projet.
-
-Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou le serveur de l'IFB, à votre convenance. Pensez à envoyer sur GitHub (`git push`) ou à télécharger depuis GitHub (`git pull`) vos modifications régulièrement.
-
-Si vous travaillez sur le serveur de l'IFB, pensez à relancer les commandes :
-
-```bash
-$ git config --global user.name "Prénom Nom"
-$ git config --global user.email "moi@mail.com"
-```
-
-*Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas.*
-
-Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de créer un nouveau *commit* puis de l'envoyer sur GitHub. Amusez-vous !
 
 
 # Partie 5 : Branches et collaboration
