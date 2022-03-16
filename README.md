@@ -29,6 +29,14 @@ Pour aller plus loin, vous pouvez :
 5. Enfin, explorer la page dédiée à [Git et GitHub](http://cupnet.net/git-github/) de votre humble serviteur.
 
 
+### Clients graphiques
+
+Bien que nous vous recommandions d'utiliser git en ligne de commande, il existe quelques logiciels qui proposent une interface graphique pour git. On peut citer :
+
+- [GitKraken](https://www.gitkraken.com/git-client). Gratuit pour des projets open source. Disponible pour Windows, Mac et Linux.
+- Dans une moindre mesure, [Visual Studio Code](https://code.visualstudio.com/) (gratuit, open-source, disponible pour Windows, Mac et Linux) propose une interface simple qui permet d'utiliser git presque sans ligne de commande. VS Code est par contre un très bon éditeur de code.
+
+
 ### Licence
 
 ![](img/CC-BY-SA.png)
