@@ -10,7 +10,7 @@ license: Creative Commons Attribution-ShareAlike (CC BY-SA 4.0)
 
 ## 1.1 Création des clés
 
-Ouvrez un terminal Bash Ubuntu, puis entrez la commande suivante :
+Sous Windows, ouvrez un terminal Bash Ubuntu ([rappel](https://omics-school.github.io/unix-tutorial/tutoriel/README#lancer-un-shell-ubuntu-sous-windows-10) si vous avez oublié), puis entrez la commande suivante :
 
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
@@ -40,6 +40,7 @@ The key's randomart image is:
 ```
 
 Affichez maintenant le contenu du répertoire `~/.ssh/` :
+
 ```bash
 $ ls ~/.ssh/
 ```
@@ -47,7 +48,7 @@ $ ls ~/.ssh/
 Vous devriez trouver :
 
 - `id_rsa` : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.
-- `id_rsa.pub` : votre clé privée, que vous allez déposer sur le site de GitHub.
+- `id_rsa.pub` : votre clé publique, que vous allez déposer sur le site de GitHub.
 
 Toujours dans votre terminal Bash Ubuntu, affichez à l'écran le contenu du fichier `id_rsa.pub` :
 ```bash
@@ -93,7 +94,7 @@ $ ssh -T git@github.com
 ```
 Validez en tapant `yes` puis en appuyant sur <kbd>Entrée</kbd>.
 
-Si votre clé privée a bien été enregistrée dans GitHub, vous devriez obtenir le message :
+Si votre clé publique a bien été enregistrée dans GitHub, vous devriez obtenir le message :
 ```
 Hi LOGIN! You've successfully authenticated, but GitHub does not provide shell access.
 ```
@@ -132,7 +133,7 @@ $ cd /mnt/c/Users/omics/
 
 Créez ensuite le répertoire `intro-git` et déplacez-vous à l'intérieur :
 ```bash
-$ mkdir -p /mnt/c/Users/omics/intro-git
+$ mkdir -p intro-git
 $ cd intro-git
 ```
 
@@ -148,7 +149,10 @@ $ git clone git@github...
 ```
 Pour l'utilisateur `pierrepo`, la commande complète est : `git clone git@github.com:pierrepo/duo-test.git`
 
-Remarque : git pourra éventuellement se plaindre avec le message `warning: You appear to have cloned an empty repository.` C'est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.
+**Remarques :**
+
+- git pourra éventuellement se plaindre avec le message `warning: You appear to have cloned an empty repository.` C'est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.
+- L'adresse de votre dépôt distant doit commencer par `git@github.com`
 
 Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :
 ```bash
@@ -161,7 +165,7 @@ Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Mais ce r
 ```bash
 $ ls -al
 ```
-C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. 🧐 Ne le supprimez pas.
+C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. 🧐 Ne le supprimez pas et ne modifiez pas non plus.
 
 
 ## 2.3 Configuration du dépôt local
@@ -175,6 +179,14 @@ $ git config --global user.email "moi@mail.com"
 *Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas.*
 
 Remarque : ces commmandes `git config` ne sont à lancer qu'une seule fois sur votre machine (même si vous avez plusieurs dépôts).
+
+Vérifiez que ces paramètres sont bien pris en compte avec la commande :
+
+```bash
+$ git config --list | grep user
+```
+
+Les paramètres `user.name` et `user.email` devrait contenir les informations que vous avez entrées précédemment.
 
 ## 2.4 Exploration des commandes de base
 
@@ -380,7 +392,7 @@ Pour cela, exécutez la commande suivante pour enregistrer votre clé publique s
 $ ssh-copy-id -i ~/.ssh/id_rsa.pub LOGIN@core.cluster.france-bioinformatique.fr
 ```
 
-avec `LOGIN` votre identifiant sur le serveur de l'IFB.
+avec `LOGIN` votre identifiant sur le serveur de l'IFB. Attention, cet identiant est a priori différent de celui de GitHub.
 
 Entrez votre mot de passe lorsqu'il est demandé.
 
@@ -447,7 +459,7 @@ Essayez de modifier un fichier ou d'en créer un nouveau, de l'ajouter, de crée
 J'ai développé il y a quelques années [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/).
 
 
-Depuis votre terminal Bash Ubuntu, déplacez-vous dans le répertoire `/mnt/c/Users/omics/intro-git` :
+Sur votre machine, ouvrez un terminal Bash Ubuntu, puis déplacez-vous dans le répertoire `/mnt/c/Users/omics/intro-git` :
 ```bash
 $ cd /mnt/c/Users/omics/intro-git
 ```
@@ -486,15 +498,20 @@ Astuce : combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.
 
 Utilisez pour cela la commande
 
-```
-$ git show --name-only <identifiant-du-commit>
+```bash
+$ git show --name-only IDENTIFIANT-DU-COMMIT
 ```
 
-avec `<identifiant-du-commit>` l'identifiant du *commit* intéressant. Aide : il commence par `2d1c`.
+avec `IDENTIFIANT-DU-COMMIT` l'identifiant du *commit* intéressant. 
+
+**Aides :** 
+
+- L'identifiant du commit débute par `2d1c`.
+- Vous n'avez pas besoin d'entrer l'identifiant complet, les 6 premiers caractères devraient suffire.
 
 Notez la différence avec la commande :
-```
-$ git show <identifiant-du-commit>
+```bash
+$ git show IDENTIFIANT-DU-COMMIT
 ```
 Pressez la touche <kbd>q</kbd> pour quitter.
 
@@ -565,6 +582,7 @@ Revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **
 $ git checkout master
 $ ls
 ```
+
 Fusionnez maintenant sur *master* la branche *nouveau-fichier* :
 
 ```bash
