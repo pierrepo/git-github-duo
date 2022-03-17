@@ -24,7 +24,7 @@ Pour aller plus loin, vous pouvez :
     - [GitHub Pour les Nuls : Pas de Panique, Lancez-Vous ! (Première Partie)](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/)
     - [GitHub pour les Débutants : Consignez, Poussez et Foncez !](https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/)
 
-4. Jeter un oeil à la page [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) de Julie Lowndes, qui détaille comment configurer RStudio pour qu'il utilise Git et GitHub.
+4. Jeter un oeil à la page [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) de Julie Lowndes, qui détaille comment configurer RStudio pour qu'il utilise Git et GitHub. Le site [Happy Git and GitHub for the useR](https://happygitwithr.com/index.html) est également un site de référence pour combiner git, GitHub et RStudio.
 
 5. Enfin, explorer la page dédiée à [Git et GitHub](http://cupnet.net/git-github/) de votre humble serviteur.
 
@@ -35,6 +35,7 @@ Bien que nous vous recommandions d'utiliser git en ligne de commande, il existe 
 
 - [GitKraken](https://www.gitkraken.com/git-client). Gratuit pour des projets open source. Disponible pour Windows, Mac et Linux.
 - Dans une moindre mesure, [Visual Studio Code](https://code.visualstudio.com/) (gratuit, open-source, disponible pour Windows, Mac et Linux) propose une interface simple qui permet d'utiliser git presque sans ligne de commande. VS Code est par contre un très bon éditeur de code.
+- Enfin, pour du développement avec R, RStudio s'interface très bien avec git et GitHub (voir les ressources de la section précédente).
 
 
 ### Licence
