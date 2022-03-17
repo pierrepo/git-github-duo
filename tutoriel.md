@@ -176,7 +176,7 @@ $ git config --global user.name "Prénom Nom"
 $ git config --global user.email "moi@mail.com"
 ```
 
-*Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas.*
+*Attention, adaptez le prénom, le nom et l'adresse e-mail à votre cas. Veillez à conserver les guillemets autour de `Prénom Nom` dans la première ligne*.
 
 Remarque : ces commmandes `git config` ne sont à lancer qu'une seule fois sur votre machine (même si vous avez plusieurs dépôts).
 
