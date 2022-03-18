@@ -491,7 +491,7 @@ Astuce : combinez les commandes `git log`, `grep -c` et un mot-clé pertinent. V
 
 ### Trouvez dans quel *commit* j'ai ajouté la possibilité de construire un [dendrogramme](https://en.wikipedia.org/wiki/Dendrogram) ? 
 
-Astuce : combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.
+Astuce : combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent (en anglais).
 
 
 ### Combien de fichiers ont été modifiés dans le *commit* correspondant ?
