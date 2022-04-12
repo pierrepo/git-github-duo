@@ -13,7 +13,7 @@ license: Creative Commons Attribution-ShareAlike (CC BY-SA 4.0)
 Sous Windows, ouvrez un terminal Bash Ubuntu ([rappel](https://omics-school.github.io/unix-tutorial/tutoriel/README#lancer-un-shell-ubuntu-sous-windows-10) si vous avez oublié), puis entrez la commande suivante :
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
+$ ssh-keygen -t rsa -b 4096 -N "" -C "Connexion GitHub DUO"
 ```
 
 🔔 Rappels :
@@ -21,9 +21,9 @@ $ ssh-keygen -t rsa -b 4096 -C "connexion github duo"
 - Ne tapez pas le `$` en début de ligne et faites attention aux majuscules et aux minuscules.
 - Copiez / collez les commandes pour aller plus vite et faire moins d'erreur.
 
-Validez en appuyant **4** fois sur la touche <kbd>Entrée</kbd>.
+Validez en appuyant sur la touche <kbd>Entrée</kbd>.
 
-À la fin, vous devriez obtenir quelque chose du type :
+Vous devriez obtenir quelque chose du type :
 ```
 The key's randomart image is:
 +---[RSA 4096]----+
@@ -65,10 +65,10 @@ q8ZAQLBAm+NWU91Nczb5OzAfWYVY9BlES35YfcFRLuWP8ArXLHRtZJq48B7wIN39im72iYcKXcOzeyYR
 9PuDrpZ6LpQZQw04i7CWJZca7Auwtd3yyC+PfuvyeuFhODqktP0rdKtTEQdrUTdaxb+K1k8FPmZMc/o91sBJ1u6d
 ceccjpO1LTK/I1w9xmbQAxi0hLDCRN9hm/RUkOvzxZJed6kBzozvZ8vCi+Afv1BXjkv+jrezkkqsFl5YA01nLxyU
 zo1LFBNZ41+wRHQXCQKENzsHnuVwZ0CcXRfFoZnDCn9Hs0L7kBH02O2JPbFlIVw/72XaZundqjczcp1w0gou0+Uq
-TRTPvbaUnz17wffw== connexion github duo
+TRTPvbaUnz17wffw== Connexion GitHub DUO
 ```
 
-Copiez cette clé, depuis `ssh-rsa` jusqu'à `connexion github duo` inclus.
+Copiez cette clé, depuis `ssh-rsa` jusqu'à `Connexion GitHub DUO` inclus.
 
 
 ## 1.2 Ajout de la clé publique dans GitHub
@@ -81,7 +81,7 @@ Cliquez sur le bouton vert « *New SSH key* ».
 
 Indiquez comme titre « Connexion DUO » (sans les guillemets).
 
-Collez votre clé dans le champ *Key* (tout depuis `ssh-rsa` jusqu'à `connexion github duo` inclus).
+Collez votre clé dans le champ *Key* (tout depuis `ssh-rsa` jusqu'à `Connexion GitHub DUO` inclus).
 
 Enfin, cliquez sur le bouton vert « *Add SSH key* ».
 
