@@ -9,5 +9,6 @@ parts:
   - file: connexion
   - file: cles_ssh
   - file: premier_depot
+  - file: projet_existant
   - file: tutoriel
   - file: more

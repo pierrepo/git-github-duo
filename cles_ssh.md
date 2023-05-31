@@ -8,10 +8,11 @@ Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-p
 
 Depuis l'interface JupyterLab de l'IFB, ouvrez un terminal Bash.
 
-Comme d'habitude, déplacez-vous dans votre répertoire personnel dans le dossier de la formation :
+Créez un répertoire pour cette introduction à git puis déplacez-vous y :
 
 ```bash
-$ cd /shared/projects/202304_duo/$USER/
+$ mkdir -p /shared/projects/202304_duo/$USER/intro_git
+$ cd /shared/projects/202304_duo/$USER/intro_git
 ```
 
 ```{admonition} Rappel

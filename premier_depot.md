@@ -25,21 +25,14 @@ Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `http
 
 ## 2 Connexion du dépôt distant (sur GitHub) à votre machine locale
 
-Depuis un terminal sur le JupyterLab de l'IFB, vérifiez que vous êtes dans votre répertoire de travail `/shared/projects/202304_duo/LOGINIFB` où `LOGINIFB` est votre identifiant IFB.
-
-Créez ensuite le répertoire `intro-git` et déplacez-vous à l'intérieur :
-
-```bash
-$ mkdir -p intro-git
-$ cd intro-git
-```
-
-Vérifiez avec la commande `pwd` que vous êtes dans le bon répertoire :
+Depuis un terminal sur le JupyterLab de l'IFB, vérifiez que vous êtes dans le bon répertoire de travail :
 
 ```bash
 $ pwd
-/shared/projects/202304_duo/LOGINIFB/rnaseq
+/shared/projects/202304_duo/LOGINIFB/intro_git
 ```
+
+où `LOGINIFB` est votre identifiant IFB.
 
 Exécutez ensuite la commande suivante pour cloner votre dépôt distant (qui est sur GitHub) sur le serveur de l'IFB :
 
