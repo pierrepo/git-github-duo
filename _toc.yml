@@ -10,5 +10,7 @@ parts:
   - file: cles_ssh
   - file: premier_depot
   - file: projet_existant
-  - file: branches_collab
+  - file: branches
+  - file: collaboration
+  - file: conclustion_methodologie
   - file: more

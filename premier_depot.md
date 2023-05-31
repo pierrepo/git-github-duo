@@ -1,6 +1,6 @@
 # Premier dépôt
 
-## 1 Création d'un nouveau dépôt sur GitHub
+## 1. Création d'un nouveau dépôt sur GitHub
 
 Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole `+` puis sur « *New repository* » :
 

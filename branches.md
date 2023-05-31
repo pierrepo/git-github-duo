@@ -128,14 +128,17 @@ Verifiez que votre branche `nouveau-fichier` est bien présente sur GitHub en cl
 
 ## 2. Fusionner les branches
 
-Depuis votre terminal, revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **pas** présent :
+Depuis votre terminal, revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **pas** présent dans votre répertoire :
 
 ```bash
 $ git checkout master
 $ ls
+README.md  test1.txt
 ```
 
-Fusionnez maintenant sur *master* la branche *nouveau-fichier* :
+Les branches fonctionnent comme des « réalités parallèles ». Il est donc normal que le fichier que vous avez créé dans la branche *nouveau-fichier* n’apparaisse pas dans la branche *master*.
+
+Fusionnez maintenant sur la branche actuelle (*master*) la branche *nouveau-fichier* :
 
 ```bash
 $ git merge nouveau-fichier
@@ -145,10 +148,14 @@ Vérifiez que le fichier `test2.txt` est présent et contient vos modifications 
 
 ```bash
 $ ls
+README.md  test1.txt  test2.txt
 $ cat test2.txt
+Nouveau fichier pour tester une branche
+Une ligne supplémentaire
+Et encore une !
 ```
 
-Supprimez l'ancienne branche *nouveau-fichier* :
+La branche *nouveau-fichier* ne sert plus à rien car les modifications qu’elle contenait ont été fusionnées dans la branche *master*. Vous pouvez donc supprimer la branche *nouveau-fichier* :
 
 ```bash
 $ git branch -d nouveau-fichier
@@ -167,14 +174,4 @@ Enfin, envoyez toutes vos modifications sur GitHub :
 $ git push
 ```
 
-Vérifiez que le dépôt sur GitHub a bien été mis à jour.
-
-
-## 5.2 Collaboration avec GitHub
-
-Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
-
-Explorez le travail collaboratif avec une ou plusieurs autres personnes. 
-
-Remarque : Comme votre dépôt est déjà sur GitHub, vous n'aurez pas besoin d'exécuter la commande `git remote add...`
-
+Vérifiez que le dépôt sur GitHub a bien été mis à jour. Pour terminer, en cliquant sur `branches` dans l'interface GitHub, supprimez également la branche *nouveau-fichier*.
