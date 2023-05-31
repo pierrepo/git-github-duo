@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Partie 1 : Utilisation des clés privée et publique" href="tutoriel.html" />
-    <link rel="prev" title="Utilisation des clés SSH privée et publique" href="cles_ssh.html" />
+    <link rel="prev" title="Utilisation des clés SSH" href="cles_ssh.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH privée et publique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutoriel.html">Partie 1 : Utilisation des clés privée et publique</a></li>
 
@@ -378,9 +378,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">1 Création d’un nouveau dépôt sur GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">2.3 Configuration du dépôt local</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">2.4 Exploration des commandes de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2 Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">3 Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">4 Exploration des commandes de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-d-un-fichier-depuis-github">5 Modification d’un fichier depuis GitHub</a></li>
 </ul>
             </nav>
         </div>
@@ -410,7 +411,7 @@ document.write(`
 </div>
 </section>
 <section id="connexion-du-depot-distant-sur-github-a-votre-machine-locale">
-<h2>Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
+<h2>2 Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
 <p>Depuis un terminal sur le JupyterLab de l’IFB, vérifiez que vous êtes dans votre répertoire de travail <code class="docutils literal notranslate"><span class="pre">/shared/projects/202304_duo/LOGINIFB</span></code> où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant IFB.</p>
 <p>Créez ensuite le répertoire <code class="docutils literal notranslate"><span class="pre">intro-git</span></code> et déplacez-vous à l’intérieur :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>intro-git
@@ -427,31 +428,43 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>intro
 </pre></div>
 </div>
 <p>où <code class="docutils literal notranslate"><span class="pre">LOGINGITHUB</span></code> est votre identifiant GitHub (pas celui de l’IFB).</p>
-<p><strong>Remarques :</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p>git pourra éventuellement se plaindre avec le message <code class="docutils literal notranslate"><span class="pre">warning:</span> <span class="pre">You</span> <span class="pre">appear</span> <span class="pre">to</span> <span class="pre">have</span> <span class="pre">cloned</span> <span class="pre">an</span> <span class="pre">empty</span> <span class="pre">repository.</span></code> C’est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.</p></li>
 <li><p>L’adresse de votre dépôt distant doit commencer par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code></p></li>
 </ul>
+</div>
 <p>Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>duo-test
 </pre></div>
 </div>
 <p>Affichez le contenu du répertoire.</p>
-<p>Ce répertoire ne contient rien. C’est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier car il contient en fait un répertoire caché <code class="docutils literal notranslate"><span class="pre">.git</span></code>. Affichez ce répertoire avec la commande :</p>
+<p>Ce répertoire ne contient rien. C’est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier car il contient en fait un répertoire caché <code class="docutils literal notranslate"><span class="pre">.git</span></code>. Affichez ce répertoire caché avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-al
 </pre></div>
 </div>
 <p>C’est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l’historique du dépôt. 🧐 Ne le supprimez pas et ne modifiez pas non plus.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>L’option <code class="docutils literal notranslate"><span class="pre">-a</span></code> de la commande <code class="docutils literal notranslate"><span class="pre">ls</span></code> affiche tous les fichiers et répertoires d’un répertoire, y compris les fichiers et répertoires cachés qui débutent par un point.</p>
+</div>
 </section>
 <section id="configuration-du-depot-local">
-<h2>2.3 Configuration du dépôt local<a class="headerlink" href="#configuration-du-depot-local" title="Permalink to this heading">#</a></h2>
+<h2>3 Configuration du dépôt local<a class="headerlink" href="#configuration-du-depot-local" title="Permalink to this heading">#</a></h2>
 <p>Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prénom Nom&quot;</span>
 $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;moi@mail.com&quot;</span>
 </pre></div>
 </div>
-<p><em>Attention, adaptez le prénom, le nom et l’adresse e-mail à votre cas. Veillez à conserver les guillemets autour de <code class="docutils literal notranslate"><span class="pre">Prénom</span> <span class="pre">Nom</span></code> dans la première ligne</em>.</p>
-<p>Remarque : ces commmandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> ne sont à lancer qu’une seule fois sur votre machine (même si vous avez plusieurs dépôts).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Adaptez le prénom, le nom et l’adresse e-mail à votre cas. Veillez à conserver les guillemets autour de <code class="docutils literal notranslate"><span class="pre">Prénom</span> <span class="pre">Nom</span></code> dans la première ligne.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ces commmandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> ne sont à lancer qu’une seule fois sur une machine donnée, ici le cluster de l’IFB.</p>
+</div>
 <p>Vérifiez que ces paramètres sont bien pris en compte avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>user
 </pre></div>
@@ -459,8 +472,9 @@ $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </spa
 <p>Les paramètres <code class="docutils literal notranslate"><span class="pre">user.name</span></code> et <code class="docutils literal notranslate"><span class="pre">user.email</span></code> devrait contenir les informations que vous avez entrées précédemment.</p>
 </section>
 <section id="exploration-des-commandes-de-base">
-<h2>2.4 Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
-<p>Toujours dans votre dépôt git, créez le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> et ajoutez-y du contenu. Vous pouvez faire cela avec l’éditeur de texte <code class="docutils literal notranslate"><span class="pre">nano</span></code> ou plus rapidement avec la commande suivante :</p>
+<h2>4 Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
+<p>Toujours dans votre dépôt git, créez le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> et ajoutez-y du contenu.</p>
+<p>Vous pouvez faire cela avec l’éditeur de texte graphique de JupyterLab, l’éditeur de texte dans le terminal <code class="docutils literal notranslate"><span class="pre">nano</span></code> ou plus rapidement avec la commande suivante :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;une première ligne&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test1.txt
 </pre></div>
 </div>
@@ -513,14 +527,14 @@ To<span class="w"> </span>github.com:pierrepo/duo-test.git
 <span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
 </pre></div>
 </div>
-<p>Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori <code class="docutils literal notranslate"><span class="pre">https://github.com/LOGIN/duo-test</span></code> avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant GitHub).</p>
+<p>Retournez maintenant sur la page de votre dépôt sur GitHub (a priori <code class="docutils literal notranslate"><span class="pre">https://github.com/LOGINGITHUB/duo-test</span></code> avec <code class="docutils literal notranslate"><span class="pre">LOGINGITHUB</span></code> votre identifiant GitHub) et  rafraichissez-la.</p>
 <p>Vous devriez voir le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> ! 🥳</p>
 <p><img alt="" src="_images/github_first_commit.png" /></p>
 <p>Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;et hop une deuxième ligne !&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test1.txt
 </pre></div>
 </div>
-<p>Visualisez les différences par rapport au <em>commit</em> précédent avec la commande</p>
+<p>Visualisez les différences par rapport au <em>commit</em> précédent avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff
 </pre></div>
 </div>
@@ -553,7 +567,7 @@ To<span class="w"> </span>github.com:pierrepo/duo-test.git
 </div>
 <p>Retournez sur GitHub pour observer ce nouveau <em>commit</em> :</p>
 <p><img alt="" src="_images/github_second_commit.png" /></p>
-<p>Depuis le terminal Bash Ubuntu, affichez l’historique avec la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> :</p>
+<p>Depuis le terminal, affichez l’historique avec la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git log
 commit 5adb360b9682320e4fe32382d79d9b9454d657b3 (HEAD -&gt; master, origin/master)
 Author: Pierre Poulain &lt;pierre.poulain@cupnet.net&gt;
@@ -577,6 +591,9 @@ Date:   Tue Apr 6 20:52:47 2021 +0200
 </ul>
 <p>Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard comment les retrouver.</p>
 <p>De plus, git attribue un identifiant à chaque <em>commit</em> (ici : <code class="docutils literal notranslate"><span class="pre">404b6ff031bd9ba0daa586c7a524eb8ef409ec1c</span></code>). Cet identifiant est unique et permet de retrouver un <em>commit</em> particulier.</p>
+</section>
+<section id="modification-d-un-fichier-depuis-github">
+<h2>5 Modification d’un fichier depuis GitHub<a class="headerlink" href="#modification-d-un-fichier-depuis-github" title="Permalink to this heading">#</a></h2>
 <p>Depuis l’interface de GitHub, cliquez sur le bouton vert « <em>Add a README</em> »</p>
 <p>Dans l’éditeur en ligne, ajoutez le texte suivant :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># duo-test</span>
@@ -587,9 +604,9 @@ Date:   Tue Apr 6 20:52:47 2021 +0200
 <p><img alt="" src="_images/github_readme_1.png" /></p>
 <p>En bas de la page, indiquez comme titre de <em>commit</em> : « Création README.md » (sans les guillemets), puis cliquez sur le bouton vert « <em>Commit new file</em> ».</p>
 <p><img alt="" src="_images/github_readme_2.png" /></p>
-<p>Bravo ! Vous avez créé un nouveau <em>commit</em>, mais cette fois dans l’interface de GitHub :</p>
+<p>Bravo ! Vous avez créé un nouveau <em>commit</em>, mais cette fois directement depuis l’interface de GitHub :</p>
 <p><img alt="" src="_images/github_readme_3.png" /></p>
-<p>Retournez dans le terminal Bash Ubuntu et synchronisez votre dépôt git local avec GitHub :</p>
+<p>Retournez dans le terminal et synchronisez votre dépôt git local avec GitHub :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull
 remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
 remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
@@ -654,7 +671,7 @@ Fast-forward
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Utilisation des clés SSH privée et publique</p>
+        <p class="prev-next-title">Utilisation des clés SSH</p>
       </div>
     </a>
     <a class="right-next"
@@ -685,9 +702,10 @@ Fast-forward
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">1 Création d’un nouveau dépôt sur GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">2.3 Configuration du dépôt local</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">2.4 Exploration des commandes de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2 Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">3 Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">4 Exploration des commandes de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-d-un-fichier-depuis-github">5 Modification d’un fichier depuis GitHub</a></li>
 </ul>
   </nav></div>
 
