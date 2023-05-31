@@ -23,7 +23,7 @@ Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `
 Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `https://github.com` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github.com`
 ```
 
-## 2 Connexion du dépôt distant (sur GitHub) à votre machine locale
+## 2. Connexion du dépôt distant (sur GitHub) à votre machine locale
 
 Depuis un terminal sur le JupyterLab de l'IFB, vérifiez que vous êtes dans le bon répertoire de travail :
 
@@ -67,7 +67,7 @@ C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'h
 L'option `-a` de la commande `ls` affiche tous les fichiers et répertoires d'un répertoire, y compris les fichiers et répertoires cachés qui débutent par un point.
 ```
 
-## 3 Configuration du dépôt local
+## 3. Configuration du dépôt local
 
 Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :
 
@@ -92,7 +92,7 @@ $ git config --list | grep user
 
 Les paramètres `user.name` et `user.email` devrait contenir les informations que vous avez entrées précédemment.
 
-## 4 Exploration des commandes de base
+## 4. Exploration des commandes de base
 
 Toujours dans votre dépôt git, créez le fichier `test1.txt` et ajoutez-y du contenu.
 
@@ -250,7 +250,7 @@ Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard c
 
 De plus, git attribue un identifiant à chaque *commit* (ici : `404b6ff031bd9ba0daa586c7a524eb8ef409ec1c`). Cet identifiant est unique et permet de retrouver un *commit* particulier.
 
-## 5 Modification d'un fichier depuis GitHub
+## 5. Modification d'un fichier depuis GitHub
 
 Depuis l'interface de GitHub, cliquez sur le bouton vert « *Add a README* »
 

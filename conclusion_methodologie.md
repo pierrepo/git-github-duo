@@ -12,7 +12,7 @@ Pour faciliter votre manipulation de git, n’hésitez pas à utiliser l’ongle
 RStudio propose également d'utiliser git via une interface simplifiée.
 ```
 
-Si un jour vous êtes perdus dans vos différents commits et branches, la solution la plus simple est alors de supprimer le répertoire qui contient votre projet puis de le re-cloner depuis GitHub. Vous perdrez alors votre travail en cours mais vous re-partirez d’une dépôt local « propre »...
+Si un jour vous êtes perdus dans vos différents commits et branches, la solution la plus simple est alors de supprimer le répertoire qui contient votre projet puis de le re-cloner depuis GitHub. Vous perdrez alors votre travail en cours mais vous re-partirez d’une dépôt local « propre ». J'ai appliqué cette solution des dizaines de fois quand j'ai débuté avec git et GitHub. 😅
 
 ![](img/xkcs_git.png)
 

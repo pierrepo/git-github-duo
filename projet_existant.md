@@ -1,7 +1,7 @@
 # Exploration d'un projet existant
 
 ```{note}
-Cette section est l'occasion d'explorer l'historique d'un dépôt git et d'aborder une nouvelle commande, `git show`.
+Cette section est l'occasion d'explorer l'historique d'un dépôt git et d'utiliser les commandes `git log` et `git show`.
 ```
 
 J'ai développé il y a quelques années le logiciel [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/). Ce travail a été publié dans *The Journal of Open Source Software* en [2019](https://joss.theoj.org/papers/10.21105/joss.01390).
@@ -27,7 +27,7 @@ $ pwd
 
 où `LOGINIFB` est votre identifiant IFB.
 
-## 1 Téléchargement du projet
+## 1. Téléchargement du projet
 
 Téléchargez l'intégralité du projet *autoclasswrapper* avec la commande :
 
@@ -41,9 +41,9 @@ puis déplacez-vous dans le répertoire du projet :
 $ cd autoclasswrapper
 ```
 
-La commande `git clone` ne télécharge pas uniquement les fichiers du projet mais aussi tout son historique de dévelopement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.
+La commande `git clone` ne télécharge pas suelement les fichiers du projet mais aussi tout son historique de dévelopement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.
 
-## 2 Exploration de l'historique du projet
+## 2. Exploration de l'historique du projet
 
 ### De quand date le dernier *commit* ?
 
