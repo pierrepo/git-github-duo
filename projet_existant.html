@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'projet_existant';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Branches et collaboration" href="branches.html" />
+    <link rel="next" title="Branches" href="branches.html" />
     <link rel="prev" title="Premier dépôt" href="premier_depot.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -159,10 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Configuration des clés SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="premier_depot.html">Premier dépôt</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Exploration d’un projet existant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches et collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collaboration.html">Collaborer avec GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusion_methodologie.html">Conclusion et méthodologie de travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
@@ -376,8 +376,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telechargement-du-projet">1 Téléchargement du projet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-de-l-historique-du-projet">2 Exploration de l’historique du projet</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telechargement-du-projet">1. Téléchargement du projet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-de-l-historique-du-projet">2. Exploration de l’historique du projet</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-quand-date-le-dernier-commit">De quand date le dernier <em>commit</em> ?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quand-a-ete-cree-le-tout-premier-commit">Quand a été créé le tout premier <em>commit</em> ?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combien-de-commits-ont-ete-enregistres-jusqu-a-present">Combien de <em>commits</em> ont été enregistrés jusqu’à présent ?</a></li>
@@ -400,7 +400,7 @@ document.write(`
 <h1>Exploration d’un projet existant<a class="headerlink" href="#exploration-d-un-projet-existant" title="Permalink to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Cette section est l’occasion d’explorer l’historique d’un dépôt git et d’aborder une nouvelle commande, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code>.</p>
+<p>Cette section est l’occasion d’explorer l’historique d’un dépôt git et d’utiliser les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> et <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code>.</p>
 </div>
 <p>J’ai développé il y a quelques années le logiciel <a class="reference external" href="https://github.com/pierrepo/autoclasswrapper">autoclasswrapper</a>, un wrapper Python pour le programme de classification bayesienne  <a class="reference external" href="https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/">AutoClass C</a>. Ce travail a été publié dans <em>The Journal of Open Source Software</em> en <a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.01390">2019</a>.</p>
 <p>Depuis un terminal sur le JupyterLab de l’IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :</p>
@@ -421,7 +421,7 @@ document.write(`
 </div>
 <p>où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant IFB.</p>
 <section id="telechargement-du-projet">
-<h2>1 Téléchargement du projet<a class="headerlink" href="#telechargement-du-projet" title="Permalink to this heading">#</a></h2>
+<h2>1. Téléchargement du projet<a class="headerlink" href="#telechargement-du-projet" title="Permalink to this heading">#</a></h2>
 <p>Téléchargez l’intégralité du projet <em>autoclasswrapper</em> avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pierrepo/autoclasswrapper.git
 </pre></div>
@@ -430,10 +430,10 @@ document.write(`
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>autoclasswrapper
 </pre></div>
 </div>
-<p>La commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> ne télécharge pas uniquement les fichiers du projet mais aussi tout son historique de dévelopement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.</p>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> ne télécharge pas suelement les fichiers du projet mais aussi tout son historique de dévelopement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.</p>
 </section>
 <section id="exploration-de-l-historique-du-projet">
-<h2>2 Exploration de l’historique du projet<a class="headerlink" href="#exploration-de-l-historique-du-projet" title="Permalink to this heading">#</a></h2>
+<h2>2. Exploration de l’historique du projet<a class="headerlink" href="#exploration-de-l-historique-du-projet" title="Permalink to this heading">#</a></h2>
 <section id="de-quand-date-le-dernier-commit">
 <h3>De quand date le dernier <em>commit</em> ?<a class="headerlink" href="#de-quand-date-le-dernier-commit" title="Permalink to this heading">#</a></h3>
 <p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> et <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p>
@@ -521,7 +521,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Branches et collaboration</p>
+        <p class="prev-next-title">Branches</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -543,8 +543,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telechargement-du-projet">1 Téléchargement du projet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-de-l-historique-du-projet">2 Exploration de l’historique du projet</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telechargement-du-projet">1. Téléchargement du projet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-de-l-historique-du-projet">2. Exploration de l’historique du projet</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-quand-date-le-dernier-commit">De quand date le dernier <em>commit</em> ?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quand-a-ete-cree-le-tout-premier-commit">Quand a été créé le tout premier <em>commit</em> ?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combien-de-commits-ont-ete-enregistres-jusqu-a-present">Combien de <em>commits</em> ont été enregistrés jusqu’à présent ?</a></li>

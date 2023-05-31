@@ -1,4 +1,4 @@
-# Branches et collaboration
+# Branches
 
 Depuis un terminal sur le JupyterLab de l'IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :
 
@@ -18,7 +18,10 @@ Vérifiez que vous êtes dans le bon répertoire :
 $ pwd
 /shared/projects/202304_duo/LOGINIFB/intro-git
 ```
-## Les branches
+
+où `LOGINIFB` est votre identifiant IFB.
+
+## 1. Créer une branche
 
 Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=634) » à partir de 10'34 sur les branches.
 
@@ -126,7 +129,7 @@ La commande `git push --set-upstream origin nouveau-fichier` est à utiliser uni
 Verifiez que votre branche `nouveau-fichier` est bien présente sur GitHub en cliquant sur branches dans le menu au dessus de l’aperçu du dépôt.
 
 
-## 2. Fusionner les branches
+## 2. Fusionner deux branches
 
 Depuis votre terminal, revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **pas** présent dans votre répertoire :
 
@@ -155,6 +158,8 @@ Une ligne supplémentaire
 Et encore une !
 ```
 
+## 3. Supprimer une branche
+
 La branche *nouveau-fichier* ne sert plus à rien car les modifications qu’elle contenait ont été fusionnées dans la branche *master*. Vous pouvez donc supprimer la branche *nouveau-fichier* :
 
 ```bash
@@ -174,4 +179,4 @@ Enfin, envoyez toutes vos modifications sur GitHub :
 $ git push
 ```
 
-Vérifiez que le dépôt sur GitHub a bien été mis à jour. Pour terminer, en cliquant sur `branches` dans l'interface GitHub, supprimez également la branche *nouveau-fichier*.
+Vérifiez que le dépôt sur GitHub a été mis à jour. Pour terminer, en cliquant sur `branches` dans l'interface GitHub, supprimez également la branche *nouveau-fichier*.

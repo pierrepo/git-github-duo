@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Exploration d’un projet existant" href="projet_existant.html" />
-    <link rel="prev" title="Utilisation des clés SSH" href="cles_ssh.html" />
+    <link rel="prev" title="Configuration des clés SSH" href="cles_ssh.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,10 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Configuration des clés SSH</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projet_existant.html">Exploration d’un projet existant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches et collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collaboration.html">Collaborer avec GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusion_methodologie.html">Conclusion et méthodologie de travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
@@ -377,10 +377,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">1. Création d’un nouveau dépôt sur GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2 Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">3 Configuration du dépôt local</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">4 Exploration des commandes de base</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-d-un-fichier-depuis-github">5 Modification d’un fichier depuis GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2. Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">3. Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">4. Exploration des commandes de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-d-un-fichier-depuis-github">5. Modification d’un fichier depuis GitHub</a></li>
 </ul>
             </nav>
         </div>
@@ -410,7 +410,7 @@ document.write(`
 </div>
 </section>
 <section id="connexion-du-depot-distant-sur-github-a-votre-machine-locale">
-<h2>2 Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
+<h2>2. Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
 <p>Depuis un terminal sur le JupyterLab de l’IFB, vérifiez que vous êtes dans le bon répertoire de travail :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
 /shared/projects/202304_duo/LOGINIFB/intro-git
@@ -445,7 +445,7 @@ document.write(`
 </div>
 </section>
 <section id="configuration-du-depot-local">
-<h2>3 Configuration du dépôt local<a class="headerlink" href="#configuration-du-depot-local" title="Permalink to this heading">#</a></h2>
+<h2>3. Configuration du dépôt local<a class="headerlink" href="#configuration-du-depot-local" title="Permalink to this heading">#</a></h2>
 <p>Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prénom Nom&quot;</span>
 $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;moi@mail.com&quot;</span>
@@ -466,7 +466,7 @@ $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </spa
 <p>Les paramètres <code class="docutils literal notranslate"><span class="pre">user.name</span></code> et <code class="docutils literal notranslate"><span class="pre">user.email</span></code> devrait contenir les informations que vous avez entrées précédemment.</p>
 </section>
 <section id="exploration-des-commandes-de-base">
-<h2>4 Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
+<h2>4. Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
 <p>Toujours dans votre dépôt git, créez le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> et ajoutez-y du contenu.</p>
 <p>Vous pouvez faire cela avec l’éditeur de texte graphique de JupyterLab, l’éditeur de texte dans le terminal <code class="docutils literal notranslate"><span class="pre">nano</span></code> ou plus rapidement avec la commande suivante :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;une première ligne&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test1.txt
@@ -587,7 +587,7 @@ Date:   Tue Apr 6 20:52:47 2021 +0200
 <p>De plus, git attribue un identifiant à chaque <em>commit</em> (ici : <code class="docutils literal notranslate"><span class="pre">404b6ff031bd9ba0daa586c7a524eb8ef409ec1c</span></code>). Cet identifiant est unique et permet de retrouver un <em>commit</em> particulier.</p>
 </section>
 <section id="modification-d-un-fichier-depuis-github">
-<h2>5 Modification d’un fichier depuis GitHub<a class="headerlink" href="#modification-d-un-fichier-depuis-github" title="Permalink to this heading">#</a></h2>
+<h2>5. Modification d’un fichier depuis GitHub<a class="headerlink" href="#modification-d-un-fichier-depuis-github" title="Permalink to this heading">#</a></h2>
 <p>Depuis l’interface de GitHub, cliquez sur le bouton vert « <em>Add a README</em> »</p>
 <p>Dans l’éditeur en ligne, ajoutez le texte suivant :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># duo-test</span>
@@ -665,7 +665,7 @@ Fast-forward
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Utilisation des clés SSH</p>
+        <p class="prev-next-title">Configuration des clés SSH</p>
       </div>
     </a>
     <a class="right-next"
@@ -696,10 +696,10 @@ Fast-forward
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">1. Création d’un nouveau dépôt sur GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2 Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">3 Configuration du dépôt local</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">4 Exploration des commandes de base</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-d-un-fichier-depuis-github">5 Modification d’un fichier depuis GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2. Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">3. Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">4. Exploration des commandes de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modification-d-un-fichier-depuis-github">5. Modification d’un fichier depuis GitHub</a></li>
 </ul>
   </nav></div>
 

@@ -1,10 +1,10 @@
-# Utilisation des clés SSH
+# Configuration des clés SSH
 
 La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
 
 Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-passe et préconise l’utilisation de clés privée et publique.
 
-## 1 Création des clés
+## 1. Création des clés
 
 Depuis l'interface JupyterLab de l'IFB, ouvrez un terminal Bash.
 
@@ -84,7 +84,7 @@ TRTPvbaUnz17wffw== Connexion GitHub DUO
 Copiez cette clé, depuis `ssh-rsa` jusqu'à `Connexion GitHub DUO` inclus.
 
 
-## 2 Ajout de la clé publique dans GitHub
+## 2. Ajout de la clé publique dans GitHub
 
 Ouvrez maintenant l'interface de gestion des clés de GitHub : <https://github.com/settings/keys>
 
@@ -101,16 +101,18 @@ Enfin, cliquez sur le bouton vert « *Add SSH key* ». Pour confirmer l’ajout 
 L’ajout d’une clé publique dans votre profil est un moyen de vous authentifier sur GitHub. Cette opération est considérée comme sensible d’un point de vue de la sécurité. Vous recevrez donc également un e-mail de GitHub pour vous informer de l’ajout de cette nouvelle clé.
 
 
-## 3 Test de la connexion à GitHub
+## 3. Test de la connexion à GitHub
 
 Pour vérifier si l'enregistrement de votre clé publique dans GitHub a bien fonctionné, tapez la commande suivante dans le terminal :
 
 ```bash
 $ ssh -T git@github.com
 ```
+
 Validez en tapant `yes` puis en appuyant sur <kbd>Entrée</kbd>.
 
 Si votre clé publique a bien été enregistrée dans GitHub, vous devriez obtenir le message :
+
 ```
 Hi LOGINGITHUB! You've successfully authenticated, but GitHub does not provide shell access.
 ```

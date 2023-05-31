@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Utilisation des clés SSH &#8212; Git &amp; GitHub</title>
+    <title>Configuration des clés SSH &#8212; Git &amp; GitHub</title>
   
   
   
@@ -159,10 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Utilisation des clés SSH</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Configuration des clés SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="premier_depot.html">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projet_existant.html">Exploration d’un projet existant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches et collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collaboration.html">Collaborer avec GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusion_methodologie.html">Conclusion et méthodologie de travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Utilisation des clés SSH</h1>
+    <h1>Configuration des clés SSH</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,9 +376,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-cles">1 Création des clés</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-cle-publique-dans-github">2 Ajout de la clé publique dans GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-la-connexion-a-github">3 Test de la connexion à GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-cles">1. Création des clés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-cle-publique-dans-github">2. Ajout de la clé publique dans GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-la-connexion-a-github">3. Test de la connexion à GitHub</a></li>
 </ul>
             </nav>
         </div>
@@ -390,12 +390,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="utilisation-des-cles-ssh">
-<h1>Utilisation des clés SSH<a class="headerlink" href="#utilisation-des-cles-ssh" title="Permalink to this heading">#</a></h1>
+  <section id="configuration-des-cles-ssh">
+<h1>Configuration des clés SSH<a class="headerlink" href="#configuration-des-cles-ssh" title="Permalink to this heading">#</a></h1>
 <p>La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l’utilisation conjointe de la clé privée stockée sur la machine de l’utilisateur et de la clé publique stockée sur le serveur distant.</p>
 <p>Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-passe et préconise l’utilisation de clés privée et publique.</p>
 <section id="creation-des-cles">
-<h2>1 Création des clés<a class="headerlink" href="#creation-des-cles" title="Permalink to this heading">#</a></h2>
+<h2>1. Création des clés<a class="headerlink" href="#creation-des-cles" title="Permalink to this heading">#</a></h2>
 <p>Depuis l’interface JupyterLab de l’IFB, ouvrez un terminal Bash.</p>
 <p>Créez un répertoire <code class="docutils literal notranslate"><span class="pre">intro-git</span></code> pour cette introduction à git puis déplacez-vous y :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/shared/projects/202304_duo/<span class="nv">$USER</span>/intro-git
@@ -461,7 +461,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shar
 <p>Copiez cette clé, depuis <code class="docutils literal notranslate"><span class="pre">ssh-rsa</span></code> jusqu’à <code class="docutils literal notranslate"><span class="pre">Connexion</span> <span class="pre">GitHub</span> <span class="pre">DUO</span></code> inclus.</p>
 </section>
 <section id="ajout-de-la-cle-publique-dans-github">
-<h2>2 Ajout de la clé publique dans GitHub<a class="headerlink" href="#ajout-de-la-cle-publique-dans-github" title="Permalink to this heading">#</a></h2>
+<h2>2. Ajout de la clé publique dans GitHub<a class="headerlink" href="#ajout-de-la-cle-publique-dans-github" title="Permalink to this heading">#</a></h2>
 <p>Ouvrez maintenant l’interface de gestion des clés de GitHub : <a class="github reference external" href="https://github.com/settings/keys">settings/keys</a></p>
 <p><em>Authentifiez-vous si besoin.</em></p>
 <p>Cliquez sur le bouton vert « <em>New SSH key</em> ».</p>
@@ -471,7 +471,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shar
 <p>L’ajout d’une clé publique dans votre profil est un moyen de vous authentifier sur GitHub. Cette opération est considérée comme sensible d’un point de vue de la sécurité. Vous recevrez donc également un e-mail de GitHub pour vous informer de l’ajout de cette nouvelle clé.</p>
 </section>
 <section id="test-de-la-connexion-a-github">
-<h2>3 Test de la connexion à GitHub<a class="headerlink" href="#test-de-la-connexion-a-github" title="Permalink to this heading">#</a></h2>
+<h2>3. Test de la connexion à GitHub<a class="headerlink" href="#test-de-la-connexion-a-github" title="Permalink to this heading">#</a></h2>
 <p>Pour vérifier si l’enregistrement de votre clé publique dans GitHub a bien fonctionné, tapez la commande suivante dans le terminal :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com
 </pre></div>
@@ -553,9 +553,9 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shar
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-cles">1 Création des clés</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-cle-publique-dans-github">2 Ajout de la clé publique dans GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-la-connexion-a-github">3 Test de la connexion à GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-cles">1. Création des clés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-cle-publique-dans-github">2. Ajout de la clé publique dans GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-la-connexion-a-github">3. Test de la connexion à GitHub</a></li>
 </ul>
   </nav></div>
 

@@ -1,7 +1,7 @@
 # Collaborer avec GitHub
 
 ```{hint}
-Dans cette partie, vous allez travailler par équipe. Constituez des groupes de 2 ou 3 personnes.
+Dans cette partie, vous allez travailler par équipe. Constituez des équipes de 2 ou 3 personnes.
 ```
 
 ## 1. Préparation
@@ -15,14 +15,14 @@ GitHub est très utile pour du travail collaboratif car il va servir de platefor
 ## 2. Création d'un dépôt distant commun
 
 ```{warning}
-Les manipulations indiquées dans cette rubrique ne sont à réaliser que par **UN SEUL** membre de l’équipe mais avec l’assistance et l’aide des autres membres de l’équipe.
+Les manipulations indiquées dans cette rubrique ne sont à réaliser que par **UN SEUL** membre de l’équipe mais avec, bien sûr, le soutien et l’assistance des autres membres de l’équipe.
 ```
 
 En reprenant les instructions de la partie « [Premier dépôt](premier_depot.md) » :
 
 - Créez un nouveau dépôt sur GitHub qui porte le nom d'un projet fictif.
 - Ajoutez une petite description
-- Conservez tous les autres paramètres par défaut (n’itialisez pas le dépôt avec les fichiers proposés).
+- Conservez tous les autres paramètres par défaut (n’initialisez pas le dépôt avec les fichiers proposés).
 
 Cliquez ensuite le bouton gris *SSH* et copiez / collez quelque part l’adresse du dépôt. Par exemple :
 
@@ -79,13 +79,13 @@ Réalisez maintenant ces actions dans l’ordre en vous répartissant les diffé
 8. Vérifiez que les modifications sont bien sur GitHub.
 9. Les autres membres de l’équipe récupèrent les modifications dans le JupyterLab (`git pull`).
 
-Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de **toujours** récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLAb). C’est à dire qu’il faut toujours lancer la commande `git pull` avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (`git push`).
+Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de **toujours** récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLab). C’est à dire qu’il faut toujours lancer la commande `git pull` avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (`git push`).
 
-Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé.5.4 
+Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé. 
 
 ## 4. Gestion des conflits
 
-Habituellement, vous ne travaillez pas en alternance et il est possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :
+Habituellement, vous ne travaillez pas en alternance dans la même pièce et il est possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :
 
 1. Co-équipiers 1 et 2 font un `git pull` avant de travailler localement.
 2. Co-équipiers 1 et 2 travaillent sur le même fichier, mais chacun sur sa machine.
@@ -93,7 +93,7 @@ Habituellement, vous ne travaillez pas en alternance et il est possible que deux
 4. Co-équipier 2 a terminé à son tour. Il ajoute et enregistre ses modifications. Il lance un `git pull` et obtient un message d’erreur lui indiquant un conflit. Le même fichier ayant été modifié, GitHub ne sait pas comment faire pour prendre en compte toutes les modifications.
 5. Co-équipier 2 ouvre le fichier et choisit quelles modifications conserver, puis élimine les lignes débutant par `<<<<<<<`, `=======` et `>>>>>>>` (voir [procédure](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)). Il ajoute et enregistre ses modifications. Il lance enfin un `git pull` puis un `git push`.
 
-5. GitHub flow
+## 5. GitHub flow
 
 Avec la méthode de travail précédente, tous les co-équipiers travaillent dans la même branche (*master*). Chacun modifie les fichiers qu’il veut sans que les autres soient nécessairement d’accord.
 

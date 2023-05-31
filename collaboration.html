@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Conclusion et méthodologie de travail" href="conclusion_methodologie.html" />
-    <link rel="prev" title="Branches et collaboration" href="branches.html" />
+    <link rel="prev" title="Branches" href="branches.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,10 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Configuration des clés SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="premier_depot.html">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projet_existant.html">Exploration d’un projet existant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches et collaboration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Collaborer avec GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusion_methodologie.html">Conclusion et méthodologie de travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
@@ -381,6 +381,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-au-jupyterlab-ifb">2. Connexion du dépôt distant au JupyterLab IFB</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#premieres-modifications">3. Premières modifications</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-des-conflits">4. Gestion des conflits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-flow">5. GitHub flow</a></li>
 </ul>
             </nav>
         </div>
@@ -396,7 +397,7 @@ document.write(`
 <h1>Collaborer avec GitHub<a class="headerlink" href="#collaborer-avec-github" title="Permalink to this heading">#</a></h1>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Dans cette partie, vous allez travailler par équipe. Constituez des groupes de 2 ou 3 personnes.</p>
+<p>Dans cette partie, vous allez travailler par équipe. Constituez des équipes de 2 ou 3 personnes.</p>
 </div>
 <section id="preparation">
 <h2>1. Préparation<a class="headerlink" href="#preparation" title="Permalink to this heading">#</a></h2>
@@ -408,13 +409,13 @@ document.write(`
 <h2>2. Création d’un dépôt distant commun<a class="headerlink" href="#creation-d-un-depot-distant-commun" title="Permalink to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Les manipulations indiquées dans cette rubrique ne sont à réaliser que par <strong>UN SEUL</strong> membre de l’équipe mais avec l’assistance et l’aide des autres membres de l’équipe.</p>
+<p>Les manipulations indiquées dans cette rubrique ne sont à réaliser que par <strong>UN SEUL</strong> membre de l’équipe mais avec, bien sûr, le soutien et l’assistance des autres membres de l’équipe.</p>
 </div>
 <p>En reprenant les instructions de la partie « <a class="reference internal" href="premier_depot.html"><span class="doc std std-doc">Premier dépôt</span></a> » :</p>
 <ul class="simple">
 <li><p>Créez un nouveau dépôt sur GitHub qui porte le nom d’un projet fictif.</p></li>
 <li><p>Ajoutez une petite description</p></li>
-<li><p>Conservez tous les autres paramètres par défaut (n’itialisez pas le dépôt avec les fichiers proposés).</p></li>
+<li><p>Conservez tous les autres paramètres par défaut (n’initialisez pas le dépôt avec les fichiers proposés).</p></li>
 </ul>
 <p>Cliquez ensuite le bouton gris <em>SSH</em> et copiez / collez quelque part l’adresse du dépôt. Par exemple :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">pierrepo</span><span class="o">/</span><span class="n">mon_projet</span><span class="o">.</span><span class="n">git</span>
@@ -461,20 +462,22 @@ Vérifiez ensemble que tous les membres de l’équipe ont réalisé les différ
 <li><p>Vérifiez que les modifications sont bien sur GitHub.</p></li>
 <li><p>Les autres membres de l’équipe récupèrent les modifications dans le JupyterLab (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>).</p></li>
 </ol>
-<p>Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de <strong>toujours</strong> récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLAb). C’est à dire qu’il faut toujours lancer la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>).</p>
-<p>Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé.5.4</p>
+<p>Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de <strong>toujours</strong> récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLab). C’est à dire qu’il faut toujours lancer la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>).</p>
+<p>Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé.</p>
 </section>
 <section id="gestion-des-conflits">
 <h2>4. Gestion des conflits<a class="headerlink" href="#gestion-des-conflits" title="Permalink to this heading">#</a></h2>
-<p>Habituellement, vous ne travaillez pas en alternance et il est possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :</p>
+<p>Habituellement, vous ne travaillez pas en alternance dans la même pièce et il est possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :</p>
 <ol class="arabic simple">
 <li><p>Co-équipiers 1 et 2 font un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> avant de travailler localement.</p></li>
 <li><p>Co-équipiers 1 et 2 travaillent sur le même fichier, mais chacun sur sa machine.</p></li>
 <li><p>Co-équipier 1 a terminé. Il ajoute et enregistre ses modifications. Il lance un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> puis un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p></li>
 <li><p>Co-équipier 2 a terminé à son tour. Il ajoute et enregistre ses modifications. Il lance un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> et obtient un message d’erreur lui indiquant un conflit. Le même fichier ayant été modifié, GitHub ne sait pas comment faire pour prendre en compte toutes les modifications.</p></li>
 <li><p>Co-équipier 2 ouvre le fichier et choisit quelles modifications conserver, puis élimine les lignes débutant par <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">=======</span></code> et <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span></code> (voir <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line">procédure</a>). Il ajoute et enregistre ses modifications. Il lance enfin un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> puis un <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p></li>
-<li><p>GitHub flow</p></li>
 </ol>
+</section>
+<section id="github-flow">
+<h2>5. GitHub flow<a class="headerlink" href="#github-flow" title="Permalink to this heading">#</a></h2>
 <p>Avec la méthode de travail précédente, tous les co-équipiers travaillent dans la même branche (<em>master</em>). Chacun modifie les fichiers qu’il veut sans que les autres soient nécessairement d’accord.</p>
 <p>Il existe une méthodologie plus sophistiquée et plus inclusive appelée <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/github-flow">GitHub flow</a> qui permet de discuter des différentes modifications apportées.</p>
 <p>À partir d’un unique dépôt GitHub, accessible à tous les participants du projets, ceux-ci vont :</p>
@@ -527,7 +530,7 @@ Vérifiez ensemble que tous les membres de l’équipe ont réalisé les différ
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Branches et collaboration</p>
+        <p class="prev-next-title">Branches</p>
       </div>
     </a>
     <a class="right-next"
@@ -562,6 +565,7 @@ Vérifiez ensemble que tous les membres de l’équipe ont réalisé les différ
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-au-jupyterlab-ifb">2. Connexion du dépôt distant au JupyterLab IFB</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#premieres-modifications">3. Premières modifications</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-des-conflits">4. Gestion des conflits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-flow">5. GitHub flow</a></li>
 </ul>
   </nav></div>
 

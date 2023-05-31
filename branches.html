@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Branches et collaboration &#8212; Git &amp; GitHub</title>
+    <title>Branches &#8212; Git &amp; GitHub</title>
   
   
   
@@ -159,10 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Configuration des clés SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="premier_depot.html">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projet_existant.html">Exploration d’un projet existant</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Branches et collaboration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collaboration.html">Collaborer avec GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conclusion_methodologie.html">Conclusion et méthodologie de travail</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Branches et collaboration</h1>
+    <h1>Branches</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,8 +376,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-branches">Les branches</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusionner-les-branches">2. Fusionner les branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creer-une-branche">1. Créer une branche</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusionner-deux-branches">2. Fusionner deux branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supprimer-une-branche">3. Supprimer une branche</a></li>
 </ul>
             </nav>
         </div>
@@ -389,8 +390,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="branches-et-collaboration">
-<h1>Branches et collaboration<a class="headerlink" href="#branches-et-collaboration" title="Permalink to this heading">#</a></h1>
+  <section id="branches">
+<h1>Branches<a class="headerlink" href="#branches" title="Permalink to this heading">#</a></h1>
 <p>Depuis un terminal sur le JupyterLab de l’IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shared/projects/202304_duo/<span class="nv">$USER</span>/intro-git
 </pre></div>
@@ -407,8 +408,9 @@ document.write(`
 /shared/projects/202304_duo/LOGINIFB/intro-git
 </pre></div>
 </div>
-<section id="les-branches">
-<h2>Les branches<a class="headerlink" href="#les-branches" title="Permalink to this heading">#</a></h2>
+<p>où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant IFB.</p>
+<section id="creer-une-branche">
+<h2>1. Créer une branche<a class="headerlink" href="#creer-une-branche" title="Permalink to this heading">#</a></h2>
 <p>Revisionez la vidéo « <a class="reference external" href="https://youtu.be/hPfgekYUKgk?t=634">Débuter avec Git et Github en 30 min</a> » à partir de 10’34 sur les branches.</p>
 <p>Depuis le terminal, revenez dans votre dépôt <code class="docutils literal notranslate"><span class="pre">duo-test</span></code> que vous avez créé précédemment :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shared/projects/202304_duo/<span class="nv">$USER</span>/intro-git/duo-test
@@ -484,8 +486,8 @@ $<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </spa
 </div>
 <p>Verifiez que votre branche <code class="docutils literal notranslate"><span class="pre">nouveau-fichier</span></code> est bien présente sur GitHub en cliquant sur branches dans le menu au dessus de l’aperçu du dépôt.</p>
 </section>
-<section id="fusionner-les-branches">
-<h2>2. Fusionner les branches<a class="headerlink" href="#fusionner-les-branches" title="Permalink to this heading">#</a></h2>
+<section id="fusionner-deux-branches">
+<h2>2. Fusionner deux branches<a class="headerlink" href="#fusionner-deux-branches" title="Permalink to this heading">#</a></h2>
 <p>Depuis votre terminal, revenez sur la branche <em>master</em> et vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> n’est <strong>pas</strong> présent dans votre répertoire :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>master
 $<span class="w"> </span>ls
@@ -506,6 +508,9 @@ Une<span class="w"> </span>ligne<span class="w"> </span>supplémentaire
 Et<span class="w"> </span>encore<span class="w"> </span>une<span class="w"> </span>!
 </pre></div>
 </div>
+</section>
+<section id="supprimer-une-branche">
+<h2>3. Supprimer une branche<a class="headerlink" href="#supprimer-une-branche" title="Permalink to this heading">#</a></h2>
 <p>La branche <em>nouveau-fichier</em> ne sert plus à rien car les modifications qu’elle contenait ont été fusionnées dans la branche <em>master</em>. Vous pouvez donc supprimer la branche <em>nouveau-fichier</em> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>nouveau-fichier
 </pre></div>
@@ -519,7 +524,7 @@ Et<span class="w"> </span>encore<span class="w"> </span>une<span class="w"> </sp
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
 </pre></div>
 </div>
-<p>Vérifiez que le dépôt sur GitHub a bien été mis à jour. Pour terminer, en cliquant sur <code class="docutils literal notranslate"><span class="pre">branches</span></code> dans l’interface GitHub, supprimez également la branche <em>nouveau-fichier</em>.</p>
+<p>Vérifiez que le dépôt sur GitHub a été mis à jour. Pour terminer, en cliquant sur <code class="docutils literal notranslate"><span class="pre">branches</span></code> dans l’interface GitHub, supprimez également la branche <em>nouveau-fichier</em>.</p>
 </section>
 </section>
 
@@ -590,8 +595,9 @@ Et<span class="w"> </span>encore<span class="w"> </span>une<span class="w"> </sp
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-branches">Les branches</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusionner-les-branches">2. Fusionner les branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creer-une-branche">1. Créer une branche</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusionner-deux-branches">2. Fusionner deux branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supprimer-une-branche">3. Supprimer une branche</a></li>
 </ul>
   </nav></div>
 
