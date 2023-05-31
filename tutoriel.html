@@ -1,0 +1,1058 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Partie 1 : Utilisation des clés privée et publique &#8212; Git &amp; GitHub</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutoriel';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pour aller plus loin" href="more.html" />
+    <link rel="prev" title="Connexion à l’interface JupyterLab de l’IFB" href="connexion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenue !
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Partie 1 : Utilisation des clés privée et publique</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pierrepo/git-github-duo" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pierrepo/git-github-duo/edit/master/docs/tutoriel.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pierrepo/git-github-duo/issues/new?title=Issue%20on%20page%20%2Ftutoriel.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tutoriel.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Partie 1 : Utilisation des clés privée et publique</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Partie 1 : Utilisation des clés privée et publique</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-cles">1.1 Création des clés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-cle-publique-dans-github">1.2 Ajout de la clé publique dans GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-la-connexion-a-github">1.3 Test de la connexion à GitHub</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-premier-depot">Partie 2 : Premier dépôt</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">2.1 Création d’un nouveau dépôt sur GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2.2 Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">2.3 Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">2.4 Exploration des commandes de base</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-3-utiliser-les-cles-privee-et-publique-pour-une-connexion-en-ssh-au-serveur-de-l-ifb">Partie 3 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l’IFB</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enregistrement-de-la-cle-publique-sur-le-serveur-de-l-ifb">3.1 Enregistrement de la clé publique sur le serveur de l’IFB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copie-de-la-paire-de-cles-sur-le-serveur-de-l-ifb">3.2 Copie de la paire de clés sur le serveur de l’IFB</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-4-un-peu-de-speleo">Partie 4 : Un peu de spéléo</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-quand-date-le-dernier-commit">De quand date le dernier <em>commit</em> ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quand-a-ete-cree-le-tout-premier-commit">Quand a été créé le tout premier <em>commit</em> ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combien-de-commits-ont-ete-enregistres-jusqu-a-present">Combien de <em>commits</em> ont été enregistrés jusqu’à présent ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trouvez-dans-quel-commit-j-ai-ajoute-la-possibilite-de-construire-un-dendrogramme">Trouvez dans quel <em>commit</em> j’ai ajouté la possibilité de construire un dendrogramme ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combien-de-fichiers-ont-ete-modifies-dans-le-commit-correspondant">Combien de fichiers ont été modifiés dans le <em>commit</em> correspondant ?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-5-branches-et-collaboration">Partie 5 : Branches et collaboration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-branches">5.1 Les branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaboration-avec-github">5.2 Collaboration avec GitHub</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="partie-1-utilisation-des-cles-privee-et-publique">
+<h1>Partie 1 : Utilisation des clés privée et publique<a class="headerlink" href="#partie-1-utilisation-des-cles-privee-et-publique" title="Permalink to this heading">#</a></h1>
+<p>🔑 La combinaison de clés privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l’utilisation conjointe de la clé privée stockée sur la machine de l’utilisateur et de la clé publique stockée sur le serveur distant.</p>
+<section id="creation-des-cles">
+<h2>1.1 Création des clés<a class="headerlink" href="#creation-des-cles" title="Permalink to this heading">#</a></h2>
+<p>Sous Windows, ouvrez un terminal Bash Ubuntu (<a class="reference external" href="https://omics-school.github.io/unix-tutorial/tutoriel/README#lancer-un-shell-ubuntu-sous-windows-10">rappel</a> si vous avez oublié), puis entrez la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;Connexion GitHub DUO&quot;</span>
+</pre></div>
+</div>
+<p>🔔 Rappels :</p>
+<ul class="simple">
+<li><p>Ne tapez pas le <code class="docutils literal notranslate"><span class="pre">$</span></code> en début de ligne et faites attention aux majuscules et aux minuscules.</p></li>
+<li><p>Copiez / collez les commandes pour aller plus vite et faire moins d’erreur.</p></li>
+</ul>
+<p>Validez en appuyant sur la touche <kbd>Entrée</kbd>.</p>
+<p>Vous devriez obtenir quelque chose du type :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">key</span><span class="s1">&#39;s randomart image is:</span>
+<span class="o">+---</span><span class="p">[</span><span class="n">RSA</span> <span class="mi">4096</span><span class="p">]</span><span class="o">----+</span>
+<span class="o">|==..</span>  <span class="n">o</span>          <span class="o">|</span>
+<span class="o">|.</span><span class="n">o</span><span class="o">+.</span><span class="n">o</span><span class="o">.</span> <span class="n">o</span> <span class="o">.</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="n">o</span><span class="o">.+</span><span class="n">o</span> <span class="o">=</span> <span class="o">=</span>        <span class="o">|</span>
+<span class="o">|</span><span class="n">o</span> <span class="o">+</span>  <span class="n">O</span> <span class="o">.</span> <span class="o">=</span>       <span class="o">|</span>
+<span class="o">|.</span><span class="n">o</span> <span class="n">o</span>  <span class="o">=</span> <span class="n">S</span> <span class="o">+</span>      <span class="o">|</span>
+<span class="o">|.</span> <span class="o">.</span> <span class="o">.</span><span class="n">o</span> <span class="o">+</span> <span class="o">=</span>       <span class="o">|</span>
+<span class="o">|</span>   <span class="o">+</span><span class="n">ooo</span> <span class="o">=</span>        <span class="o">|</span>
+<span class="o">|</span>  <span class="o">+</span><span class="n">o</span><span class="o">+++</span><span class="n">o</span>         <span class="o">|</span>
+<span class="o">|</span> <span class="o">..</span><span class="n">Eo</span><span class="o">++</span><span class="n">o</span><span class="o">.</span>        <span class="o">|</span>
+<span class="o">+----</span><span class="p">[</span><span class="n">SHA256</span><span class="p">]</span><span class="o">-----+</span>
+</pre></div>
+</div>
+<p>Affichez maintenant le contenu du répertoire <code class="docutils literal notranslate"><span class="pre">~/.ssh/</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>~/.ssh/
+</pre></div>
+</div>
+<p>Vous devriez trouver :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id_rsa</span></code> : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code> : votre clé publique, que vous allez déposer sur le site de GitHub.</p></li>
+</ul>
+<p>Toujours dans votre terminal Bash Ubuntu, affichez à l’écran le contenu du fichier <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>~/.ssh/id_rsa.pub
+</pre></div>
+</div>
+<p>Vous devriez obtenir une clé qui ressemble à cela :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">rsa</span> <span class="n">AAAAB3NzaC1yc2EAAAADAQABAAACAQCjNrLoIXHG3NHp2eucFnOqicMz2b4I6FvjxVYMEwzO40syopxd</span>
+<span class="mi">7</span><span class="n">YtQXzWp9EpuO7n9wWZnZ5uR6bXPqXp9VdN3MviI8PsvvjDbp4AfNz4Onunpy0mIjUarRL5evEPKI2iuqO7pUC9m</span>
+<span class="n">qV2tAPopsjfSuj</span><span class="o">+</span><span class="n">gBEcMAZU8gMK1o</span><span class="o">/</span><span class="n">eBqD</span><span class="o">+</span><span class="n">tpuGrNiE1Zq8PDQPOO7HStG09tZ3ABDPBSISun7GAC3ytbYJtL4A3</span>
+<span class="n">IEgUX1oCGbrzVGhIB0pK</span><span class="o">/</span><span class="n">xKVVpmG6KplVOjsSgYCivfOIJ05GJQk0LuizGWg1rKt4yYZgXjoMW4F</span><span class="o">+</span><span class="n">hz</span><span class="o">/+</span><span class="n">c9xnDuR</span>
+<span class="n">q8ZAQLBAm</span><span class="o">+</span><span class="n">NWU91Nczb5OzAfWYVY9BlES35YfcFRLuWP8ArXLHRtZJq48B7wIN39im72iYcKXcOzeyYRZQFKMb0z</span>
+<span class="mi">9</span><span class="n">PuDrpZ6LpQZQw04i7CWJZca7Auwtd3yyC</span><span class="o">+</span><span class="n">PfuvyeuFhODqktP0rdKtTEQdrUTdaxb</span><span class="o">+</span><span class="n">K1k8FPmZMc</span><span class="o">/</span><span class="n">o91sBJ1u6d</span>
+<span class="n">ceccjpO1LTK</span><span class="o">/</span><span class="n">I1w9xmbQAxi0hLDCRN9hm</span><span class="o">/</span><span class="n">RUkOvzxZJed6kBzozvZ8vCi</span><span class="o">+</span><span class="n">Afv1BXjkv</span><span class="o">+</span><span class="n">jrezkkqsFl5YA01nLxyU</span>
+<span class="n">zo1LFBNZ41</span><span class="o">+</span><span class="n">wRHQXCQKENzsHnuVwZ0CcXRfFoZnDCn9Hs0L7kBH02O2JPbFlIVw</span><span class="o">/</span><span class="mi">72</span><span class="n">XaZundqjczcp1w0gou0</span><span class="o">+</span><span class="n">Uq</span>
+<span class="n">TRTPvbaUnz17wffw</span><span class="o">==</span> <span class="n">Connexion</span> <span class="n">GitHub</span> <span class="n">DUO</span>
+</pre></div>
+</div>
+<p>Copiez cette clé, depuis <code class="docutils literal notranslate"><span class="pre">ssh-rsa</span></code> jusqu’à <code class="docutils literal notranslate"><span class="pre">Connexion</span> <span class="pre">GitHub</span> <span class="pre">DUO</span></code> inclus.</p>
+</section>
+<section id="ajout-de-la-cle-publique-dans-github">
+<h2>1.2 Ajout de la clé publique dans GitHub<a class="headerlink" href="#ajout-de-la-cle-publique-dans-github" title="Permalink to this heading">#</a></h2>
+<p>Ouvrez maintenant l’interface de gestion des clés de GitHub : <a class="github reference external" href="https://github.com/settings/keys">settings/keys</a></p>
+<p><em>Authentifiez-vous si besoin.</em></p>
+<p>Cliquez sur le bouton vert « <em>New SSH key</em> ».</p>
+<p>Indiquez comme titre « Connexion DUO » (sans les guillemets).</p>
+<p>Collez votre clé dans le champ <em>Key</em> (tout depuis <code class="docutils literal notranslate"><span class="pre">ssh-rsa</span></code> jusqu’à <code class="docutils literal notranslate"><span class="pre">Connexion</span> <span class="pre">GitHub</span> <span class="pre">DUO</span></code> inclus).</p>
+<p>Enfin, cliquez sur le bouton vert « <em>Add SSH key</em> ».</p>
+</section>
+<section id="test-de-la-connexion-a-github">
+<h2>1.3 Test de la connexion à GitHub<a class="headerlink" href="#test-de-la-connexion-a-github" title="Permalink to this heading">#</a></h2>
+<p>Pour tester si l’enregistrement de votre clé publique dans GitHub a bien fonctionné, tapez la commande suivante dans le terminal Bash Ubuntu de votre machine :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com
+</pre></div>
+</div>
+<p>Validez en tapant <code class="docutils literal notranslate"><span class="pre">yes</span></code> puis en appuyant sur <kbd>Entrée</kbd>.</p>
+<p>Si votre clé publique a bien été enregistrée dans GitHub, vous devriez obtenir le message :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hi LOGIN! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</pre></div>
+</div>
+<p>Avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> l’identifiant de votre compte sur GitHub. 🎉</p>
+</section>
+</section>
+<section id="partie-2-premier-depot">
+<h1>Partie 2 : Premier dépôt<a class="headerlink" href="#partie-2-premier-depot" title="Permalink to this heading">#</a></h1>
+<section id="creation-d-un-nouveau-depot-sur-github">
+<h2>2.1 Création d’un nouveau dépôt sur GitHub<a class="headerlink" href="#creation-d-un-nouveau-depot-sur-github" title="Permalink to this heading">#</a></h2>
+<p>Dans l’interface de GitHub, tout en haut à droite, cliquez sur le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code> puis sur « <em>New repository</em> » :</p>
+<p><img alt="" src="_images/github_create_repo1.png" /></p>
+<p>Indiquez ensuite <em>duo-test</em> comme « <em>Repository name</em> » :</p>
+<p><img alt="" src="_images/github_create_repo2.png" /></p>
+<p>Laissez tous les autres paramètres par défaut.</p>
+<p>Puis cliquez sur le bouton vert « <em>Create repository</em> ».</p>
+<p>Enfin, notez et copiez l’adresse de connexion de votre dépôt qui débute par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code>, vous en aurez besoin pour la suite :</p>
+<p><img alt="" src="_images/github_create_repo3.png" /></p>
+<p>⚠️ <strong>Attention</strong> ⚠️ Si l’adresse de votre dépôt ne débute pas par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code> mais par <code class="docutils literal notranslate"><span class="pre">https://github.com</span></code> alors cliquez sur le bouton gris « <em>SSH</em> » pour obtenir l’adresse qui débute par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code></p>
+</section>
+<section id="connexion-du-depot-distant-sur-github-a-votre-machine-locale">
+<h2>2.2 Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
+<p>Ouvrez un terminal Bash Ubuntu, puis déplacez-vous dans le répertoire <code class="docutils literal notranslate"><span class="pre">/mnt/c/Users/omics/</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/mnt/c/Users/omics/
+</pre></div>
+</div>
+<p>Créez ensuite le répertoire <code class="docutils literal notranslate"><span class="pre">intro-git</span></code> et déplacez-vous à l’intérieur :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>intro-git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>intro-git
+</pre></div>
+</div>
+<p>Vérifiez avec la commande <code class="docutils literal notranslate"><span class="pre">pwd</span></code> que vous êtes dans le bon répertoire :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
+/mnt/c/Users/omics/intro-git
+</pre></div>
+</div>
+<p>Exécutez ensuite la commande suivante pour cloner votre dépôt distant (qui est sur GitHub) sur votre machine locale :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github...
+</pre></div>
+</div>
+<p>Pour l’utilisateur <code class="docutils literal notranslate"><span class="pre">pierrepo</span></code>, la commande complète est : <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;github.com:pierrepo/duo-test.git</span></code></p>
+<p><strong>Remarques :</strong></p>
+<ul class="simple">
+<li><p>git pourra éventuellement se plaindre avec le message <code class="docutils literal notranslate"><span class="pre">warning:</span> <span class="pre">You</span> <span class="pre">appear</span> <span class="pre">to</span> <span class="pre">have</span> <span class="pre">cloned</span> <span class="pre">an</span> <span class="pre">empty</span> <span class="pre">repository.</span></code> C’est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.</p></li>
+<li><p>L’adresse de votre dépôt distant doit commencer par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code></p></li>
+</ul>
+<p>Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>duo-test
+</pre></div>
+</div>
+<p>Affichez le contenu du répertoire.</p>
+<p>Ce répertoire ne contient rien. C’est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier car il contient en fait un répertoire caché <code class="docutils literal notranslate"><span class="pre">.git</span></code>. Affichez ce répertoire avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-al
+</pre></div>
+</div>
+<p>C’est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l’historique du dépôt. 🧐 Ne le supprimez pas et ne modifiez pas non plus.</p>
+</section>
+<section id="configuration-du-depot-local">
+<h2>2.3 Configuration du dépôt local<a class="headerlink" href="#configuration-du-depot-local" title="Permalink to this heading">#</a></h2>
+<p>Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prénom Nom&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;moi@mail.com&quot;</span>
+</pre></div>
+</div>
+<p><em>Attention, adaptez le prénom, le nom et l’adresse e-mail à votre cas. Veillez à conserver les guillemets autour de <code class="docutils literal notranslate"><span class="pre">Prénom</span> <span class="pre">Nom</span></code> dans la première ligne</em>.</p>
+<p>Remarque : ces commmandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> ne sont à lancer qu’une seule fois sur votre machine (même si vous avez plusieurs dépôts).</p>
+<p>Vérifiez que ces paramètres sont bien pris en compte avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>user
+</pre></div>
+</div>
+<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">user.name</span></code> et <code class="docutils literal notranslate"><span class="pre">user.email</span></code> devrait contenir les informations que vous avez entrées précédemment.</p>
+</section>
+<section id="exploration-des-commandes-de-base">
+<h2>2.4 Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
+<p>Toujours dans votre dépôt git, créez le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> et ajoutez-y du contenu. Vous pouvez faire cela avec l’éditeur de texte <code class="docutils literal notranslate"><span class="pre">nano</span></code> ou plus rapidement avec la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;une première ligne&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Si vous tapez maintenant la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> pour savoir ce qui se passe, vous devriez obtenir :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+Sur la branche master
+
+Aucun commit
+
+Fichiers non suivis:
+  (utilisez &quot;git add &lt;fichier&gt;...&quot; pour inclure dans ce qui sera validé)
+        test1.txt
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez &quot;git add&quot; pour les suivre)
+</pre></div>
+</div>
+<p>Le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> existe bien mais il n’est pas encore pris en charge par git. Pour cela, il faut utiliser la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Un nouveau <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> renvoie :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+Sur la branche master
+
+Aucun commit
+
+Modifications qui seront validées :
+  (utilisez &quot;git rm --cached &lt;fichier&gt;...&quot; pour désindexer)
+        nouveau fichier : test1.txt
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> est désormais pris en compte par git et ses modifications sont prêtes à être validées. Pour cela, nous allons créer un <em>commit</em>, c’est-à-dire une photo des fichiers :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Premier commit&quot;</span>
+</pre></div>
+</div>
+<p>Vous devriez obtenir un résultat du type :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Premier commit&quot;</span>
+<span class="o">[</span>master<span class="w"> </span><span class="o">(</span>commit<span class="w"> </span>racine<span class="o">)</span><span class="w"> </span>a7b7006<span class="o">]</span><span class="w"> </span>Premier<span class="w"> </span>commit
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Parfait ! Il est maintenant temps d’envoyer ce premier <em>commit</em> sur GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Énumération<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>fait.
+Décompte<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span>fait.
+Écriture<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">236</span><span class="w"> </span>octets<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">236</span>.00<span class="w"> </span>Kio/s,<span class="w"> </span>fait.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>réutilisés<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+To<span class="w"> </span>github.com:pierrepo/duo-test.git
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
+</pre></div>
+</div>
+<p>Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori <code class="docutils literal notranslate"><span class="pre">https://github.com/LOGIN/duo-test</span></code> avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant GitHub).</p>
+<p>Vous devriez voir le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> ! 🥳</p>
+<p><img alt="" src="_images/github_first_commit.png" /></p>
+<p>Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;et hop une deuxième ligne !&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Visualisez les différences par rapport au <em>commit</em> précédent avec la commande</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+<p>Une nouvelle ligne est marquée par le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code>. Une ligne supprimée est marquée par le symbole <code class="docutils literal notranslate"><span class="pre">-</span></code>. Les lignes modifiées apparaissent avec le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code> et <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
+<p>Exemple de résultat :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff
+diff<span class="w"> </span>--git<span class="w"> </span>a/test1.txt<span class="w"> </span>b/test1.txt
+index<span class="w"> </span>0d8e693..f9f2480<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/test1.txt
++++<span class="w"> </span>b/test1.txt
+@@<span class="w"> </span>-1<span class="w"> </span>+1,2<span class="w"> </span>@@
+<span class="w"> </span>une<span class="w"> </span>première<span class="w"> </span>ligne
++et<span class="w"> </span>hop<span class="w"> </span>une<span class="w"> </span>deuxième<span class="w"> </span>ligne<span class="w"> </span>!
+</pre></div>
+</div>
+<p>Ajoutez (encore) le fichier modifié puis créez un nouveau <em>commit</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test1.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Ajout d&#39;un nouveau message&quot;</span>
+</pre></div>
+</div>
+<p>Et envoyez ce nouveau <em>commit</em> sur Github :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Énumération<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>fait.
+Décompte<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>,<span class="w"> </span>fait.
+Écriture<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">305</span><span class="w"> </span>octets<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">305</span>.00<span class="w"> </span>Kio/s,<span class="w"> </span>fait.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>réutilisés<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+To<span class="w"> </span>github.com:pierrepo/duo-test.git
+<span class="w">   </span>404b6ff..5adb360<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
+</pre></div>
+</div>
+<p>Retournez sur GitHub pour observer ce nouveau <em>commit</em> :</p>
+<p><img alt="" src="_images/github_second_commit.png" /></p>
+<p>Depuis le terminal Bash Ubuntu, affichez l’historique avec la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git log
+commit 5adb360b9682320e4fe32382d79d9b9454d657b3 (HEAD -&gt; master, origin/master)
+Author: Pierre Poulain &lt;pierre.poulain@cupnet.net&gt;
+Date:   Tue Apr 6 21:00:36 2021 +0200
+
+    Ajout d&#39;un nouveau message
+
+commit 404b6ff031bd9ba0daa586c7a524eb8ef409ec1c
+Author: Pierre Poulain &lt;pierre.poulain@cupnet.net&gt;
+Date:   Tue Apr 6 20:52:47 2021 +0200
+
+    Premier commit
+</pre></div>
+</div>
+<p>Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.</p>
+<p>Vous constatez que git mémorise :</p>
+<ul class="simple">
+<li><p><strong>qui</strong> a créé le <em>commit</em> (par exemple : <em>Pierre Poulain <a class="reference external" href="mailto:pierre&#46;poulain&#37;&#52;&#48;cupnet&#46;net">pierre<span>&#46;</span>poulain<span>&#64;</span>cupnet<span>&#46;</span>net</a></em>) ;</p></li>
+<li><p><strong>quand</strong> le <em>commit</em> a été créé (par exemple : <em>Tue Apr 6 21:00:36 2021 +0200</em>) ;</p></li>
+<li><p>et <strong>pourquoi</strong> il a été créé (par exempe : <em>Ajout d’un nouveau message</em>).</p></li>
+</ul>
+<p>Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard comment les retrouver.</p>
+<p>De plus, git attribue un identifiant à chaque <em>commit</em> (ici : <code class="docutils literal notranslate"><span class="pre">404b6ff031bd9ba0daa586c7a524eb8ef409ec1c</span></code>). Cet identifiant est unique et permet de retrouver un <em>commit</em> particulier.</p>
+<p>Depuis l’interface de GitHub, cliquez sur le bouton vert « <em>Add a README</em> »</p>
+<p>Dans l’éditeur en ligne, ajoutez le texte suivant :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># duo-test</span>
+
+<span class="n">Dépôt</span> <span class="n">git</span> <span class="n">de</span> <span class="n">test</span> <span class="n">pour</span> <span class="n">le</span> <span class="o">**</span><span class="n">DU</span> <span class="n">omiques</span><span class="o">**.</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/github_readme_1.png" /></p>
+<p>En bas de la page, indiquez comme titre de <em>commit</em> : « Création README.md » (sans les guillemets), puis cliquez sur le bouton vert « <em>Commit new file</em> ».</p>
+<p><img alt="" src="_images/github_readme_2.png" /></p>
+<p>Bravo ! Vous avez créé un nouveau <em>commit</em>, mais cette fois dans l’interface de GitHub :</p>
+<p><img alt="" src="_images/github_readme_3.png" /></p>
+<p>Retournez dans le terminal Bash Ubuntu et synchronisez votre dépôt git local avec GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Dépaquetage<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">716</span><span class="w"> </span>octets<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">358</span>.00<span class="w"> </span>Kio/s,<span class="w"> </span>fait.
+Depuis<span class="w"> </span>github.com:pierrepo/duo-test
+<span class="w">   </span>5adb360..4c65a31<span class="w">  </span>master<span class="w">     </span>-&gt;<span class="w"> </span>origin/master
+Mise<span class="w"> </span>à<span class="w"> </span>jour<span class="w"> </span>5adb360..4c65a31
+Fast-forward
+<span class="w"> </span>README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>+++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">3</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>README.md
+</pre></div>
+</div>
+<p>Vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">README.md</span></code> est bien présent avec la commande <code class="docutils literal notranslate"><span class="pre">ls</span></code> puis affichez son contenu :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>README.md
+</pre></div>
+</div>
+<p>Vérifiez également que le <em>commit</em> créé sur GitHub est bien enregistré dans l’historique :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log
+</pre></div>
+</div>
+<p>Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.</p>
+</section>
+</section>
+<section id="partie-3-utiliser-les-cles-privee-et-publique-pour-une-connexion-en-ssh-au-serveur-de-l-ifb">
+<h1>Partie 3 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l’IFB<a class="headerlink" href="#partie-3-utiliser-les-cles-privee-et-publique-pour-une-connexion-en-ssh-au-serveur-de-l-ifb" title="Permalink to this heading">#</a></h1>
+<section id="enregistrement-de-la-cle-publique-sur-le-serveur-de-l-ifb">
+<h2>3.1 Enregistrement de la clé publique sur le serveur de l’IFB<a class="headerlink" href="#enregistrement-de-la-cle-publique-sur-le-serveur-de-l-ifb" title="Permalink to this heading">#</a></h2>
+<p>La paire de clés que vous avez créée peut également être utile pour vous connecter rapidement sur le serveur de l’IFB, c’est-à-dire sans entrer votre mot de passe à chaque fois.</p>
+<p>Pour cela, exécutez la commande suivante pour enregistrer votre clé publique sur le serveur de l’IFB :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh-copy-id -i ~/.ssh/id_rsa.pub LOGIN@core.cluster.france-bioinformatique.fr
+</pre></div>
+</div>
+<p>avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant sur le serveur de l’IFB. Attention, cet identiant est a priori différent de celui de GitHub.</p>
+<p>Entrez votre mot de passe lorsqu’il est demandé.</p>
+<p>Exécutez ensuite la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>LOGIN@core.cluster.france-bioinformatique.fr
+</pre></div>
+</div>
+<p>avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant sur le serveur de l’IFB.</p>
+<p>Si la manipulation précédente avec <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> s’est bien passée, vous devriez pouvoir vous connecter sur le serveur de l’IFB sans entrer de mot de passe. Pratique non ?</p>
+</section>
+<section id="copie-de-la-paire-de-cles-sur-le-serveur-de-l-ifb">
+<h2>3.2 Copie de la paire de clés sur le serveur de l’IFB<a class="headerlink" href="#copie-de-la-paire-de-cles-sur-le-serveur-de-l-ifb" title="Permalink to this heading">#</a></h2>
+<p>On peut faire encore plus intéressant en copiant la paire de clés sur le serveur de l’IFB.</p>
+<p>Déconnectez-vous du serveur de l’IFB en exécutant la commande <code class="docutils literal notranslate"><span class="pre">exit</span></code>.</p>
+<p>Depuis le terminal Bash Ubuntu de votre machine locale, copiez votre paire de clés sur le serveur de l’IFB :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>scp<span class="w"> </span>~/.ssh/id_rsa*<span class="w"> </span>LOGIN@core.cluster.france-bioinformatique.fr:.ssh/
+</pre></div>
+</div>
+<p>avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant sur le serveur de l’IFB.</p>
+<p>Connectez-vous au serveur de l’IFB (normalement sans mot de passe) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ssh<span class="w"> </span>LOGIN@core.cluster.france-bioinformatique.fr
+</pre></div>
+</div>
+<p>Puis clonez votre dépôt git depuis GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:LOGIN/duo-test.git
+</pre></div>
+</div>
+<p>avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant GitHub (pas celui de l’IFB).</p>
+<p>Déplacez-vous ensuite dans le nouveau répertoire créé :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>duo-test
+</pre></div>
+</div>
+<p>Vérifiez avec la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> que vous avez récupéré tout l’historique du projet.</p>
+<p>Vous pouvez ainsi travailler dans votre dépôt depuis votre machine locale ou le serveur de l’IFB, à votre convenance. Pensez à envoyer sur GitHub (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>) ou à télécharger depuis GitHub (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>) vos modifications régulièrement.</p>
+<p>Si vous travaillez sur le serveur de l’IFB, pensez à relancer les commandes :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prénom Nom&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;moi@mail.com&quot;</span>
+</pre></div>
+</div>
+<p><em>Attention, adaptez le prénom, le nom et l’adresse e-mail à votre cas.</em></p>
+<p>Essayez de modifier un fichier ou d’en créer un nouveau, de l’ajouter, de créer un nouveau <em>commit</em> puis de l’envoyer sur GitHub. Amusez-vous !</p>
+</section>
+</section>
+<section id="partie-4-un-peu-de-speleo">
+<h1>Partie 4 : Un peu de spéléo<a class="headerlink" href="#partie-4-un-peu-de-speleo" title="Permalink to this heading">#</a></h1>
+<p><em>Remarque : cette section est l’occasion d’explorer l’historique d’un dépôt git et d’aborder une nouvelle commande, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code>.</em></p>
+<p>J’ai développé il y a quelques années <a class="reference external" href="https://github.com/pierrepo/autoclasswrapper">autoclasswrapper</a>, un wrapper Python pour le programme de classification bayesienne  <a class="reference external" href="https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/">AutoClass C</a>.</p>
+<p>Sur votre machine, ouvrez un terminal Bash Ubuntu, puis déplacez-vous dans le répertoire <code class="docutils literal notranslate"><span class="pre">/mnt/c/Users/omics/intro-git</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/mnt/c/Users/omics/intro-git
+</pre></div>
+</div>
+<p>Téléchargez l’intégralité du projet <em>autoclasswrapper</em> avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pierrepo/autoclasswrapper.git
+</pre></div>
+</div>
+<p>puis déplacez-vous dans le répertoire du projet :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>autoclasswrapper
+</pre></div>
+</div>
+<section id="de-quand-date-le-dernier-commit">
+<h2>De quand date le dernier <em>commit</em> ?<a class="headerlink" href="#de-quand-date-le-dernier-commit" title="Permalink to this heading">#</a></h2>
+<p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> et <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p>
+</section>
+<section id="quand-a-ete-cree-le-tout-premier-commit">
+<h2>Quand a été créé le tout premier <em>commit</em> ?<a class="headerlink" href="#quand-a-ete-cree-le-tout-premier-commit" title="Permalink to this heading">#</a></h2>
+<p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> et <code class="docutils literal notranslate"><span class="pre">tail</span></code>.</p>
+</section>
+<section id="combien-de-commits-ont-ete-enregistres-jusqu-a-present">
+<h2>Combien de <em>commits</em> ont été enregistrés jusqu’à présent ?<a class="headerlink" href="#combien-de-commits-ont-ete-enregistres-jusqu-a-present" title="Permalink to this heading">#</a></h2>
+<p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-c</span></code> et un mot-clé pertinent. Vérifiez cette valeur sur le site du dépôt : <a class="github reference external" href="https://github.com/pierrepo/autoclasswrapper">pierrepo/autoclasswrapper</a></p>
+</section>
+<section id="trouvez-dans-quel-commit-j-ai-ajoute-la-possibilite-de-construire-un-dendrogramme">
+<h2>Trouvez dans quel <em>commit</em> j’ai ajouté la possibilité de construire un <a class="reference external" href="https://en.wikipedia.org/wiki/Dendrogram">dendrogramme</a> ?<a class="headerlink" href="#trouvez-dans-quel-commit-j-ai-ajoute-la-possibilite-de-construire-un-dendrogramme" title="Permalink to this heading">#</a></h2>
+<p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-B4</span></code> et un mot-clé pertinent (en anglais).</p>
+</section>
+<section id="combien-de-fichiers-ont-ete-modifies-dans-le-commit-correspondant">
+<h2>Combien de fichiers ont été modifiés dans le <em>commit</em> correspondant ?<a class="headerlink" href="#combien-de-fichiers-ont-ete-modifies-dans-le-commit-correspondant" title="Permalink to this heading">#</a></h2>
+<p>Utilisez pour cela la commande</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>show<span class="w"> </span>--name-only<span class="w"> </span>IDENTIFIANT-DU-COMMIT
+</pre></div>
+</div>
+<p>avec <code class="docutils literal notranslate"><span class="pre">IDENTIFIANT-DU-COMMIT</span></code> l’identifiant du <em>commit</em> intéressant.</p>
+<p><strong>Aides :</strong></p>
+<ul class="simple">
+<li><p>L’identifiant du commit débute par <code class="docutils literal notranslate"><span class="pre">2d1c</span></code>.</p></li>
+<li><p>Vous n’avez pas besoin d’entrer l’identifiant complet, les 6 premiers caractères devraient suffire.</p></li>
+</ul>
+<p>Notez la différence avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>show<span class="w"> </span>IDENTIFIANT-DU-COMMIT
+</pre></div>
+</div>
+<p>Pressez la touche <kbd>q</kbd> pour quitter.</p>
+</section>
+</section>
+<section id="partie-5-branches-et-collaboration">
+<h1>Partie 5 : Branches et collaboration<a class="headerlink" href="#partie-5-branches-et-collaboration" title="Permalink to this heading">#</a></h1>
+<section id="les-branches">
+<h2>5.1 Les branches<a class="headerlink" href="#les-branches" title="Permalink to this heading">#</a></h2>
+<p>Revisionez la vidéo « <a class="reference external" href="https://youtu.be/hPfgekYUKgk?t=634">Débuter avec Git et Github en 30 min</a> » à partir de 10’34 sur les branches.</p>
+<p>Depuis le terminal Bash Ubuntu de votre machine locale, revenez dans votre dépôt <code class="docutils literal notranslate"><span class="pre">duo-test</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/mnt/c/Users/omics/intro-git/duo-test
+</pre></div>
+</div>
+<p>Créez une nouvelle branche, par exemple <em>nouveau-fichier</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Vérifiez que cette branche existe bien :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>master
+<span class="w">  </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Le symbole <code class="docutils literal notranslate"><span class="pre">*</span></code> à gauche de <em>master</em> indique que la branche courante est <em>master</em>.</p>
+<p>Basculez maintenant sur la branche que vous venez de créer :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Vérifiez que vous êtes désormais sur la bonne branche :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch
+<span class="w">  </span>master
+*<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Le symbole <code class="docutils literal notranslate"><span class="pre">*</span></code> à gauche de <em>nouveau-fichier</em> indique que la branche courante est <em>nouveau-fichier</em>.</p>
+<p>Créez un nouveau fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> avec le texte qui vous convient :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Nouveau fichier pour tester une branche&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test2.txt
+</pre></div>
+</div>
+<p>Réalisez plusieurs <em>commits</em> en modifiant à chaque fois le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code>, par exemple :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Création d&#39;un nouveau fichier&quot;</span>
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Une ligne supplémentaire&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Ajout d&#39;une ligne&quot;</span>
+</pre></div>
+</div>
+<p>Revenez sur la branche <em>master</em> et vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> n’est <strong>pas</strong> présent :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>master
+$<span class="w"> </span>ls
+</pre></div>
+</div>
+<p>Fusionnez maintenant sur <em>master</em> la branche <em>nouveau-fichier</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> est présent et contient vos modifications :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
+$<span class="w"> </span>cat<span class="w"> </span>test2.txt
+</pre></div>
+</div>
+<p>Supprimez l’ancienne branche <em>nouveau-fichier</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Puis vérifiez qu’elle a bien été détruite :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>master
+</pre></div>
+</div>
+<p>Enfin, envoyez toutes vos modifications sur GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>Vérifiez que le dépôt sur GitHub a bien été mis à jour.</p>
+</section>
+<section id="collaboration-avec-github">
+<h2>5.2 Collaboration avec GitHub<a class="headerlink" href="#collaboration-avec-github" title="Permalink to this heading">#</a></h2>
+<p>Revisionez la vidéo « <a class="reference external" href="https://youtu.be/hPfgekYUKgk?t=1058">Débuter avec Git et Github en 30 min</a> » à partir de 17’38 sur le dépôt distant et GitHub.</p>
+<p>Explorez le travail collaboratif avec une ou plusieurs autres personnes.</p>
+<p>Remarque : Comme votre dépôt est déjà sur GitHub, vous n’aurez pas besoin d’exécuter la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add...</span></code></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="connexion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Connexion à l’interface JupyterLab de l’IFB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="more.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pour  aller plus loin</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Partie 1 : Utilisation des clés privée et publique</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-des-cles">1.1 Création des clés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajout-de-la-cle-publique-dans-github">1.2 Ajout de la clé publique dans GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-la-connexion-a-github">1.3 Test de la connexion à GitHub</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-premier-depot">Partie 2 : Premier dépôt</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">2.1 Création d’un nouveau dépôt sur GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">2.2 Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">2.3 Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">2.4 Exploration des commandes de base</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-3-utiliser-les-cles-privee-et-publique-pour-une-connexion-en-ssh-au-serveur-de-l-ifb">Partie 3 : Utiliser les clés privée et publique pour une connexion en SSH au serveur de l’IFB</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enregistrement-de-la-cle-publique-sur-le-serveur-de-l-ifb">3.1 Enregistrement de la clé publique sur le serveur de l’IFB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copie-de-la-paire-de-cles-sur-le-serveur-de-l-ifb">3.2 Copie de la paire de clés sur le serveur de l’IFB</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-4-un-peu-de-speleo">Partie 4 : Un peu de spéléo</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-quand-date-le-dernier-commit">De quand date le dernier <em>commit</em> ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quand-a-ete-cree-le-tout-premier-commit">Quand a été créé le tout premier <em>commit</em> ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combien-de-commits-ont-ete-enregistres-jusqu-a-present">Combien de <em>commits</em> ont été enregistrés jusqu’à présent ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trouvez-dans-quel-commit-j-ai-ajoute-la-possibilite-de-construire-un-dendrogramme">Trouvez dans quel <em>commit</em> j’ai ajouté la possibilité de construire un dendrogramme ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combien-de-fichiers-ont-ete-modifies-dans-le-commit-correspondant">Combien de fichiers ont été modifiés dans le <em>commit</em> correspondant ?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-5-branches-et-collaboration">Partie 5 : Branches et collaboration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-branches">5.1 Les branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaboration-avec-github">5.2 Collaboration avec GitHub</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pierre Poulain
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+Ce contenu est mis à disposition selon les termes de la licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 International</a> (CC BY-SA 4.0).
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
