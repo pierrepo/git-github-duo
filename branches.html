@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Pour aller plus loin &#8212; Git &amp; GitHub</title>
+    <title>Branches et collaboration &#8212; Git &amp; GitHub</title>
   
   
   
@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'more';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'branches';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Collaborer avec GitHub" href="collaboration.html" />
+    <link rel="next" title="Collaborer avec GitHub" href="collaboration.html" />
+    <link rel="prev" title="Exploration d’un projet existant" href="projet_existant.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,9 +162,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="premier_depot.html">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="projet_existant.html">Exploration d’un projet existant</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branches.html">Branches et collaboration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Branches et collaboration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collaboration.html">Collaborer avec GitHub</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pour  aller plus loin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
 </ul>
 
     </div>
@@ -235,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/pierrepo/git-github-duo/edit/master/docs/more.md" target="_blank"
+      <li><a href="https://github.com/pierrepo/git-github-duo/edit/master/docs/branches.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -252,7 +253,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/pierrepo/git-github-duo/issues/new?title=Issue%20on%20page%20%2Fmore.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/pierrepo/git-github-duo/issues/new?title=Issue%20on%20page%20%2Fbranches.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/more.md" target="_blank"
+      <li><a href="_sources/branches.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Pour  aller plus loin</h1>
+    <h1>Branches et collaboration</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,8 +375,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autre-tutoriel">Autre tutoriel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressouces-compementaires">Ressouces compémentaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-branches">Les branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusionner-les-branches">2. Fusionner les branches</a></li>
 </ul>
             </nav>
         </div>
@@ -387,32 +388,137 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pour-aller-plus-loin">
-<h1>Pour  aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permalink to this heading">#</a></h1>
-<section id="autre-tutoriel">
-<h2>Autre tutoriel<a class="headerlink" href="#autre-tutoriel" title="Permalink to this heading">#</a></h2>
-<p>Au délà de ce premier tutoriel, vous pouvez également celui de de Software Carpentry : <a class="reference external" href="https://swcarpentry.github.io/git-novice/"><em>Version Control with Git</em></a>.</p>
+  <section id="branches-et-collaboration">
+<h1>Branches et collaboration<a class="headerlink" href="#branches-et-collaboration" title="Permalink to this heading">#</a></h1>
+<p>Depuis un terminal sur le JupyterLab de l’IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shared/projects/202304_duo/<span class="nv">$USER</span>/intro-git
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Rappel</p>
+<ul class="simple">
+<li><p>Ne tapez pas le caractère <code class="docutils literal notranslate"><span class="pre">$</span></code> en début de ligne et faites bien attention aux majuscules et au minuscules.</p></li>
+<li><p>Copiez / collez les commandes pour aller plus vite et faire moins d’erreur.</p></li>
+</ul>
+</div>
+<p>Vérifiez que vous êtes dans le bon répertoire :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
+/shared/projects/202304_duo/LOGINIFB/intro-git
+</pre></div>
+</div>
+<section id="les-branches">
+<h2>Les branches<a class="headerlink" href="#les-branches" title="Permalink to this heading">#</a></h2>
+<p>Revisionez la vidéo « <a class="reference external" href="https://youtu.be/hPfgekYUKgk?t=634">Débuter avec Git et Github en 30 min</a> » à partir de 10’34 sur les branches.</p>
+<p>Depuis le terminal, revenez dans votre dépôt <code class="docutils literal notranslate"><span class="pre">duo-test</span></code> que vous avez créé précédemment :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shared/projects/202304_duo/<span class="nv">$USER</span>/intro-git/duo-test
+</pre></div>
+</div>
+<p>Vérifiez que votre dépôt est « propre », c’est-à-dire qu’il ne contient pas de fichier modifié non commité.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>master
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date<span class="w"> </span>with<span class="w"> </span><span class="s1">&#39;origin/master&#39;</span>.
+
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
+</pre></div>
+</div>
+<p>Créez une nouvelle branche, par exemple <em>nouveau-fichier</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Vérifiez que cette branche existe bien :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>master
+<span class="w">  </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Le symbole <code class="docutils literal notranslate"><span class="pre">*</span></code> à gauche de <em>master</em> indique que la branche courante est <em>master</em>.</p>
+<p>Basculez maintenant sur la branche que vous venez de créer :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Vérifiez que vous êtes désormais sur la bonne branche :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch
+<span class="w">  </span>master
+*<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Le symbole <code class="docutils literal notranslate"><span class="pre">*</span></code> à gauche de <em>nouveau-fichier</em> indique que la branche courante est <em>nouveau-fichier</em>.</p>
+<p>Créez un nouveau fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> avec le texte qui vous convient :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Nouveau fichier pour tester une branche&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test2.txt
+</pre></div>
+</div>
+<p>Demandez ensuite à git de prendre en compte votre nouveau fichier :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test2.txt
+</pre></div>
+</div>
+<p>Puis réalisez un premier commit :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Création d&#39;un nouveau fichier&quot;</span>
+</pre></div>
+</div>
+<p>Réalisez plusieurs <em>commits</em> en modifiant à chaque fois le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code>, par exemple :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Une ligne supplémentaire&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Ajout d&#39;une ligne&quot;</span>
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Et encore une !&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test2.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Ajout d&#39;une dernière ligne&quot;</span>
+</pre></div>
+</div>
+<p>Vous pouvez enfin envoyer votre branche sur GitHub. En utilisant la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>Git va vous renvoyer un message d’erreur :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fatal</span><span class="p">:</span> <span class="n">La</span> <span class="n">branche</span> <span class="n">courante</span> <span class="n">nouveau</span><span class="o">-</span><span class="n">fichier</span> <span class="n">n</span><span class="s1">&#39;a pas de branche amont.</span>
+</pre></div>
+</div>
+<p>et vous proposer une instruction plus complète du type :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Utilisez cette instruction pour enfin envoyer votre branche sur GitHub.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">nouveau-fichier</span></code> est à utiliser uniquement la première fois que vous envoyez une branche sur GitHub. Par la suite, vous pourrez utiliser la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> seule.</p>
+</div>
+<p>Verifiez que votre branche <code class="docutils literal notranslate"><span class="pre">nouveau-fichier</span></code> est bien présente sur GitHub en cliquant sur branches dans le menu au dessus de l’aperçu du dépôt.</p>
 </section>
-<section id="ressouces-compementaires">
-<h2>Ressouces compémentaires<a class="headerlink" href="#ressouces-compementaires" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Une introduction très pédagogique et détaillée de Sébastien Saunier : <a class="reference external" href="https://www.youtube.com/watch?v=V6Zo68uQPqE">Débuter avec Git et Github</a> (1h27)</p></li>
-<li><p>Des articles scientifiques sur l’utilisation de git et GitHub en recherche :</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668">A Quick Introduction to Version Control with Git and GitHub</a>, Blischak, Davenport &amp; Wilson, <em>PLOS Comput Biol</em>, 2016.</p></li>
-<li><p><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947">Ten Simple Rules for Taking Advantage of Git and GitHub</a>, Perez-Riverol et al., <em>PLOS Comput Biol</em>, 2016</p></li>
-<li><p><a class="reference external" href="https://www.nature.com/news/democratic-databases-science-on-github-1.20719">Democratic databases: science on GitHub</a>, Perkel, <em>Nature</em>, 2016.</p></li>
-</ul>
-</li>
-<li><p>Les articles du blog de Christophe Ducamp :</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/">GitHub Pour les Nuls : Pas de Panique, Lancez-Vous ! (Première Partie)</a></p></li>
-<li><p><a class="reference external" href="https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/">GitHub pour les Débutants : Consignez, Poussez et Foncez !</a></p></li>
-</ul>
-</li>
-<li><p>La page <a class="reference external" href="https://jules32.github.io/2016-07-12-Oxford/git/">Reproducible workflow and version control with Git and Github</a> de Julie Lowndes, qui détaille comment configurer RStudio pour qu’il utilise Git et GitHub. Le site <a class="reference external" href="https://happygitwithr.com/index.html">Happy Git and GitHub for the useR</a> est également un site de référence pour combiner git, GitHub et RStudio.</p></li>
-<li><p>Enfin, la page dédiée à <a class="reference external" href="http://cupnet.net/git-github/">Git et GitHub</a> de votre humble serviteur.</p></li>
-</ol>
+<section id="fusionner-les-branches">
+<h2>2. Fusionner les branches<a class="headerlink" href="#fusionner-les-branches" title="Permalink to this heading">#</a></h2>
+<p>Depuis votre terminal, revenez sur la branche <em>master</em> et vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> n’est <strong>pas</strong> présent dans votre répertoire :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>master
+$<span class="w"> </span>ls
+README.md<span class="w">  </span>test1.txt
+</pre></div>
+</div>
+<p>Les branches fonctionnent comme des « réalités parallèles ». Il est donc normal que le fichier que vous avez créé dans la branche <em>nouveau-fichier</em> n’apparaisse pas dans la branche <em>master</em>.</p>
+<p>Fusionnez maintenant sur la branche actuelle (<em>master</em>) la branche <em>nouveau-fichier</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">test2.txt</span></code> est présent et contient vos modifications :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls
+README.md<span class="w">  </span>test1.txt<span class="w">  </span>test2.txt
+$<span class="w"> </span>cat<span class="w"> </span>test2.txt
+Nouveau<span class="w"> </span>fichier<span class="w"> </span>pour<span class="w"> </span>tester<span class="w"> </span>une<span class="w"> </span>branche
+Une<span class="w"> </span>ligne<span class="w"> </span>supplémentaire
+Et<span class="w"> </span>encore<span class="w"> </span>une<span class="w"> </span>!
+</pre></div>
+</div>
+<p>La branche <em>nouveau-fichier</em> ne sert plus à rien car les modifications qu’elle contenait ont été fusionnées dans la branche <em>master</em>. Vous pouvez donc supprimer la branche <em>nouveau-fichier</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>nouveau-fichier
+</pre></div>
+</div>
+<p>Puis vérifiez qu’elle a bien été détruite :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>master
+</pre></div>
+</div>
+<p>Enfin, envoyez toutes vos modifications sur GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>Vérifiez que le dépôt sur GitHub a bien été mis à jour. Pour terminer, en cliquant sur <code class="docutils literal notranslate"><span class="pre">branches</span></code> dans l’interface GitHub, supprimez également la branche <em>nouveau-fichier</em>.</p>
 </section>
 </section>
 
@@ -448,13 +554,22 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="collaboration.html"
+       href="projet_existant.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exploration d’un projet existant</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="collaboration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Collaborer avec GitHub</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -474,8 +589,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autre-tutoriel">Autre tutoriel</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ressouces-compementaires">Ressouces compémentaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-branches">Les branches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fusionner-les-branches">2. Fusionner les branches</a></li>
 </ul>
   </nav></div>
 
