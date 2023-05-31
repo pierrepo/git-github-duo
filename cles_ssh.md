@@ -1,4 +1,4 @@
-# Configuration des clés SSH
+# Configurer une paire de clés SSH
 
 La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
 

@@ -4,7 +4,7 @@ Bienvenue sur cette introduction à Git et GitHub.
 
 Vous testerez les différentes commandes git avec l'interface JupyterLab de l'IFB.
 
-### Prérequis
+## Prérequis
 
 - Posséder un compte sur le cluster de calcul de l'IFB.
 - Avoir réalisé le tutoriel [Introduction à Unix](../tuto1/tutorial.md).
