@@ -1,4 +1,4 @@
-# Connexion à l'interface JupyterLab de l'IFB
+# Connexion au JupyterLab de l'IFB
 
 - Cliquez sur le lien suivant <a href="https://jupyterhub.cluster.france-bioinformatique.fr/" target="_blank">https://jupyterhub.cluster.france-bioinformatique.fr/</a> qui va s'ouvrir dans un nouvel onglet de votre navigateur internet.
 - Utilisez vos identifiants du cluster IFB pour vous connecter.
