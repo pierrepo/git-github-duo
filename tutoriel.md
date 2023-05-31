@@ -1,12 +1,6 @@
----
-title: Tutoriel Git / GitHub
-author: Pierre Poulain
-license: Creative Commons Attribution-ShareAlike (CC BY-SA 4.0)
----
-
 # Partie 1 : Utilisation des clés privée et publique
 
-🔑 La combinaison de clés privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
+La combinaison de clés privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
 
 ## 1.1 Création des clés
 

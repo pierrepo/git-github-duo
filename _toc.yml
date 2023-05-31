@@ -7,5 +7,7 @@ parts:
 - caption: Introduction à Git et GitHub
   chapters:
   - file: connexion
+  - file: cles_ssh
+  - file: premier_depot
   - file: tutoriel
   - file: more
