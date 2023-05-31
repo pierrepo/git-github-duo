@@ -20,7 +20,7 @@ Au délà de ce premier tutoriel, vous pouvez également suivre celui de Softwar
     - [GitHub Pour les Nuls : Pas de Panique, Lancez-Vous ! (Première Partie)](https://www.christopheducamp.com/2013/12/15/github-pour-nuls-partie-1/)
     - [GitHub pour les Débutants : Consignez, Poussez et Foncez !](https://www.christopheducamp.com/2013/12/16/github-pour-nuls-partie-2/)
 
-4. La page [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) de Julie Lowndes, qui détaille comment configurer RStudio pour qu'il utilise Git et GitHub. Le site [Happy Git and GitHub for the useR](https://happygitwithr.com/index.html) est également un site de référence pour combiner git, GitHub et RStudio.
+4. La page [Reproducible workflow and version control with Git and Github](https://jules32.github.io/2016-07-12-Oxford/git/) de Julie Lowndes, qui détaille comment configurer RStudio pour qu'il utilise Git et GitHub. Le site [Happy Git and GitHub for the useR](https://happygitwithr.com/index.html) est également un site de référence pour combiner git, GitHub et RStudio. Sur le même thème (git et RStudio), je vous conseille également la lecture de [Travailler avec Git via RStudio et versionner son code](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/) d'Elena Salette.
 
 5. Enfin, la page dédiée à [Git et GitHub](http://cupnet.net/git-github/) de votre humble serviteur.
 

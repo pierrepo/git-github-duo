@@ -392,7 +392,7 @@ document.write(`
                   
   <section id="configurer-une-paire-de-cles-ssh">
 <h1>Configurer une paire de clés SSH<a class="headerlink" href="#configurer-une-paire-de-cles-ssh" title="Permalink to this heading">#</a></h1>
-<p>La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l’utilisation conjointe de la clé privée stockée sur la machine de l’utilisateur et de la clé publique stockée sur le serveur distant.</p>
+<p>La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l’utilisation conjointe de la clé privée stockée sur la machine de l’utilisateur (ici le JupyterLab de l’IFB) et de la clé publique stockée sur le serveur distant (ici GitHub).</p>
 <p>Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-passe et préconise l’utilisation de clés privée et publique.</p>
 <section id="creation-des-cles">
 <h2>1. Création des clés<a class="headerlink" href="#creation-des-cles" title="Permalink to this heading">#</a></h2>
@@ -435,7 +435,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/shar
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Le symbole <code class="docutils literal notranslate"><span class="pre">~</span></code> en Bash désigne votre répertoire personnel, qui correspond à <code class="docutils literal notranslate"><span class="pre">/shared/home/LOGINIFB</span></code> où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant sur l’IFB. C’est une sorte de raccourci.</p>
+<p>Le caractère <code class="docutils literal notranslate"><span class="pre">~</span></code> en Bash désigne votre répertoire personnel, qui correspond à <code class="docutils literal notranslate"><span class="pre">/shared/home/LOGINIFB</span></code> où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant sur l’IFB. C’est une sorte de raccourci.</p>
 </div>
 <p>Dans ce répertoire <code class="docutils literal notranslate"><span class="pre">~/.ssh/</span></code>, vous devriez trouver :</p>
 <ul class="simple">

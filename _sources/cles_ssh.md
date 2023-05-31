@@ -1,6 +1,6 @@
 # Configurer une paire de clés SSH
 
-La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur et de la clé publique stockée sur le serveur distant.
+La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur (ici le JupyterLab de l'IFB) et de la clé publique stockée sur le serveur distant (ici GitHub).
 
 Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-passe et préconise l’utilisation de clés privée et publique.
 
@@ -54,7 +54,7 @@ $ ls ~/.ssh/
 
 
 ```{note}
-Le symbole `~` en Bash désigne votre répertoire personnel, qui correspond à `/shared/home/LOGINIFB` où `LOGINIFB` est votre identifiant sur l'IFB. C'est une sorte de raccourci.
+Le caractère `~` en Bash désigne votre répertoire personnel, qui correspond à `/shared/home/LOGINIFB` où `LOGINIFB` est votre identifiant sur l'IFB. C'est une sorte de raccourci.
 ```
 
 Dans ce répertoire `~/.ssh/`, vous devriez trouver :
