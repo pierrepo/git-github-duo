@@ -8,11 +8,11 @@ Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-p
 
 Depuis l'interface JupyterLab de l'IFB, ouvrez un terminal Bash.
 
-Créez un répertoire pour cette introduction à git puis déplacez-vous y :
+Créez un répertoire `intro-git` pour cette introduction à git puis déplacez-vous y :
 
 ```bash
-$ mkdir -p /shared/projects/202304_duo/$USER/intro_git
-$ cd /shared/projects/202304_duo/$USER/intro_git
+$ mkdir -p /shared/projects/202304_duo/$USER/intro-git
+$ cd /shared/projects/202304_duo/$USER/intro-git
 ```
 
 ```{admonition} Rappel

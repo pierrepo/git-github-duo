@@ -9,7 +9,7 @@ J'ai développé il y a quelques années le logiciel [autoclasswrapper](https://
 Depuis un terminal sur le JupyterLab de l'IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :
 
 ```bash
-$ cd /shared/projects/202304_duo/$USER/intro_git
+$ cd /shared/projects/202304_duo/$USER/intro-git
 ```
 
 ```{admonition} Rappel
@@ -22,7 +22,7 @@ Vérifiez que vous êtes dans le bon répertoire :
 
 ```bash
 $ pwd
-/shared/projects/202304_duo/LOGINIFB/intro_git
+/shared/projects/202304_duo/LOGINIFB/intro-git
 ```
 
 où `LOGINIFB` est votre identifiant IFB.

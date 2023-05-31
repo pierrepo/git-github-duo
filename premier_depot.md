@@ -29,7 +29,7 @@ Depuis un terminal sur le JupyterLab de l'IFB, vérifiez que vous êtes dans le 
 
 ```bash
 $ pwd
-/shared/projects/202304_duo/LOGINIFB/intro_git
+/shared/projects/202304_duo/LOGINIFB/intro-git
 ```
 
 où `LOGINIFB` est votre identifiant IFB.
