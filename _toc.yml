@@ -12,5 +12,5 @@ parts:
   - file: projet_existant
   - file: branches
   - file: collaboration
-  - file: conclustion_methodologie
+  - file: conclusion_methodologie
   - file: more
