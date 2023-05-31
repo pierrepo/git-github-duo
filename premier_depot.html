@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'premier_depot';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Partie 1 : Utilisation des clés privée et publique" href="tutoriel.html" />
+    <link rel="next" title="Un peu de spéléo" href="projet_existant.html" />
     <link rel="prev" title="Utilisation des clés SSH" href="cles_ssh.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -161,11 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Premier dépôt</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutoriel.html">Partie 1 : Utilisation des clés privée et publique</a></li>
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="projet_existant.html">Un peu de spéléo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutoriel.html">Partie 5 : Branches et collaboration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="more.html">Pour  aller plus loin</a></li>
 </ul>
 
@@ -412,17 +409,12 @@ document.write(`
 </section>
 <section id="connexion-du-depot-distant-sur-github-a-votre-machine-locale">
 <h2>2 Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
-<p>Depuis un terminal sur le JupyterLab de l’IFB, vérifiez que vous êtes dans votre répertoire de travail <code class="docutils literal notranslate"><span class="pre">/shared/projects/202304_duo/LOGINIFB</span></code> où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant IFB.</p>
-<p>Créez ensuite le répertoire <code class="docutils literal notranslate"><span class="pre">intro-git</span></code> et déplacez-vous à l’intérieur :</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>intro-git
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>intro-git
-</pre></div>
-</div>
-<p>Vérifiez avec la commande <code class="docutils literal notranslate"><span class="pre">pwd</span></code> que vous êtes dans le bon répertoire :</p>
+<p>Depuis un terminal sur le JupyterLab de l’IFB, vérifiez que vous êtes dans le bon répertoire de travail :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
-/shared/projects/202304_duo/LOGINIFB/rnaseq
+/shared/projects/202304_duo/LOGINIFB/intro_git
 </pre></div>
 </div>
+<p>où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant IFB.</p>
 <p>Exécutez ensuite la commande suivante pour cloner votre dépôt distant (qui est sur GitHub) sur le serveur de l’IFB :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:LOGINGITHUB/duo-test.git
 </pre></div>
@@ -675,11 +667,11 @@ Fast-forward
       </div>
     </a>
     <a class="right-next"
-       href="tutoriel.html"
+       href="projet_existant.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Partie 1 : Utilisation des clés privée et publique</p>
+        <p class="prev-next-title">Un peu de spéléo</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
