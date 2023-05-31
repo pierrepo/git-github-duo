@@ -1,4 +1,4 @@
-# Branches
+# Utiliser les branches
 
 Depuis un terminal sur le JupyterLab de l'IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :
 

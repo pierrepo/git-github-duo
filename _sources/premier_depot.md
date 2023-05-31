@@ -1,4 +1,4 @@
-# Premier dépôt
+# Créer un premier dépôt
 
 ## 1. Création d'un nouveau dépôt sur GitHub
 

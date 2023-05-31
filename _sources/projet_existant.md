@@ -1,4 +1,4 @@
-# Exploration d'un projet existant
+# Explorer un projet existant
 
 ```{note}
 Cette section est l'occasion d'explorer l'historique d'un dépôt git et d'utiliser les commandes `git log` et `git show`.
