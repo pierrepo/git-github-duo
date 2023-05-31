@@ -1,4 +1,4 @@
-# Un peu de spéléo
+# Exploration d'un projet existant
 
 ```{note}
 Cette section est l'occasion d'explorer l'historique d'un dépôt git et d'aborder une nouvelle commande, `git show`.
@@ -27,6 +27,8 @@ $ pwd
 
 où `LOGINIFB` est votre identifiant IFB.
 
+## 1 Téléchargement du projet
+
 Téléchargez l'intégralité du projet *autoclasswrapper* avec la commande :
 
 ```bash
@@ -39,7 +41,9 @@ puis déplacez-vous dans le répertoire du projet :
 $ cd autoclasswrapper
 ```
 
-Utilisez maintenant différentes commandes git pour explorer le projet et répondre aux questions suivantes.
+La commande `git clone` ne télécharge pas uniquement les fichiers du projet mais aussi tout son historique de dévelopement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.
+
+## 2 Exploration de l'historique du projet
 
 ### De quand date le dernier *commit* ?
 
