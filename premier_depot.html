@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Git &amp; GitHub</title>
+    <title>Premier dépôt &#8212; Git &amp; GitHub</title>
   
   
   
@@ -157,9 +157,10 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction à Git et GitHub</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="connexion.html">Connexion à l’interface JupyterLab de l’IFB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cles_ssh.html">Utilisation des clés SSH privée et publique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Premier dépôt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutoriel.html">Partie 1 : Utilisation des clés privée et publique</a></li>
 
 
@@ -366,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Premier dépôt</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,9 +376,12 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">1 Création d’un nouveau dépôt sur GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">2.3 Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">2.4 Exploration des commandes de base</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -388,7 +392,231 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  
+  <section id="premier-depot">
+<h1>Premier dépôt<a class="headerlink" href="#premier-depot" title="Permalink to this heading">#</a></h1>
+<section id="creation-d-un-nouveau-depot-sur-github">
+<h2>1 Création d’un nouveau dépôt sur GitHub<a class="headerlink" href="#creation-d-un-nouveau-depot-sur-github" title="Permalink to this heading">#</a></h2>
+<p>Dans l’interface de GitHub, tout en haut à droite, cliquez sur le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code> puis sur « <em>New repository</em> » :</p>
+<p><img alt="" src="_images/github_create_repo1.png" /></p>
+<p>Indiquez ensuite <em>duo-test</em> comme « <em>Repository name</em> » :</p>
+<p><img alt="" src="_images/github_create_repo2.png" /></p>
+<p>Laissez tous les autres paramètres par défaut.</p>
+<p>Puis cliquez sur le bouton vert « <em>Create repository</em> ».</p>
+<p>Enfin, notez et copiez l’adresse de connexion de votre dépôt qui débute par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code>, vous en aurez besoin pour la suite :</p>
+<p><img alt="" src="_images/github_create_repo3.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Si l’adresse de votre dépôt ne débute pas par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code> mais par <code class="docutils literal notranslate"><span class="pre">https://github.com</span></code> alors cliquez sur le bouton gris « <em>SSH</em> » pour obtenir l’adresse qui débute par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code></p>
+</div>
+</section>
+<section id="connexion-du-depot-distant-sur-github-a-votre-machine-locale">
+<h2>Connexion du dépôt distant (sur GitHub) à votre machine locale<a class="headerlink" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale" title="Permalink to this heading">#</a></h2>
+<p>Depuis un terminal sur le JupyterLab de l’IFB, vérifiez que vous êtes dans votre répertoire de travail <code class="docutils literal notranslate"><span class="pre">/shared/projects/202304_duo/LOGINIFB</span></code> où <code class="docutils literal notranslate"><span class="pre">LOGINIFB</span></code> est votre identifiant IFB.</p>
+<p>Créez ensuite le répertoire <code class="docutils literal notranslate"><span class="pre">intro-git</span></code> et déplacez-vous à l’intérieur :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>intro-git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>intro-git
+</pre></div>
+</div>
+<p>Vérifiez avec la commande <code class="docutils literal notranslate"><span class="pre">pwd</span></code> que vous êtes dans le bon répertoire :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">pwd</span>
+/shared/projects/202304_duo/LOGINIFB/rnaseq
+</pre></div>
+</div>
+<p>Exécutez ensuite la commande suivante pour cloner votre dépôt distant (qui est sur GitHub) sur le serveur de l’IFB :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:LOGINGITHUB/duo-test.git
+</pre></div>
+</div>
+<p>où <code class="docutils literal notranslate"><span class="pre">LOGINGITHUB</span></code> est votre identifiant GitHub (pas celui de l’IFB).</p>
+<p><strong>Remarques :</strong></p>
+<ul class="simple">
+<li><p>git pourra éventuellement se plaindre avec le message <code class="docutils literal notranslate"><span class="pre">warning:</span> <span class="pre">You</span> <span class="pre">appear</span> <span class="pre">to</span> <span class="pre">have</span> <span class="pre">cloned</span> <span class="pre">an</span> <span class="pre">empty</span> <span class="pre">repository.</span></code> C’est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.</p></li>
+<li><p>L’adresse de votre dépôt distant doit commencer par <code class="docutils literal notranslate"><span class="pre">git&#64;github.com</span></code></p></li>
+</ul>
+<p>Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>duo-test
+</pre></div>
+</div>
+<p>Affichez le contenu du répertoire.</p>
+<p>Ce répertoire ne contient rien. C’est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier car il contient en fait un répertoire caché <code class="docutils literal notranslate"><span class="pre">.git</span></code>. Affichez ce répertoire avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-al
+</pre></div>
+</div>
+<p>C’est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l’historique du dépôt. 🧐 Ne le supprimez pas et ne modifiez pas non plus.</p>
+</section>
+<section id="configuration-du-depot-local">
+<h2>2.3 Configuration du dépôt local<a class="headerlink" href="#configuration-du-depot-local" title="Permalink to this heading">#</a></h2>
+<p>Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prénom Nom&quot;</span>
+$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;moi@mail.com&quot;</span>
+</pre></div>
+</div>
+<p><em>Attention, adaptez le prénom, le nom et l’adresse e-mail à votre cas. Veillez à conserver les guillemets autour de <code class="docutils literal notranslate"><span class="pre">Prénom</span> <span class="pre">Nom</span></code> dans la première ligne</em>.</p>
+<p>Remarque : ces commmandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> ne sont à lancer qu’une seule fois sur votre machine (même si vous avez plusieurs dépôts).</p>
+<p>Vérifiez que ces paramètres sont bien pris en compte avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>user
+</pre></div>
+</div>
+<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">user.name</span></code> et <code class="docutils literal notranslate"><span class="pre">user.email</span></code> devrait contenir les informations que vous avez entrées précédemment.</p>
+</section>
+<section id="exploration-des-commandes-de-base">
+<h2>2.4 Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
+<p>Toujours dans votre dépôt git, créez le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> et ajoutez-y du contenu. Vous pouvez faire cela avec l’éditeur de texte <code class="docutils literal notranslate"><span class="pre">nano</span></code> ou plus rapidement avec la commande suivante :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;une première ligne&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Si vous tapez maintenant la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> pour savoir ce qui se passe, vous devriez obtenir :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+Sur la branche master
+
+Aucun commit
+
+Fichiers non suivis:
+  (utilisez &quot;git add &lt;fichier&gt;...&quot; pour inclure dans ce qui sera validé)
+        test1.txt
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez &quot;git add&quot; pour les suivre)
+</pre></div>
+</div>
+<p>Le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> existe bien mais il n’est pas encore pris en charge par git. Pour cela, il faut utiliser la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Un nouveau <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> renvoie :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
+Sur la branche master
+
+Aucun commit
+
+Modifications qui seront validées :
+  (utilisez &quot;git rm --cached &lt;fichier&gt;...&quot; pour désindexer)
+        nouveau fichier : test1.txt
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> est désormais pris en compte par git et ses modifications sont prêtes à être validées. Pour cela, nous allons créer un <em>commit</em>, c’est-à-dire une photo des fichiers :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Premier commit&quot;</span>
+</pre></div>
+</div>
+<p>Vous devriez obtenir un résultat du type :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Premier commit&quot;</span>
+<span class="o">[</span>master<span class="w"> </span><span class="o">(</span>commit<span class="w"> </span>racine<span class="o">)</span><span class="w"> </span>a7b7006<span class="o">]</span><span class="w"> </span>Premier<span class="w"> </span>commit
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Parfait ! Il est maintenant temps d’envoyer ce premier <em>commit</em> sur GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Énumération<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span>fait.
+Décompte<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span>fait.
+Écriture<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">236</span><span class="w"> </span>octets<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">236</span>.00<span class="w"> </span>Kio/s,<span class="w"> </span>fait.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>réutilisés<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+To<span class="w"> </span>github.com:pierrepo/duo-test.git
+<span class="w"> </span>*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
+</pre></div>
+</div>
+<p>Retournez maintenant sur votre navigateur internet et rafraichissez la page de votre dépôt sur GitHub (a priori <code class="docutils literal notranslate"><span class="pre">https://github.com/LOGIN/duo-test</span></code> avec <code class="docutils literal notranslate"><span class="pre">LOGIN</span></code> votre identifiant GitHub).</p>
+<p>Vous devriez voir le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> ! 🥳</p>
+<p><img alt="" src="_images/github_first_commit.png" /></p>
+<p>Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier <code class="docutils literal notranslate"><span class="pre">test1.txt</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;et hop une deuxième ligne !&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>test1.txt
+</pre></div>
+</div>
+<p>Visualisez les différences par rapport au <em>commit</em> précédent avec la commande</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff
+</pre></div>
+</div>
+<p>Une nouvelle ligne est marquée par le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code>. Une ligne supprimée est marquée par le symbole <code class="docutils literal notranslate"><span class="pre">-</span></code>. Les lignes modifiées apparaissent avec le symbole <code class="docutils literal notranslate"><span class="pre">+</span></code> et <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p>
+<p>Exemple de résultat :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>diff
+diff<span class="w"> </span>--git<span class="w"> </span>a/test1.txt<span class="w"> </span>b/test1.txt
+index<span class="w"> </span>0d8e693..f9f2480<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/test1.txt
++++<span class="w"> </span>b/test1.txt
+@@<span class="w"> </span>-1<span class="w"> </span>+1,2<span class="w"> </span>@@
+<span class="w"> </span>une<span class="w"> </span>première<span class="w"> </span>ligne
++et<span class="w"> </span>hop<span class="w"> </span>une<span class="w"> </span>deuxième<span class="w"> </span>ligne<span class="w"> </span>!
+</pre></div>
+</div>
+<p>Ajoutez (encore) le fichier modifié puis créez un nouveau <em>commit</em> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>test1.txt
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Ajout d&#39;un nouveau message&quot;</span>
+</pre></div>
+</div>
+<p>Et envoyez ce nouveau <em>commit</em> sur Github :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>push
+Énumération<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>fait.
+Décompte<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>,<span class="w"> </span>fait.
+Écriture<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">305</span><span class="w"> </span>octets<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">305</span>.00<span class="w"> </span>Kio/s,<span class="w"> </span>fait.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>réutilisés<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+To<span class="w"> </span>github.com:pierrepo/duo-test.git
+<span class="w">   </span>404b6ff..5adb360<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
+</pre></div>
+</div>
+<p>Retournez sur GitHub pour observer ce nouveau <em>commit</em> :</p>
+<p><img alt="" src="_images/github_second_commit.png" /></p>
+<p>Depuis le terminal Bash Ubuntu, affichez l’historique avec la commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git log
+commit 5adb360b9682320e4fe32382d79d9b9454d657b3 (HEAD -&gt; master, origin/master)
+Author: Pierre Poulain &lt;pierre.poulain@cupnet.net&gt;
+Date:   Tue Apr 6 21:00:36 2021 +0200
+
+    Ajout d&#39;un nouveau message
+
+commit 404b6ff031bd9ba0daa586c7a524eb8ef409ec1c
+Author: Pierre Poulain &lt;pierre.poulain@cupnet.net&gt;
+Date:   Tue Apr 6 20:52:47 2021 +0200
+
+    Premier commit
+</pre></div>
+</div>
+<p>Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.</p>
+<p>Vous constatez que git mémorise :</p>
+<ul class="simple">
+<li><p><strong>qui</strong> a créé le <em>commit</em> (par exemple : <em>Pierre Poulain <a class="reference external" href="mailto:pierre&#46;poulain&#37;&#52;&#48;cupnet&#46;net">pierre<span>&#46;</span>poulain<span>&#64;</span>cupnet<span>&#46;</span>net</a></em>) ;</p></li>
+<li><p><strong>quand</strong> le <em>commit</em> a été créé (par exemple : <em>Tue Apr 6 21:00:36 2021 +0200</em>) ;</p></li>
+<li><p>et <strong>pourquoi</strong> il a été créé (par exempe : <em>Ajout d’un nouveau message</em>).</p></li>
+</ul>
+<p>Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard comment les retrouver.</p>
+<p>De plus, git attribue un identifiant à chaque <em>commit</em> (ici : <code class="docutils literal notranslate"><span class="pre">404b6ff031bd9ba0daa586c7a524eb8ef409ec1c</span></code>). Cet identifiant est unique et permet de retrouver un <em>commit</em> particulier.</p>
+<p>Depuis l’interface de GitHub, cliquez sur le bouton vert « <em>Add a README</em> »</p>
+<p>Dans l’éditeur en ligne, ajoutez le texte suivant :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># duo-test</span>
+
+<span class="n">Dépôt</span> <span class="n">git</span> <span class="n">de</span> <span class="n">test</span> <span class="n">pour</span> <span class="n">le</span> <span class="o">**</span><span class="n">DU</span> <span class="n">omiques</span><span class="o">**.</span>
+</pre></div>
+</div>
+<p><img alt="" src="_images/github_readme_1.png" /></p>
+<p>En bas de la page, indiquez comme titre de <em>commit</em> : « Création README.md » (sans les guillemets), puis cliquez sur le bouton vert « <em>Commit new file</em> ».</p>
+<p><img alt="" src="_images/github_readme_2.png" /></p>
+<p>Bravo ! Vous avez créé un nouveau <em>commit</em>, mais cette fois dans l’interface de GitHub :</p>
+<p><img alt="" src="_images/github_readme_3.png" /></p>
+<p>Retournez dans le terminal Bash Ubuntu et synchronisez votre dépôt git local avec GitHub :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>pull
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Dépaquetage<span class="w"> </span>des<span class="w"> </span>objets:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">716</span><span class="w"> </span>octets<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">358</span>.00<span class="w"> </span>Kio/s,<span class="w"> </span>fait.
+Depuis<span class="w"> </span>github.com:pierrepo/duo-test
+<span class="w">   </span>5adb360..4c65a31<span class="w">  </span>master<span class="w">     </span>-&gt;<span class="w"> </span>origin/master
+Mise<span class="w"> </span>à<span class="w"> </span>jour<span class="w"> </span>5adb360..4c65a31
+Fast-forward
+<span class="w"> </span>README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>+++
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">3</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
+<span class="w"> </span>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>README.md
+</pre></div>
+</div>
+<p>Vérifiez que le fichier <code class="docutils literal notranslate"><span class="pre">README.md</span></code> est bien présent avec la commande <code class="docutils literal notranslate"><span class="pre">ls</span></code> puis affichez son contenu :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cat<span class="w"> </span>README.md
+</pre></div>
+</div>
+<p>Vérifiez également que le <em>commit</em> créé sur GitHub est bien enregistré dans l’historique :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log
+</pre></div>
+</div>
+<p>Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.</p>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -455,9 +683,12 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creation-d-un-nouveau-depot-sur-github">1 Création d’un nouveau dépôt sur GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connexion-du-depot-distant-sur-github-a-votre-machine-locale">Connexion du dépôt distant (sur GitHub) à votre machine locale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-du-depot-local">2.3 Configuration du dépôt local</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-des-commandes-de-base">2.4 Exploration des commandes de base</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
