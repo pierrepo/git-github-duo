@@ -263,7 +263,7 @@ Dépôt git de test pour le **DU omiques**.
 
 ![](img/github_readme_1.png)
 
-En bas de la page, indiquez comme titre de *commit* : « Création README.md » (sans les guillemets), puis cliquez sur le bouton vert « *Commit new file* ».
+En haut à droite de la page, cliquez sur le bouton vert *Commit changes* puis dans la nouvelle fenêtre, indiquez comme titre de *commit* : « Création README.md » (sans les guillemets), et enfin cliquez sur le bouton vert « *Commit new file* ».
 
 ![](img/github_readme_2.png)
 
