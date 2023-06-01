@@ -173,7 +173,7 @@ Vous devriez voir le fichier `test1.txt` ! 🥳
 Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier `test1.txt` :
 
 ```bash
-$ echo "et hop une deuxième ligne !" >> test1.txt
+$ echo "et hop une deuxième ligne" >> test1.txt
 ```
 
 Visualisez les différences par rapport au *commit* précédent avec la commande :
@@ -194,7 +194,7 @@ index 0d8e693..f9f2480 100644
 +++ b/test1.txt
 @@ -1 +1,2 @@
  une première ligne
-+et hop une deuxième ligne !
++et hop une deuxième ligne
 ```
 
 Ajoutez (encore) le fichier modifié puis créez un nouveau *commit* :

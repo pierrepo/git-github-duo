@@ -97,7 +97,7 @@ Réalisez plusieurs *commits* en modifiant à chaque fois le fichier `test2.txt`
 $ echo "Une ligne supplémentaire" >> test2.txt
 $ git add test2.txt
 $ git commit -m "Ajout d'une ligne"
-$ echo "Et encore une !" >> test2.txt
+$ echo "Et encore une" >> test2.txt
 $ git add test2.txt
 $ git commit -m "Ajout d'une dernière ligne"
 ```
@@ -155,7 +155,7 @@ README.md  test1.txt  test2.txt
 $ cat test2.txt
 Nouveau fichier pour tester une branche
 Une ligne supplémentaire
-Et encore une !
+Et encore une
 ```
 
 ## 3. Supprimer une branche
