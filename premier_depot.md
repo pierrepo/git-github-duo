@@ -80,17 +80,27 @@ $ git config --global user.email "moi@mail.com"
 Adaptez le prénom, le nom et l'adresse e-mail à votre cas. Veillez à conserver les guillemets autour de `Prénom Nom` dans la première ligne.
 ```
 
-```{note}
-Ces commmandes `git config` ne sont à lancer qu'une seule fois sur une machine donnée, ici le cluster de l'IFB.
-```
-
 Vérifiez que ces paramètres sont bien pris en compte avec la commande :
 
 ```bash
 $ git config --list | grep user
 ```
 
-Les paramètres `user.name` et `user.email` devrait contenir les informations que vous avez entrées précédemment.
+Les paramètres `user.name` et `user.email` devraient contenir les informations que vous avez entrées précédemment.
+
+Configurez également un éditeur par défaut qui peut être utile pour résoudre certains conflits (nous verrons cela plus tard) :
+
+```bash
+$ git config --global core.editor "nano"
+```
+
+```{note}
+Ces commmandes `git config` ne sont à lancer qu'une seule fois sur une machine donnée, ici le cluster de l'IFB.
+```
+
+
+
+
 
 ## 4. Exploration des commandes de base
 
