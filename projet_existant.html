@@ -437,6 +437,32 @@ document.write(`
 <section id="de-quand-date-le-dernier-commit">
 <h3>De quand date le dernier <em>commit</em> ?<a class="headerlink" href="#de-quand-date-le-dernier-commit" title="Permalink to this heading">#</a></h3>
 <p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> et <code class="docutils literal notranslate"><span class="pre">head</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Cliquez pour afficher la solution</p>
+<p>Le caractère <code class="docutils literal notranslate"><span class="pre">|</span></code> (obtenu avec la combinaison de touches <kbd>AltGr</kbd> + <kbd>6</kbd>) est le <em>pipe</em> qui permet de chainer deux commandes Unix.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+commit<span class="w"> </span>af43dd833e5586386098d1793a59332e968069da
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">00</span>:23:54<span class="w"> </span><span class="m">2019</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Add<span class="w"> </span>JOSS<span class="w"> </span>badge
+
+commit<span class="w"> </span>304556ecb2b7811d8b3b2cc54c91b015620b435e
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jul<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">23</span>:48:20<span class="w"> </span><span class="m">2019</span><span class="w"> </span>+0200
+</pre></div>
+</div>
+<p>Par défaut, <code class="docutils literal notranslate"><span class="pre">head</span></code> affiche uniquement les 10 premières lignes.</p>
+<p>Ici, le dernier <em>commit</em> est celui qui commence par <code class="docutils literal notranslate"><span class="pre">af43dd8</span></code> et date du 26 juillet 2019.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>commit<span class="w"> </span>af43dd833e5586386098d1793a59332e968069da
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">00</span>:23:54<span class="w"> </span><span class="m">2019</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Add<span class="w"> </span>JOSS<span class="w"> </span>badge
+</pre></div>
+</div>
+<p>Chaque <em>commit</em> comporte un identifiant unique (<code class="docutils literal notranslate"><span class="pre">af43dd8</span></code>), un auteur (<code class="docutils literal notranslate"><span class="pre">Author:</span></code>), une date (<code class="docutils literal notranslate"><span class="pre">Date:</span></code>) et un message (<code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">JOSS</span> <span class="pre">badge</span></code>).</p>
+</div>
 </section>
 <section id="quand-a-ete-cree-le-tout-premier-commit">
 <h3>Quand a été créé le tout premier <em>commit</em> ?<a class="headerlink" href="#quand-a-ete-cree-le-tout-premier-commit" title="Permalink to this heading">#</a></h3>

@@ -49,6 +49,39 @@ La commande `git clone` ne télécharge pas seulement les fichiers du projet mai
 
 Astuce : combinez les commandes `git log` et `head`.
 
+````{admonition} Cliquez pour afficher la solution
+:class: dropdown
+
+Le caractère `|` (obtenu avec la combinaison de touches <kbd>AltGr</kbd> + <kbd>6</kbd>) est le *pipe* qui permet de chainer deux commandes Unix.
+
+```bash
+$ git log | head
+commit af43dd833e5586386098d1793a59332e968069da
+Author: Pierre Poulain <pierre.poulain@cupnet.net>
+Date:   Fri Jul 26 00:23:54 2019 +0200
+
+    Add JOSS badge
+
+commit 304556ecb2b7811d8b3b2cc54c91b015620b435e
+Author: Pierre Poulain <pierre.poulain@cupnet.net>
+Date:   Thu Jul 25 23:48:20 2019 +0200
+```
+
+Par défaut, `head` affiche uniquement les 10 premières lignes.
+
+Ici, le dernier *commit* est celui qui commence par `af43dd8` et date du 26 juillet 2019.
+
+```bash
+commit af43dd833e5586386098d1793a59332e968069da
+Author: Pierre Poulain <pierre.poulain@cupnet.net>
+Date:   Fri Jul 26 00:23:54 2019 +0200
+
+    Add JOSS badge
+
+```
+
+Chaque *commit* comporte un identifiant unique (`af43dd8`), un auteur (`Author:`), une date (`Date:`) et un message (`Add JOSS badge`).
+````
 
 ### Quand a été créé le tout premier *commit* ?
 
