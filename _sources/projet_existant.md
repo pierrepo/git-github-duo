@@ -168,7 +168,7 @@ Astuces :
 ````{admonition} Cliquez pour afficher la solution
 :class: dropdown
 
-Un dendrogramme se dit en Anglais « dendrogram ». C'est donc ce mot-clé que nous allons rechercher avec `grep`.
+Un dendrogramme se dit en Anglais « *dendrogram* ». C'est donc ce mot-clé que nous allons rechercher avec `grep`.
 
 L'option `-B4` de `grep` affiche la ligne qui contient le motif recherché ainsi que les 4 lignes précédentes (`B` pour *before*).
 
@@ -193,7 +193,7 @@ Date:   Thu Jul 12 19:12:31 2018 +0200
     Build dendrogram of classes/clusters
 ```
 
-Les différentes réponses sont séparées par `--`. Trois *commits sont concernés par l'implémentation du dendrogramme. Le premier *commit* (avec comme identifiant `2d1c40b7146eeae098b99d8414bcdbb7de599e29`) est  :
+Les différentes réponses sont séparées par `--`. Trois *commits* sont concernés par l'implémentation du dendrogramme. Le premier *commit* (avec comme identifiant `2d1c40b7146eeae098b99d8414bcdbb7de599e29`) est  :
 
 ```bash
 commit 2d1c40b7146eeae098b99d8414bcdbb7de599e29
