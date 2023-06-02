@@ -85,10 +85,10 @@ Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s�
 
 ## 4. Gestion des conflits
 
-Habituellement, vous ne travaillez pas en alternance dans la même pièce et il est possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :
+Habituellement, vous ne travaillez pas en alternance dans la même pièce. Il est donc tout à fait possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :
 
 1. Co-équipiers 1 et 2 font un `git pull` avant de travailler localement.
-2. Co-équipiers 1 et 2 travaillent sur le même fichier, mais chacun sur sa machine.
+2. Co-équipiers 1 et 2 travaillent sur le même fichier, mais chacun sur leur machine.
 3. Co-équipier 1 a terminé. Il ajoute et enregistre ses modifications. Il lance un `git pull` puis un `git push`.
 4. Co-équipier 2 a terminé à son tour. Il ajoute et enregistre ses modifications. Il lance un `git pull` et obtient un message d’erreur lui indiquant un conflit. Le même fichier ayant été modifié, GitHub ne sait pas comment faire pour prendre en compte toutes les modifications.
 5. Co-équipier 2 ouvre le fichier et choisit quelles modifications conserver, puis élimine les lignes débutant par `<<<<<<<`, `=======` et `>>>>>>>` (voir [procédure](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)). Il ajoute et enregistre ses modifications. Il lance enfin un `git pull` puis un `git push`.
