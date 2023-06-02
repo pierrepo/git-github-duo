@@ -455,15 +455,19 @@ $<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </spa
 <p class="admonition-title">Warning</p>
 <p>Adaptez le prénom, le nom et l’adresse e-mail à votre cas. Veillez à conserver les guillemets autour de <code class="docutils literal notranslate"><span class="pre">Prénom</span> <span class="pre">Nom</span></code> dans la première ligne.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Ces commmandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> ne sont à lancer qu’une seule fois sur une machine donnée, ici le cluster de l’IFB.</p>
-</div>
 <p>Vérifiez que ces paramètres sont bien pris en compte avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>user
 </pre></div>
 </div>
-<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">user.name</span></code> et <code class="docutils literal notranslate"><span class="pre">user.email</span></code> devrait contenir les informations que vous avez entrées précédemment.</p>
+<p>Les paramètres <code class="docutils literal notranslate"><span class="pre">user.name</span></code> et <code class="docutils literal notranslate"><span class="pre">user.email</span></code> devraient contenir les informations que vous avez entrées précédemment.</p>
+<p>Configurez également un éditeur par défaut qui peut être utile pour résoudre certains conflits (nous verrons cela plus tard) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;nano&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ces commmandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> ne sont à lancer qu’une seule fois sur une machine donnée, ici le cluster de l’IFB.</p>
+</div>
 </section>
 <section id="exploration-des-commandes-de-base">
 <h2>4. Exploration des commandes de base<a class="headerlink" href="#exploration-des-commandes-de-base" title="Permalink to this heading">#</a></h2>
