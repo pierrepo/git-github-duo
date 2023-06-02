@@ -467,11 +467,62 @@ Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </
 <section id="quand-a-ete-cree-le-tout-premier-commit">
 <h3>Quand a été créé le tout premier <em>commit</em> ?<a class="headerlink" href="#quand-a-ete-cree-le-tout-premier-commit" title="Permalink to this heading">#</a></h3>
 <p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> et <code class="docutils literal notranslate"><span class="pre">tail</span></code>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Cliquez pour afficher la solution</p>
+<p>De la même manière que précédemment :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+commit<span class="w"> </span>af43dd833e5586386098d1793a59332e968069da
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">00</span>:23:54<span class="w"> </span><span class="m">2019</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Add<span class="w"> </span>JOSS<span class="w"> </span>badge
+
+commit<span class="w"> </span>304556ecb2b7811d8b3b2cc54c91b015620b435e
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jul<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">23</span>:48:20<span class="w"> </span><span class="m">2019</span><span class="w"> </span>+0200
+
+<span class="o">[</span>ppoulain@cpu-node-22<span class="w"> </span>autoclasswrapper<span class="o">]</span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jan<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">22</span>:54:06<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0100
+
+<span class="w">    </span>Fix<span class="w"> </span>typo
+
+commit<span class="w"> </span>6a1010f0797412743408e58ca28db4a5308e668a
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Fri<span class="w"> </span>Jan<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">14</span>:08:19<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0100
+
+<span class="w">    </span>Initial<span class="w"> </span>commit
+</pre></div>
+</div>
+<p>Le tout premier <em>commit</em> est celui qui commence par <code class="docutils literal notranslate"><span class="pre">6a1010f</span></code> et date du 19 janvier 2018.</p>
+</div>
 </section>
 <section id="combien-de-commits-ont-ete-enregistres-jusqu-a-present">
 <h3>Combien de <em>commits</em> ont été enregistrés jusqu’à présent ?<a class="headerlink" href="#combien-de-commits-ont-ete-enregistres-jusqu-a-present" title="Permalink to this heading">#</a></h3>
 <p>Astuce : combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-c</span></code> et un mot-clé pertinent.</p>
 <p>Vérifiez cette valeur sur le site du dépôt : <a class="github reference external" href="https://github.com/pierrepo/autoclasswrapper">pierrepo/autoclasswrapper</a></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Cliquez pour afficher la solution</p>
+<p>Réexaminons la structure d’un <em>commit</em> (par exemple le tout dernier) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>commit<span class="w"> </span>af43dd833e5586386098d1793a59332e968069da
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">00</span>:23:54<span class="w"> </span><span class="m">2019</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Add<span class="w"> </span>JOSS<span class="w"> </span>badge
+</pre></div>
+</div>
+<p>On peut essayer de compter le nombre de fois que le mot « <em>commit</em> » apparait dans le <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> pour obtenir le nombre total de <em>commits</em> pour ce projet :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span>commit
+<span class="m">307</span>
+</pre></div>
+</div>
+<p>Mais la nombre de <em>commits</em> visibles sur le <a class="reference external" href="https://github.com/pierrepo/autoclasswrapper">dépôt GitHub</a> du projet est 306. Effectivement, le tout premier <em>commit</em> contenant dans le message associé aussi le mot « <em>commit</em> ». Ce n’est donc pas la bonne stratégie.</p>
+<p>On peut plutôt compter le nombre de fois que l’expression « <code class="docutils literal notranslate"><span class="pre">Author:</span></code> » (avec la majuscule et les deux points) :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Author:&quot;</span>
+<span class="m">306</span>
+</pre></div>
+</div>
+</div>
 </section>
 <section id="trouvez-dans-quel-commit-j-ai-ajoute-la-possibilite-de-construire-un-dendrogramme">
 <h3>Trouvez dans quel <em>commit</em> j’ai ajouté la possibilité de construire un dendrogramme<a class="headerlink" href="#trouvez-dans-quel-commit-j-ai-ajoute-la-possibilite-de-construire-un-dendrogramme" title="Permalink to this heading">#</a></h3>
@@ -480,6 +531,39 @@ Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </
 <li><p>Combinez les commandes <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-B4</span></code> et un mot-clé pertinent.</p></li>
 <li><p>Utilisez le mot dendrogramme en Anglais (voir la page <a class="reference external" href="https://en.wikipedia.org/wiki/Dendrogram">Wikipédia</a>).</p></li>
 </ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Cliquez pour afficher la solution</p>
+<p>Un dendrogramme se dit en Anglais « dendrogram ». C’est donc ce mot-clé que nous allons rechercher avec <code class="docutils literal notranslate"><span class="pre">grep</span></code>.</p>
+<p>L’option <code class="docutils literal notranslate"><span class="pre">-B4</span></code> de <code class="docutils literal notranslate"><span class="pre">grep</span></code> affiche la ligne qui contient le motif recherché ainsi que les 4 lignes précédentes (<code class="docutils literal notranslate"><span class="pre">B</span></code> pour <em>before</em>).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-B4<span class="w"> </span>dendrogram
+commit<span class="w"> </span>193d1a6bbaae7e423b02617a50a14a1778032a32
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Dec<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">15</span>:38:54<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0100
+
+<span class="w">    </span>Fix<span class="w"> </span>wrong/missing<span class="w"> </span>margin<span class="w"> </span><span class="k">in</span><span class="w"> </span>dendrogram
+--
+commit<span class="w"> </span>4910ffec7ced9216241ddea263b3e6f2418b6e66
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Dec<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">11</span>:50:37<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0100
+
+<span class="w">    </span>Rewrite<span class="w"> </span>dendrogram<span class="w"> </span>method
+--
+commit<span class="w"> </span>2d1c40b7146eeae098b99d8414bcdbb7de599e29
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jul<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">19</span>:12:31<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Build<span class="w"> </span>dendrogram<span class="w"> </span>of<span class="w"> </span>classes/clusters
+</pre></div>
+</div>
+<p>Les différentes réponses sont séparées par <code class="docutils literal notranslate"><span class="pre">--</span></code>. Trois *commits sont concernés par l’implémentation du dendrogramme. Le premier <em>commit</em> (avec comme identifiant <code class="docutils literal notranslate"><span class="pre">2d1c40b7146eeae098b99d8414bcdbb7de599e29</span></code>) est  :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>commit<span class="w"> </span>2d1c40b7146eeae098b99d8414bcdbb7de599e29
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jul<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">19</span>:12:31<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Build<span class="w"> </span>dendrogram<span class="w"> </span>of<span class="w"> </span>classes/clusters
+</pre></div>
+</div>
+</div>
 </section>
 <section id="combien-de-fichiers-ont-ete-modifies-dans-le-commit-correspondant">
 <h3>Combien de fichiers ont été modifiés dans le <em>commit</em> correspondant ?<a class="headerlink" href="#combien-de-fichiers-ont-ete-modifies-dans-le-commit-correspondant" title="Permalink to this heading">#</a></h3>
@@ -493,11 +577,71 @@ Date:<span class="w">   </span>Fri<span class="w"> </span>Jul<span class="w"> </
 <li><p>L’identifiant du commit débute par <code class="docutils literal notranslate"><span class="pre">2d1c</span></code>.</p></li>
 <li><p>Vous n’avez pas besoin d’entrer l’identifiant complet, les 6 premiers caractères devraient suffire.</p></li>
 </ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Cliquez pour afficher la solution</p>
+<p>L’identifiant du <em>commit</em> concerné est <code class="docutils literal notranslate"><span class="pre">2d1c40b7146eeae098b99d8414bcdbb7de599e29</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>show<span class="w"> </span>--name-only<span class="w"> </span>2d1c40
+commit<span class="w"> </span>2d1c40b7146eeae098b99d8414bcdbb7de599e29
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jul<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">19</span>:12:31<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Build<span class="w"> </span>dendrogram<span class="w"> </span>of<span class="w"> </span>classes/clusters
+<span class="w">    </span>
+<span class="w">    </span>-<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>hierarchical<span class="w"> </span>clustering<span class="w"> </span>of<span class="w"> </span>classes
+<span class="w">    </span>-<span class="w"> </span>requires<span class="w"> </span>scipy<span class="w"> </span>and<span class="w"> </span>matplotlib<span class="w"> </span>dependencies
+
+CHANGELOG.md
+Pipfile
+Pipfile.lock
+autoclasswrapper/output.py
+</pre></div>
+</div>
+<p>Les fichiers modifiés dans ce <em>commit</em> sont <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code>, <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code>, <code class="docutils literal notranslate"><span class="pre">Pipfile.lock</span></code> et <code class="docutils literal notranslate"><span class="pre">autoclasswrapper/output.py</span></code>, soit <strong>4</strong> fichiers.</p>
+</div>
 <p>Notez la différence avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>show<span class="w"> </span>IDENTIFIANT-DU-COMMIT
 </pre></div>
 </div>
 <p>Pressez la touche <kbd>q</kbd> pour quitter.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Cliquez pour afficher la solution</p>
+<p>La commande <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show</span></code> sans l’option <code class="docutils literal notranslate"><span class="pre">--name-only</span></code> affiche le contenu des fichiers modifiés dans le <em>commit</em>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>show<span class="w"> </span>2d1c40
+commit<span class="w"> </span>2d1c40b7146eeae098b99d8414bcdbb7de599e29
+Author:<span class="w"> </span>Pierre<span class="w"> </span>Poulain<span class="w"> </span>&lt;pierre.poulain@cupnet.net&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Jul<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">19</span>:12:31<span class="w"> </span><span class="m">2018</span><span class="w"> </span>+0200
+
+<span class="w">    </span>Build<span class="w"> </span>dendrogram<span class="w"> </span>of<span class="w"> </span>classes/clusters
+<span class="w">    </span>
+<span class="w">    </span>-<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>hierarchical<span class="w"> </span>clustering<span class="w"> </span>of<span class="w"> </span>classes
+<span class="w">    </span>-<span class="w"> </span>requires<span class="w"> </span>scipy<span class="w"> </span>and<span class="w"> </span>matplotlib<span class="w"> </span>dependencies
+
+diff<span class="w"> </span>--git<span class="w"> </span>a/CHANGELOG.md<span class="w"> </span>b/CHANGELOG.md
+index<span class="w"> </span>42e20f5..6a65232<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/CHANGELOG.md
++++<span class="w"> </span>b/CHANGELOG.md
+@@<span class="w"> </span>-3,6<span class="w"> </span>+3,7<span class="w"> </span>@@
+<span class="w"> </span>-<span class="w"> </span>output<span class="w"> </span>class<span class="w"> </span>probability<span class="w"> </span><span class="k">for</span><span class="w"> </span>every<span class="w"> </span>gene/protein
+<span class="w"> </span>-<span class="w"> </span>simplify<span class="w"> </span>the<span class="w"> </span>calculation<span class="w"> </span>of<span class="w"> </span>cluster<span class="w"> </span>stats
+<span class="w"> </span>-<span class="w"> </span>class/cluster<span class="w"> </span>numbering<span class="w"> </span>starts<span class="w"> </span>at<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>-based<span class="w"> </span><span class="k">in</span><span class="w"> </span>autoclass<span class="w"> </span>output<span class="o">)</span>
++-<span class="w"> </span>add<span class="w"> </span>dendrogram<span class="w"> </span>of<span class="w"> </span>classes
+<span class="w"> </span>
+<span class="w"> </span>**0.1.12**
+<span class="w"> </span>-<span class="w"> </span>update<span class="w"> </span>write_cluster_stats<span class="o">()</span><span class="w"> </span>methods<span class="w"> </span>with<span class="w"> </span>mean/std<span class="w"> </span>column
+diff<span class="w"> </span>--git<span class="w"> </span>a/Pipfile<span class="w"> </span>b/Pipfile
+index<span class="w"> </span>b04bf2a..996b3d0<span class="w"> </span><span class="m">100644</span>
+---<span class="w"> </span>a/Pipfile
++++<span class="w"> </span>b/Pipfile
+@@<span class="w"> </span>-7,6<span class="w"> </span>+7,8<span class="w"> </span>@@<span class="w"> </span><span class="nv">verify_ssl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w"> </span><span class="nv">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="w"> </span><span class="nv">pandas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="w"> </span><span class="nv">chardet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
++scipy<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
++matplotlib<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 </section>
