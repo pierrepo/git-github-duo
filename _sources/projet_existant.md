@@ -47,7 +47,7 @@ La commande `git clone` ne télécharge pas seulement les fichiers du projet mai
 
 ### De quand date le dernier *commit* ?
 
-Astuce : combinez les commandes `git log` et `head`.
+Aide : combinez les commandes `git log` et `head`.
 
 ````{admonition} Cliquez pour afficher la solution
 :class: dropdown
@@ -84,7 +84,7 @@ Chaque *commit* comporte un identifiant unique (`af43dd8`), un auteur (`Author:`
 
 ### Quand a été créé le tout premier *commit* ?
 
-Astuce : combinez les commandes `git log` et `tail`.
+Aide : combinez les commandes `git log` et `tail`.
 
 ````{admonition} Cliquez pour afficher la solution
 :class: dropdown
@@ -122,7 +122,7 @@ Le tout premier *commit* est celui qui commence par `6a1010f` et date du 19 janv
 
 ### Combien de *commits* ont été enregistrés jusqu'à présent ?
 
-Astuce : combinez les commandes `git log`, `grep -c` et un mot-clé pertinent.
+Aide : combinez les commandes `git log`, `grep -c` et un mot-clé pertinent.
 
 Vérifiez cette valeur sur le site du dépôt : <https://github.com/pierrepo/autoclasswrapper>
 
@@ -160,7 +160,7 @@ $ git log | grep -c "Author:"
 
 ### Trouvez dans quel *commit* j'ai ajouté la possibilité de construire un dendrogramme
 
-Astuces : 
+Aide : 
 
 - Combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.
 - Utilisez le mot dendrogramme en Anglais (voir la page [Wikipédia](https://en.wikipedia.org/wiki/Dendrogram)).
@@ -216,7 +216,7 @@ $ git show --name-only IDENTIFIANT-DU-COMMIT
 
 avec `IDENTIFIANT-DU-COMMIT` l'identifiant du *commit* intéressant. 
 
-**Aides :** 
+Aide :
 
 - L'identifiant du commit débute par `2d1c`.
 - Vous n'avez pas besoin d'entrer l'identifiant complet, les 6 premiers caractères devraient suffire.
