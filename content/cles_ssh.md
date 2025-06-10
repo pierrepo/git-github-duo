@@ -23,10 +23,14 @@ $ cd /shared/projects/2501_duo/$USER/intro-git
 -  Copiez / collez les commandes pour aller plus vite et faire moins d'erreur.
 ```
 
+```{note}
+Pour information : la [documentation de GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) pour la création de clés SSH.
+```
+
 Entrez ensuite la commande suivante :
 
 ```bash
-$ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N "" -C "Connexion GitHub DUO"
+$ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N "" -C "Connexion GitHub DUO"
 ```
 
 Validez en appuyant sur la touche <kbd>Entrée</kbd>.
@@ -35,16 +39,16 @@ Vous devriez obtenir quelque chose du type :
 
 ```
 The key's randomart image is:
-+---[RSA 4096]----+
-|==..  o          |
-|.o+.o. o .       |
-| o.+o = =        |
-|o +  O . =       |
-|.o o  = S +      |
-|. . .o + =       |
-|   +ooo =        |
-|  +o+++o         |
-| ..Eo++o.        |
++--[ED25519 256]--+
+|                 |
+|        .        |
+|       . .       |
+|      o . . o . o|
+|     = =S  ..o +.|
+|    o =o*.o. +o O|
+|   ..o.o.*o.= oB=|
+|    Eoo..  =o. .+|
+|  .oo+o.  ...o...|
 +----[SHA256]-----+
 ```
 
@@ -61,29 +65,23 @@ Le caractère `~` en Bash désigne votre répertoire personnel, qui correspond �
 
 Dans ce répertoire `~/.ssh/`, vous devriez trouver :
 
-- Le fichier `id_rsa` : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.
-- Le fichier `id_rsa.pub` : votre clé publique, que vous allez déposer sur le site de GitHub.
+- Le fichier `ed25519` : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.
+- Le fichier `ed25519.pub` : votre clé publique, que vous allez déposer sur le site de GitHub.
 
-Toujours dans votre terminal, affichez à l'écran le contenu du fichier `id_rsa.pub` :
+Toujours dans votre terminal, affichez à l'écran le contenu du fichier `ed25519.pub` :
 
 ```bash
 $ cat ~/.ssh/id_rsa.pub
 ```
 
 Vous devriez obtenir une clé qui ressemble à cela :
+
 ```
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCjNrLoIXHG3NHp2eucFnOqicMz2b4I6FvjxVYMEwzO40syopxd
-7YtQXzWp9EpuO7n9wWZnZ5uR6bXPqXp9VdN3MviI8PsvvjDbp4AfNz4Onunpy0mIjUarRL5evEPKI2iuqO7pUC9m
-qV2tAPopsjfSuj+gBEcMAZU8gMK1o/eBqD+tpuGrNiE1Zq8PDQPOO7HStG09tZ3ABDPBSISun7GAC3ytbYJtL4A3
-IEgUX1oCGbrzVGhIB0pK/xKVVpmG6KplVOjsSgYCivfOIJ05GJQk0LuizGWg1rKt4yYZgXjoMW4F+hz/+c9xnDuR
-q8ZAQLBAm+NWU91Nczb5OzAfWYVY9BlES35YfcFRLuWP8ArXLHRtZJq48B7wIN39im72iYcKXcOzeyYRZQFKMb0z
-9PuDrpZ6LpQZQw04i7CWJZca7Auwtd3yyC+PfuvyeuFhODqktP0rdKtTEQdrUTdaxb+K1k8FPmZMc/o91sBJ1u6d
-ceccjpO1LTK/I1w9xmbQAxi0hLDCRN9hm/RUkOvzxZJed6kBzozvZ8vCi+Afv1BXjkv+jrezkkqsFl5YA01nLxyU
-zo1LFBNZ41+wRHQXCQKENzsHnuVwZ0CcXRfFoZnDCn9Hs0L7kBH02O2JPbFlIVw/72XaZundqjczcp1w0gou0+Uq
-TRTPvbaUnz17wffw== Connexion GitHub DUO
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM7dqRXTCVfdurr1+DqADdTFMNz
+5CG9HJCyr65pHL+uz Connexion GitHub DUO
 ```
 
-Copiez cette clé, depuis `ssh-rsa` jusqu'à `Connexion GitHub DUO` inclus.
+Copiez cette clé, depuis `ssh-ed25519` jusqu'à `Connexion GitHub DUO` inclus.
 
 
 ## Ajout de la clé publique dans GitHub
@@ -96,9 +94,9 @@ Authentifiez-vous si besoin avec vos identifiants GitHub.
 
 Cliquez sur le bouton vert « *New SSH key* ».
 
-Indiquez comme titre « Connexion DUO » (sans les guillemets).
+Indiquez comme titre « Connexion IFB DUO » (sans les guillemets).
 
-Collez votre clé dans le champ *Key* (tout depuis `ssh-rsa` jusqu'à `Connexion GitHub DUO` inclus).
+Collez votre clé dans le champ *Key* (tout depuis `ssh-ed25519` jusqu'à `Connexion GitHub DUO` inclus).
 
 Enfin, cliquez sur le bouton vert « *Add SSH key* ». Pour confirmer l’ajout de cette clé, GitHub vous demandera éventuellement votre mot de passe utilisateur.
 
@@ -118,8 +116,8 @@ Validez en tapant `yes` puis en appuyant sur <kbd>Entrée</kbd>.
 Si votre clé publique a bien été enregistrée dans GitHub, vous devriez obtenir le message :
 
 ```
-Hi LOGINGITHUB! You've successfully authenticated, but GitHub does not provide shell access.
+Hi LOGIN-GITHUB! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-Avec `LOGINGITHUB` l'identifiant de votre compte sur GitHub.
+Avec `LOGIN-GITHUB` l'identifiant de votre compte sur GitHub.
 
 Si c'est bien le cas, félicitation. 🎉 Vous serez en mesure de partager votre dépôt git sur GitHub.
