@@ -1,9 +1,9 @@
 # Utiliser les branches
 
-Depuis un terminal sur le JupyterLab de l'IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :
+Depuis un terminal dans l'application JupyterLab de l'IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :
 
 ```bash
-$ cd /shared/projects/202304_duo/$USER/intro-git
+$ cd /shared/projects/2501_duo/$USER/intro-git
 ```
 
 ```{admonition} Rappel
@@ -16,19 +16,20 @@ Vérifiez que vous êtes dans le bon répertoire :
 
 ```bash
 $ pwd
-/shared/projects/202304_duo/LOGINIFB/intro-git
+/shared/projects/2501_duo/LOGINIFB/intro-git
 ```
 
 où `LOGINIFB` est votre identifiant IFB.
 
-## 1. Créer une branche
 
-Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=634) » à partir de 10'34 sur les branches.
+## Créer une branche
+
+Revisionnez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=634) » à partir de 10'34 sur les branches.
 
 Depuis le terminal, revenez dans votre dépôt `duo-test` que vous avez créé précédemment :
 
 ```bash
-$ cd /shared/projects/202304_duo/$USER/intro-git/duo-test
+$ cd /shared/projects/2501_duo/$USER/intro-git/duo-test
 ```
 
 Vérifiez que votre dépôt est « propre », c’est-à-dire qu’il ne contient pas de fichier modifié non commité.
@@ -60,7 +61,7 @@ Le symbole `*` à gauche de *master* indique que la branche courante est *master
 Basculez maintenant sur la branche que vous venez de créer :
 
 ```bash
-$ git checkout nouveau-fichier
+$ git switch nouveau-fichier
 ```
 
 Vérifiez que vous êtes désormais sur la bonne branche :
@@ -126,15 +127,15 @@ Utilisez cette instruction pour enfin envoyer votre branche sur GitHub.
 La commande `git push --set-upstream origin nouveau-fichier` est à utiliser uniquement la première fois que vous envoyez une branche sur GitHub. Par la suite, vous pourrez utiliser la commande `git push` seule.
 ```
 
-Verifiez que votre branche `nouveau-fichier` est bien présente sur GitHub en cliquant sur branches dans le menu au dessus de l’aperçu du dépôt.
+Vérifiez que votre branche `nouveau-fichier` est bien présente sur GitHub en cliquant sur branches dans le menu au-dessus de l’aperçu du dépôt.
 
 
-## 2. Fusionner deux branches
+## Fusionner deux branches
 
 Depuis votre terminal, revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **pas** présent dans votre répertoire :
 
 ```bash
-$ git checkout master
+$ git switch master
 $ ls
 README.md  test1.txt
 ```
@@ -158,9 +159,9 @@ Une ligne supplémentaire
 Et encore une
 ```
 
-## 3. Supprimer une branche
+## Supprimer une branche
 
-La branche *nouveau-fichier* ne sert plus à rien car les modifications qu’elle contenait ont été fusionnées dans la branche *master*. Vous pouvez donc supprimer la branche *nouveau-fichier* :
+La branche *nouveau-fichier* ne sert plus à rien, car les modifications qu’elle contenait ont été fusionnées dans la branche *master*. Vous pouvez donc supprimer la branche *nouveau-fichier* :
 
 ```bash
 $ git branch -d nouveau-fichier

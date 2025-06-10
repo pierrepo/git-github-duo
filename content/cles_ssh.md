@@ -1,18 +1,20 @@
 # Configurer une paire de clés SSH
 
-La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur (ici le JupyterLab de l'IFB) et de la clé publique stockée sur le serveur distant (ici GitHub).
+La combinaison de clés SSH privée et publique est un mécanisme très sécurisé pour accéder à un serveur distant. La connexion est authentifiée par l'utilisation conjointe de la clé privée stockée sur la machine de l'utilisateur (ici le serveur de l'IFB) et de la clé publique stockée sur le serveur distant (ici GitHub).
 
+```{note}
 Depuis l’été 2021, GitHub interdit l’authentification par login / mot-de-passe et préconise l’utilisation de clés privée et publique.
+```
 
-## 1. Création des clés
+## Création des clés
 
 Depuis l'interface JupyterLab de l'IFB, ouvrez un terminal Bash.
 
-Créez un répertoire `intro-git` pour cette introduction à git puis déplacez-vous y :
+Créez un répertoire `intro-git` pour cette introduction à git puis déplacez-vous dans ce nouveau répertoire :
 
 ```bash
-$ mkdir -p /shared/projects/202304_duo/$USER/intro-git
-$ cd /shared/projects/202304_duo/$USER/intro-git
+$ mkdir -p /shared/projects/2501_duo/$USER/intro-git
+$ cd /shared/projects/2501_duo/$USER/intro-git
 ```
 
 ```{admonition} Rappel
@@ -84,11 +86,13 @@ TRTPvbaUnz17wffw== Connexion GitHub DUO
 Copiez cette clé, depuis `ssh-rsa` jusqu'à `Connexion GitHub DUO` inclus.
 
 
-## 2. Ajout de la clé publique dans GitHub
+## Ajout de la clé publique dans GitHub
 
 Ouvrez maintenant l'interface de gestion des clés de GitHub : <https://github.com/settings/keys>
 
-*Authentifiez-vous si besoin.*
+```{warning}
+Authentifiez-vous si besoin avec vos identifiants GitHub.
+```
 
 Cliquez sur le bouton vert « *New SSH key* ».
 
@@ -101,7 +105,7 @@ Enfin, cliquez sur le bouton vert « *Add SSH key* ». Pour confirmer l’ajout 
 L’ajout d’une clé publique dans votre profil est un moyen de vous authentifier sur GitHub. Cette opération est considérée comme sensible d’un point de vue de la sécurité. Vous recevrez donc également un e-mail de GitHub pour vous informer de l’ajout de cette nouvelle clé.
 
 
-## 3. Test de la connexion à GitHub
+## Test de la connexion à GitHub
 
 Pour vérifier si l'enregistrement de votre clé publique dans GitHub a bien fonctionné, tapez la commande suivante dans le terminal :
 
@@ -118,4 +122,4 @@ Hi LOGINGITHUB! You've successfully authenticated, but GitHub does not provide s
 ```
 Avec `LOGINGITHUB` l'identifiant de votre compte sur GitHub.
 
-Si c'est bien le cas, félicitation 🎉 Vous serez en mesure de partager votre dépôt git sur GitHub.
+Si c'est bien le cas, félicitation. 🎉 Vous serez en mesure de partager votre dépôt git sur GitHub.

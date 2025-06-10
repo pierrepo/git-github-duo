@@ -5,6 +5,7 @@ format: jb-book
 root: intro
 parts:
 - caption: Introduction à Git et GitHub
+  numbered: true
   chapters:
   - file: connexion
   - file: cles_ssh

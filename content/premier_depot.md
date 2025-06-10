@@ -1,6 +1,6 @@
 # Créer un premier dépôt
 
-## 1. Création d'un nouveau dépôt sur GitHub
+## Création d'un nouveau dépôt sur GitHub
 
 Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole `+` puis sur « *New repository* » :
 
@@ -23,13 +23,13 @@ Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `
 Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `https://github.com` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github.com`
 ```
 
-## 2. Connexion du dépôt distant (sur GitHub) à votre machine locale
+## Connexion du dépôt distant (sur GitHub) à votre machine locale
 
 Depuis un terminal sur le JupyterLab de l'IFB, vérifiez que vous êtes dans le bon répertoire de travail :
 
 ```bash
 $ pwd
-/shared/projects/202304_duo/LOGINIFB/intro-git
+/shared/projects/2501_duo/LOGINIFB/intro-git
 ```
 
 où `LOGINIFB` est votre identifiant IFB.
@@ -55,7 +55,7 @@ $ cd duo-test
 
 Affichez le contenu du répertoire.
 
-Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier car il contient en fait un répertoire caché `.git`. Affichez ce répertoire caché avec la commande :
+Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier, car il contient en fait un répertoire caché `.git`. Affichez ce répertoire caché avec la commande :
 
 ```bash
 $ ls -al
@@ -67,7 +67,7 @@ C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'h
 L'option `-a` de la commande `ls` affiche tous les fichiers et répertoires d'un répertoire, y compris les fichiers et répertoires cachés qui débutent par un point.
 ```
 
-## 3. Configuration du dépôt local
+## Configuration du dépôt local
 
 Avant de commencer à créer et modifier des fichiers dans votre dépôt, il faut dire à git qui vous êtes :
 
@@ -99,10 +99,7 @@ Ces commmandes `git config` ne sont à lancer qu'une seule fois sur une machine 
 ```
 
 
-
-
-
-## 4. Exploration des commandes de base
+## Exploration des commandes de base
 
 Toujours dans votre dépôt git, créez le fichier `test1.txt` et ajoutez-y du contenu.
 
@@ -127,7 +124,7 @@ Fichiers non suivis:
 aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)
 ```
 
-Le fichier `test1.txt` existe bien mais il n'est pas encore pris en charge par git. Pour cela, il faut utiliser la commande `git add` :
+Le fichier `test1.txt` existe bien, mais il n'est pas encore pris en charge par git. Pour cela, il faut utiliser la commande `git add` :
 
 ```bash
 $ git add test1.txt
@@ -173,14 +170,14 @@ To github.com:pierrepo/duo-test.git
  * [new branch]      master -> master
 ```
 
-Retournez maintenant sur la page de votre dépôt sur GitHub (a priori `https://github.com/LOGINGITHUB/duo-test` avec `LOGINGITHUB` votre identifiant GitHub) et  rafraichissez-la.
+Retournez maintenant sur la page de votre dépôt sur GitHub (a priori `https://github.com/LOGINGITHUB/duo-test` avec `LOGINGITHUB` votre identifiant GitHub) et rafraichissez-la.
 
 Vous devriez voir le fichier `test1.txt` ! 🥳
 
 ![](img/github_first_commit.png)
 
 
-Depuis le terminal Bash Ubuntu, modifiez une seconde fois le fichier `test1.txt` :
+Depuis le terminal, modifiez une seconde fois le fichier `test1.txt` :
 
 ```bash
 $ echo "et hop une deuxième ligne" >> test1.txt
@@ -231,7 +228,7 @@ Retournez sur GitHub pour observer ce nouveau *commit* :
 ![](img/github_second_commit.png)
 
 
-Depuis le terminal, affichez l'historique avec la commande `git log` :
+Depuis le terminal, affichez l'historique (le journal des actions réalisées sur le dépôt) avec la commande `git log` :
 
 ```bash
 $ git log
@@ -254,17 +251,19 @@ Vous constatez que git mémorise :
 
 - **qui** a créé le *commit* (par exemple : *Pierre Poulain <pierre.poulain@cupnet.net>*) ;
 - **quand** le *commit* a été créé (par exemple : *Tue Apr 6 21:00:36 2021 +0200*) ;
-- et **pourquoi** il a été créé (par exempe : *Ajout d'un nouveau message*).
+- et **pourquoi** il a été créé (par exemple : *Ajout d'un nouveau message*).
 
 Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard comment les retrouver.
 
 De plus, git attribue un identifiant à chaque *commit* (ici : `404b6ff031bd9ba0daa586c7a524eb8ef409ec1c`). Cet identifiant est unique et permet de retrouver un *commit* particulier.
 
-## 5. Modification d'un fichier depuis GitHub
+
+## Modification d'un fichier depuis GitHub
 
 Depuis l'interface de GitHub, cliquez sur le bouton vert « *Add a README* »
 
 Dans l'éditeur en ligne, ajoutez le texte suivant :
+
 ```
 # duo-test
 
@@ -307,6 +306,7 @@ $ cat README.md
 ```
 
 Vérifiez également que le *commit* créé sur GitHub est bien enregistré dans l'historique :
+
 ```bash
 $ git log
 ```

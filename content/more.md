@@ -1,11 +1,11 @@
-# Pour  aller plus loin
+# Pour aller plus loin
 
 ## Autre tutoriel
 
-Au délà de ce premier tutoriel, vous pouvez également suivre celui de Software Carpentry : [*Version Control with Git*](https://swcarpentry.github.io/git-novice/).
+Au delà de ce premier tutoriel, vous pouvez également suivre celui de Software Carpentry : [*Version Control with Git*](https://swcarpentry.github.io/git-novice/).
 
 
-## Ressouces compémentaires
+## Ressources complémentaires
 
 1. Une vidéo d'introduction pédagogique et détaillée de Sébastien Saunier : [Débuter avec Git et Github](https://www.youtube.com/watch?v=V6Zo68uQPqE) (1h27)
 

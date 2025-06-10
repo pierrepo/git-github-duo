@@ -4,12 +4,12 @@
 Cette section est l'occasion d'explorer l'historique d'un dépôt git et d'utiliser les commandes `git log` et `git show`.
 ```
 
-J'ai développé il y a quelques années le logiciel [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un wrapper Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/). Ce travail a été publié dans *The Journal of Open Source Software* en [2019](https://joss.theoj.org/papers/10.21105/joss.01390).
+J'ai développé il y a quelques années le logiciel [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un *wrapper* Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/). Ce travail a été publié dans *The Journal of Open Source Software* en [2019](https://joss.theoj.org/papers/10.21105/joss.01390).
 
-Depuis un terminal sur le JupyterLab de l'IFB, déplacez-vous dans le répertoire de travail pour cette introduction à git :
+Depuis un terminal dans JupyterLab, déplacez-vous dans le répertoire de travail pour cette introduction à git :
 
 ```bash
-$ cd /shared/projects/202304_duo/$USER/intro-git
+$ cd /shared/projects/2501_duo/$USER/intro-git
 ```
 
 ```{admonition} Rappel
@@ -22,12 +22,13 @@ Vérifiez que vous êtes dans le bon répertoire :
 
 ```bash
 $ pwd
-/shared/projects/202304_duo/LOGINIFB/intro-git
+/shared/projects/2501_duo/LOGINIFB/intro-git
 ```
 
 où `LOGINIFB` est votre identifiant IFB.
 
-## 1. Téléchargement du projet
+
+## Téléchargement du projet
 
 Téléchargez l'intégralité du projet *autoclasswrapper* avec la commande :
 
@@ -41,9 +42,10 @@ puis déplacez-vous dans le répertoire du projet :
 $ cd autoclasswrapper
 ```
 
-La commande `git clone` ne télécharge pas seulement les fichiers du projet mais aussi tout son historique de dévelopement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.
+La commande `git clone` ne télécharge pas seulement les fichiers du projet, mais aussi tout son historique de développement. Vous allez maintenant utiliser différentes commandes git pour explorer ce projet et répondre aux questions suivantes.
 
-## 2. Exploration de l'historique du projet
+
+## Exploration de l'historique du projet
 
 ### De quand date le dernier *commit* ?
 
@@ -163,12 +165,12 @@ $ git log | grep -c "Author:"
 Aide : 
 
 - Combinez les commandes `git log`, `grep -B4` et un mot-clé pertinent.
-- Utilisez le mot dendrogramme en Anglais (voir la page [Wikipédia](https://en.wikipedia.org/wiki/Dendrogram)).
+- Utilisez le mot dendrogramme en anglais (voir la page [Wikipédia](https://en.wikipedia.org/wiki/Dendrogram)).
 
 ````{admonition} Cliquez pour afficher la solution
 :class: dropdown
 
-Un dendrogramme se dit en Anglais « *dendrogram* ». C'est donc ce mot-clé que nous allons rechercher avec `grep`.
+Un dendrogramme se dit en anglais « *dendrogram* ». C'est donc ce mot-clé que nous allons rechercher avec `grep`.
 
 L'option `-B4` de `grep` affiche la ligne qui contient le motif recherché ainsi que les 4 lignes précédentes (`B` pour *before*).
 

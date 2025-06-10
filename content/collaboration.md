@@ -4,15 +4,16 @@
 Dans cette partie, vous allez travailler par équipe. Constituez des équipes de 2 ou 3 personnes.
 ```
 
-## 1. Préparation
+## Préparation
 
-Revisionez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
+Revisionnez la vidéo « [Débuter avec Git et Github en 30 min](https://youtu.be/hPfgekYUKgk?t=1058) » à partir de 17'38 sur le dépôt distant et GitHub.
 
 Visionnez également la vidéo « [Démystifions Git, Github, Gitlab (2/3) : Travailler à plusieurs](https://www.youtube.com/watch?v=4xsd8jHyVpk) ».
 
 GitHub est très utile pour du travail collaboratif car il va servir de plateforme centralisée pour organiser un projet.
 
-## 2. Création d'un dépôt distant commun
+
+## Création d'un dépôt distant commun
 
 ```{warning}
 Les manipulations indiquées dans cette rubrique ne sont à réaliser que par **UN SEUL** membre de l’équipe mais avec, bien sûr, le soutien et l’assistance des autres membres de l’équipe.
@@ -42,7 +43,7 @@ Toutes les personnes que vous avez ajoutées de cette manière recevront une inv
 Ne créez pas un premier fichier directement dans l’interface web de GitHub. Cela posera des problèmes par la suite.
 ```
 
-## 2. Connexion du dépôt distant au JupyterLab IFB
+## Connexion du dépôt distant au JupyterLab IFB
 
 ```{note}
 Les manipulations indiquées dans cette rubrique sont à réaliser par tous les membres de l’équipe.
@@ -52,7 +53,7 @@ Vérifiez ensemble que tous les membres de l'équipe ont réalisé les différen
 Depuis un terminal, déplacez-vous dans votre répertoire de travail pour cette introduction à Unix :
 
 ```bash
-$ cd /shared/projects/202304_duo/$USER/intro-git
+$ cd /shared/projects/2501_duo/$USER/intro-git
 ```
 
 Clonez le dépôt distant de votre projet (qui est sur GitHub) sur le JupyterLab de l'IFB :
@@ -65,7 +66,8 @@ où `git@github...` est l'adresse de votre dépôt distant que vous avez copiée
 
 Déplacez-vous ensuite dans le répertoire créé.
 
-## 3. Premières modifications
+
+## Premières modifications
 
 Réalisez maintenant ces actions dans l’ordre en vous répartissant les différents rôles :
 
@@ -83,7 +85,8 @@ Une règle pratique, qu’il est indispensable de respecter quand on travaille �
 
 Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé. 
 
-## 4. Gestion des conflits
+
+## Gestion des conflits
 
 Habituellement, vous ne travaillez pas en alternance dans la même pièce. Il est donc tout à fait possible que deux personnes modifient le même fichier presque au même moment. Concrètement, si les co-équipiers 1 et 2 travaillent en même temps sur le même fichier, voici ce qui peut arriver :
 
@@ -93,13 +96,14 @@ Habituellement, vous ne travaillez pas en alternance dans la même pièce. Il es
 4. Co-équipier 2 a terminé à son tour. Il ajoute et enregistre ses modifications. Il lance un `git pull` et obtient un message d’erreur lui indiquant un conflit. Le même fichier ayant été modifié, GitHub ne sait pas comment faire pour prendre en compte toutes les modifications.
 5. Co-équipier 2 ouvre le fichier et choisit quelles modifications conserver, puis élimine les lignes débutant par `<<<<<<<`, `=======` et `>>>>>>>` (voir [procédure](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)). Il ajoute et enregistre ses modifications. Il lance enfin un `git pull` puis un `git push`.
 
-## 5. GitHub flow
+
+## GitHub flow
 
 Avec la méthode de travail précédente, tous les co-équipiers travaillent dans la même branche (*master*). Chacun modifie les fichiers qu’il veut sans que les autres soient nécessairement d’accord.
 
 Il existe une méthodologie plus sophistiquée et plus inclusive appelée [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) qui permet de discuter des différentes modifications apportées.
 
-À partir d’un unique dépôt GitHub, accessible à tous les participants du projets, ceux-ci vont :
+À partir d’un unique dépôt GitHub, accessible à tous les participants du projet, ceux-ci vont :
 
 - Créer une branche pour ajouter une fonctionnalité.
 - Apporter des modifications dans cette branche (ajout, suppression ou modification de fichiers) par des *commits* successifs.
