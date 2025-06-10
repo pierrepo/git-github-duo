@@ -3,7 +3,8 @@
 
 title: Git & GitHub
 author: Pierre Poulain
-logo: logo.png
+logo: img/logo.png
+exclude_patterns: [_build, .venv, "**.ipynb_checkpoints"]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -22,10 +23,12 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/pierrepo/git-github-duo  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
+  path_to_book: content  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 parse:
+  # Parse and render settings: does not work so far
+  myst_links_external_new_tab: true
   myst_enable_extensions:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default! See here: https://jupyterbook.org/en/stable/customize/config.html
