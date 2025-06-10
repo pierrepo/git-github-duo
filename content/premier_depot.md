@@ -6,15 +6,17 @@ Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole `+` p
 
 ![](img/github_create_repo1.png)
 
-Indiquez ensuite *duo-test* comme « *Repository name* » :
+Ensuite :
 
-![](img/github_create_repo2.png)
-
-Laissez tous les autres paramètres par défaut.
+- Indiquez ensuite *duo-test* comme « *Repository name* ».
+- Cochez la case « Add a README file »
+- Ajoutez un fichier `.gitignore` en choisissant « Python » dans la liste déroulante de la section « Add .gitignore ».
 
 Puis cliquez sur le bouton vert « *Create repository* ».
 
-Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `git@github.com`, vous en aurez besoin pour la suite :
+![](img/github_create_repo2.png)
+
+Enfin, cliquez sur le bouton « Code » et copiez l'adresse de connexion de votre dépôt qui débute par `git@github.com`, vous en aurez besoin pour la suite :
 
 ![](img/github_create_repo3.png)
 
@@ -23,27 +25,26 @@ Enfin, notez et copiez l'adresse de connexion de votre dépôt qui débute par `
 Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `https://github.com` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github.com`
 ```
 
-## Connexion du dépôt distant (sur GitHub) à votre machine locale
+## Connexion du dépôt distant (sur GitHub) au serveur de l'IFB
 
-Depuis un terminal sur le JupyterLab de l'IFB, vérifiez que vous êtes dans le bon répertoire de travail :
+Depuis un terminal dans l'application JupyterLab de l'IFB, vérifiez que vous êtes dans le bon répertoire de travail :
 
 ```bash
 $ pwd
-/shared/projects/2501_duo/LOGINIFB/intro-git
+/shared/projects/2501_duo/LOGIN-IFB/intro-git
 ```
 
-où `LOGINIFB` est votre identifiant IFB.
+où `LOGIN-IFB` est votre identifiant IFB.
 
 Exécutez ensuite la commande suivante pour cloner votre dépôt distant (qui est sur GitHub) sur le serveur de l'IFB :
 
 ```bash
-$ git clone git@github.com:LOGINGITHUB/duo-test.git
+$ git clone git@github.com:LOGIN-GITHUB/duo-test.git
 ```
 
-où `LOGINGITHUB` est votre identifiant GitHub (pas celui de l'IFB).
+où `LOGIN-GITHUB` est votre identifiant GitHub (pas celui de l'IFB).
 
 ```{note}
-- git pourra éventuellement se plaindre avec le message `warning: You appear to have cloned an empty repository.` C'est tout à fait normal, le dépôt est vide pour le moment, mais nous allons rapidement y ajouter des fichiers.
 - L'adresse de votre dépôt distant doit commencer par `git@github.com`
 ```
 
@@ -55,17 +56,20 @@ $ cd duo-test
 
 Affichez le contenu du répertoire.
 
-Ce répertoire ne contient rien. C'est normal, votre dépôt est vide. Mais ce répertoire est un peu particulier, car il contient en fait un répertoire caché `.git`. Affichez ce répertoire caché avec la commande :
+Ce répertoire contient le fichier `README.md`. Il contient également des fichiers ou répertoires cachés que vous pouvez afficher avec la commande :
 
 ```bash
 $ ls -al
 ```
 
-C'est ce répertoire qui va contenir toute la mémoire du dépôt, donc tout l'historique du dépôt. 🧐 Ne le supprimez pas et ne modifiez pas non plus.
-
 ```{note}
 L'option `-a` de la commande `ls` affiche tous les fichiers et répertoires d'un répertoire, y compris les fichiers et répertoires cachés qui débutent par un point.
 ```
+
+Le fichier `.gitignore` est un fichier caché qui contient la liste des fichiers et répertoires à ignorer par git. Par exemple, les fichiers temporaires créés par l'éditeur de texte ou les fichiers de configuration de l'environnement Python. Ne vous en occupez pas pour l'instant.
+
+Le répertoire `.git` est un répertoire caché. Il contient toute la mémoire du dépôt, donc tout l'historique du dépôt. 🧐 Ne le supprimez pas et ne modifiez pas non plus.
+
 
 ## Configuration du dépôt local
 
@@ -113,7 +117,7 @@ Si vous tapez maintenant la commande `git status` pour savoir ce qui se passe, v
 
 ```
 $ git status
-Sur la branche master
+Sur la branche main
 
 Aucun commit
 
@@ -134,7 +138,7 @@ Un nouveau `git status` renvoie :
 
 ```
 $ git status
-Sur la branche master
+Sur la branche main
 
 Aucun commit
 
@@ -153,7 +157,7 @@ Vous devriez obtenir un résultat du type :
 
 ```bash
 $ git commit -m "Premier commit"
-[master (commit racine) a7b7006] Premier commit
+[main (commit racine) a7b7006] Premier commit
  1 file changed, 1 insertion(+)
  create mode 100644 test1.txt
 ```
@@ -167,10 +171,10 @@ Décompte des objets: 100% (3/3), fait.
 Écriture des objets: 100% (3/3), 236 octets | 236.00 Kio/s, fait.
 Total 3 (delta 0), réutilisés 0 (delta 0)
 To github.com:pierrepo/duo-test.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 ```
 
-Retournez maintenant sur la page de votre dépôt sur GitHub (a priori `https://github.com/LOGINGITHUB/duo-test` avec `LOGINGITHUB` votre identifiant GitHub) et rafraichissez-la.
+Retournez maintenant sur la page de votre dépôt sur GitHub (a priori `https://github.com/LOGIN-GITHUB/duo-test` avec `LOGIN-GITHUB` votre identifiant GitHub) et rafraichissez-la.
 
 Vous devriez voir le fichier `test1.txt` ! 🥳
 
