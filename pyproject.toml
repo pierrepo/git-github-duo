@@ -1,0 +1,9 @@
+[project]
+name = "git-github-duo"
+version = "0.1.0"
+description = "Tutoriel Git et GitHub"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyter-book>=1.0.4.post1",
+]
