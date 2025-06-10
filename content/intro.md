@@ -7,7 +7,7 @@ Vous testerez les différentes commandes git avec l'interface JupyterLab de l'IF
 ## Prérequis
 
 - Posséder un compte sur le cluster de calcul de l'IFB.
-- Avoir réalisé le tutoriel [Introduction à Unix](../tuto1/tutorial.md).
+- Avoir réalisé le tutoriel [Introduction à Unix](https://pierrepo.github.io/unix-tutorial/tuto1/tutorial.html).
 - Posséder un compte sur GitHub.
 
 
