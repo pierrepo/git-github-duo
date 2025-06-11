@@ -1,7 +1,7 @@
 # Explorer un projet existant
 
 ```{note}
-Cette section est l'occasion d'explorer l'historique d'un dépôt git et d'utiliser les commandes `git log` et `git show`.
+Dans cette section, vous allez explorer l'historique d'un dépôt git existant avec les commandes `git log` et `git show`.
 ```
 
 J'ai développé il y a quelques années le logiciel [autoclasswrapper](https://github.com/pierrepo/autoclasswrapper), un *wrapper* Python pour le programme de classification bayesienne  [AutoClass C](https://ti.arc.nasa.gov/tech/rse/synthesis-projects-applications/autoclass/autoclass-c/). Ce travail a été publié dans *The Journal of Open Source Software* en [2019](https://joss.theoj.org/papers/10.21105/joss.01390).
@@ -22,10 +22,10 @@ Vérifiez que vous êtes dans le bon répertoire :
 
 ```bash
 $ pwd
-/shared/projects/2501_duo/LOGINIFB/intro-git
+/shared/projects/2501_duo/LOGIN-IFB/intro-git
 ```
 
-où `LOGINIFB` est votre identifiant IFB.
+où `LOGIN-IFB` est votre identifiant IFB.
 
 
 ## Téléchargement du projet
@@ -81,7 +81,7 @@ Date:   Fri Jul 26 00:23:54 2019 +0200
     Add JOSS badge
 ```
 
-Chaque *commit* comporte un identifiant unique (`af43dd8`), un auteur (`Author:`), une date (`Date:`) et un message (`Add JOSS badge`).
+Chaque *commit* comporte un identifiant unique (`af43dd8...`), un auteur (`Author:`), une date (`Date:`) et un message (`Add JOSS badge`).
 ````
 
 ### Quand a été créé le tout premier *commit* ?
@@ -94,18 +94,7 @@ Aide : combinez les commandes `git log` et `tail`.
 De la même manière que précédemment :
 
 ```bash
-$ git log | head
-commit af43dd833e5586386098d1793a59332e968069da
-Author: Pierre Poulain <pierre.poulain@cupnet.net>
-Date:   Fri Jul 26 00:23:54 2019 +0200
-
-    Add JOSS badge
-
-commit 304556ecb2b7811d8b3b2cc54c91b015620b435e
-Author: Pierre Poulain <pierre.poulain@cupnet.net>
-Date:   Thu Jul 25 23:48:20 2019 +0200
-
-[ppoulain@cpu-node-22 autoclasswrapper]$ git log | tail
+$ git log | tail
 Author: Pierre Poulain <pierre.poulain@cupnet.net>
 Date:   Thu Jan 25 22:54:06 2018 +0100
 
@@ -150,7 +139,7 @@ $ git log | grep -c commit
 
 Mais la nombre de *commits* visibles sur le [dépôt GitHub](https://github.com/pierrepo/autoclasswrapper) du projet est 306. Effectivement, le tout premier *commit* contenant dans le message associé aussi le mot « *commit* ». Ce n'est donc pas la bonne stratégie.
 
-On peut plutôt compter le nombre de fois que l'expression « `Author:` » (avec la majuscule et les deux points) :
+On peut plutôt compter le nombre de fois que l'expression « `Author:` » (avec la majuscule et les deux points) car chaque commit est associé à un auteur :
 
 ```bash
 $ git log | grep -c "Author:"
@@ -220,7 +209,7 @@ avec `IDENTIFIANT-DU-COMMIT` l'identifiant du *commit* intéressant.
 
 Aide :
 
-- L'identifiant du commit débute par `2d1c`.
+- L'identifiant du commit débute par `2d1c...`.
 - Vous n'avez pas besoin d'entrer l'identifiant complet, les 6 premiers caractères devraient suffire.
 
 ````{admonition} Cliquez pour afficher la solution
