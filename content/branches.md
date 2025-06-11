@@ -16,10 +16,10 @@ Vérifiez que vous êtes dans le bon répertoire :
 
 ```bash
 $ pwd
-/shared/projects/2501_duo/LOGINIFB/intro-git
+/shared/projects/2501_duo/LOGIN-IFB/intro-git
 ```
 
-où `LOGINIFB` est votre identifiant IFB.
+où `LOGIN-IFB` est votre identifiant IFB.
 
 
 ## Créer une branche
@@ -36,8 +36,8 @@ Vérifiez que votre dépôt est « propre », c’est-à-dire qu’il ne contien
 
 ```bash
 $ git status
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ```
@@ -52,11 +52,11 @@ Vérifiez que cette branche existe bien :
 
 ```bash
 $ git branch
-* master
+* main
   nouveau-fichier
 ```
 
-Le symbole `*` à gauche de *master* indique que la branche courante est *master*.
+Le symbole `*` à gauche de *main* indique que la branche courante est *main*.
 
 Basculez maintenant sur la branche que vous venez de créer :
 
@@ -68,7 +68,7 @@ Vérifiez que vous êtes désormais sur la bonne branche :
 
 ```bash
 $ git branch
-  master
+  main
 * nouveau-fichier
 ```
 
@@ -112,7 +112,13 @@ $ git push
 Git va vous renvoyer un message d’erreur :
 
 ```
-fatal: La branche courante nouveau-fichier n'a pas de branche amont.
+fatal: The current branch nouveau-fichier has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin nouveau-fichier
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
 ```
 
 et vous proposer une instruction plus complète du type :
@@ -127,22 +133,26 @@ Utilisez cette instruction pour enfin envoyer votre branche sur GitHub.
 La commande `git push --set-upstream origin nouveau-fichier` est à utiliser uniquement la première fois que vous envoyez une branche sur GitHub. Par la suite, vous pourrez utiliser la commande `git push` seule.
 ```
 
-Vérifiez que votre branche `nouveau-fichier` est bien présente sur GitHub en cliquant sur branches dans le menu au-dessus de l’aperçu du dépôt.
+Vérifiez que votre branche `nouveau-fichier` est bien présente sur GitHub en cliquant sur « *Branches* » dans le menu au-dessus de l’aperçu du dépôt :
+
+![Branches sur GitHub](img/github_branch_1.png)
 
 
 ## Fusionner deux branches
 
-Depuis votre terminal, revenez sur la branche *master* et vérifiez que le fichier `test2.txt` n'est **pas** présent dans votre répertoire :
+Depuis votre terminal, revenez sur la branche *main* et vérifiez que le fichier `test2.txt` n'est **pas** présent dans votre répertoire :
 
 ```bash
-$ git switch master
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
 $ ls
 README.md  test1.txt
 ```
 
-Les branches fonctionnent comme des « réalités parallèles ». Il est donc normal que le fichier que vous avez créé dans la branche *nouveau-fichier* n’apparaisse pas dans la branche *master*.
+Les branches fonctionnent comme des « réalités parallèles ». Il est donc normal que le fichier que vous avez créé dans la branche *nouveau-fichier* n’apparaisse pas dans la branche *main*.
 
-Fusionnez maintenant sur la branche actuelle (*master*) la branche *nouveau-fichier* :
+Fusionnez maintenant sur la branche actuelle (*main*) la branche *nouveau-fichier* :
 
 ```bash
 $ git merge nouveau-fichier
@@ -161,7 +171,7 @@ Et encore une
 
 ## Supprimer une branche
 
-La branche *nouveau-fichier* ne sert plus à rien, car les modifications qu’elle contenait ont été fusionnées dans la branche *master*. Vous pouvez donc supprimer la branche *nouveau-fichier* :
+La branche *nouveau-fichier* ne sert plus à rien, car les modifications qu’elle contenait ont été fusionnées (incorporées) dans la branche *main*. Vous pouvez donc supprimer la branche *nouveau-fichier* :
 
 ```bash
 $ git branch -d nouveau-fichier
@@ -171,7 +181,7 @@ Puis vérifiez qu'elle a bien été détruite :
 
 ```bash
 $ git branch
-* master
+* main
 ```
 
 Enfin, envoyez toutes vos modifications sur GitHub :
@@ -180,4 +190,11 @@ Enfin, envoyez toutes vos modifications sur GitHub :
 $ git push
 ```
 
-Vérifiez que le dépôt sur GitHub a été mis à jour. Pour terminer, en cliquant sur `branches` dans l'interface GitHub, supprimez également la branche *nouveau-fichier*.
+Vérifiez que le dépôt sur GitHub a été mis à jour.
+
+Pour terminer, supprimer la branche *nouveau-fichier* sur GitHub. Pour cela :
+
+- Cliquez sur « *Branches* » dans l'interface GitHub.
+- Cliquez sur l'icône « poubelle » au bout de la ligne *nouveau-fichier*.
+
+![Supprimer une branche sur GitHub](img/github_branch_2.png)
