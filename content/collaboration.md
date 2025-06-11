@@ -31,12 +31,12 @@ Récupérez l’adresse du dépôt qui doit commencer par `git@github.com:...`. 
 git@github.com:pierrepo/mon_projet.git
 ```
 
-Allez ensuite dans la rubrique *Settings* (en haut à droite) puis dans *Collaborators* (à gauche). Entrez votre mot de passe si GitHub vous le demande.
+Allez ensuite dans la rubrique « *Settings* » (en haut à droite) puis dans « *Collaborators* » (à gauche). Entrez votre mot de passe si GitHub vous le demande.
 
 ![Accès configuration des collaborateurs](img/github_collab_1.png)
 
 
-Dans la rubrique *Manage access*, cliquez sur le bouton gris *Add people*.
+Dans la rubrique « *Manage access* », cliquez sur le bouton gris « *Add people* ».
 
 Entrez un par un le login GitHub (sans le caractère @ au début) des autres membres de l’équipe. Cliquez sur le bouton *Add XXXX to this repository* à chaque fois.
 
@@ -84,10 +84,12 @@ Réalisez maintenant ces actions dans l’ordre en vous répartissant les diffé
 5. Vérifiez que les modifications sont bien sur GitHub.
 6. Les autres membres de l’équipe récupèrent les modifications dans JupyterLab (`git pull`).
 7. Un éventuel 3e membre de l’équipe modifie le fichier `test.md`. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
-8. Vérifiez que les modifications sont bien sur GitHub.
+8. Vérifiez que les modifications sont bien présentes sur GitHub.
 9. Les autres membres de l’équipe récupèrent les modifications dans JupyterLab (`git pull`).
 
+```{warning}
 Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de **toujours** récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLab sur le cluster IFB). Pratiquement, cela signifie qu'il faut toujours lancer la commande `git pull` avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (`git push`).
+```
 
 Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé. 
 
