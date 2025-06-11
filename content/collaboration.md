@@ -23,9 +23,9 @@ En reprenant les instructions de la partie « [Premier dépôt](premier_depot.md
 
 - Créez un nouveau dépôt sur GitHub qui porte le nom d'un projet fictif.
 - Ajoutez une petite description
-- Conservez tous les autres paramètres par défaut (n’initialisez pas le dépôt avec les fichiers proposés).
+- Ajoutez un fichier `README.md` et un fichier `.gitignore`.
 
-Cliquez ensuite le bouton gris *SSH* et copiez / collez quelque part l’adresse du dépôt. Par exemple :
+Récupérez l’adresse du dépôt qui doit commencer par `git@github.com:...`. Par exemple :
 
 ```
 git@github.com:pierrepo/mon_projet.git
@@ -33,20 +33,26 @@ git@github.com:pierrepo/mon_projet.git
 
 Allez ensuite dans la rubrique *Settings* (en haut à droite) puis dans *Collaborators* (à gauche). Entrez votre mot de passe si GitHub vous le demande.
 
-Dans la rubrique *Manage access*, cliquez sur le bouton vert *Add people*.
+![Accès configuration des collaborateurs](img/github_collab_1.png)
 
-Entrez un par un le login GitHub (sans le caractère @ au début) des autres membres de l’équipe. Cliquez sur le bouton *Add XXXX to this repository* à chaque fois (voir [exemple](img/github_lucky-leucine_2.png)).
 
-Toutes les personnes que vous avez ajoutées de cette manière recevront une invitation par e-mail qu’ils devront confirmer rapidement. Elles auront ensuite accès à ce dépôt sur GitHub et pourront le modifier.
+Dans la rubrique *Manage access*, cliquez sur le bouton gris *Add people*.
 
-```{warning}
-Ne créez pas un premier fichier directement dans l’interface web de GitHub. Cela posera des problèmes par la suite.
-```
+Entrez un par un le login GitHub (sans le caractère @ au début) des autres membres de l’équipe. Cliquez sur le bouton *Add XXXX to this repository* à chaque fois.
 
-## Connexion du dépôt distant au JupyterLab IFB
+````{admonition} Cliquez pour afficher un exemple
+:class: dropdown
+
+![Exemple d'ajout de collaborateur](img/github_lucky-leucine_2.png)
+```` 
+
+Toutes les personnes que vous avez ajoutées de cette manière recevront une invitation par e-mail qu’elles devront confirmer rapidement. Elles auront ensuite accès à ce dépôt sur GitHub et pourront le modifier.
+
+
+## Connexion du dépôt distant au cluster IFB
 
 ```{note}
-Les manipulations indiquées dans cette rubrique sont à réaliser par tous les membres de l’équipe.
+Les manipulations indiquées dans cette rubrique sont à réaliser par **tous** les membres de l’équipe.
 Vérifiez ensemble que tous les membres de l'équipe ont réalisé les différente étapes.
 ```
 
@@ -56,13 +62,13 @@ Depuis un terminal, déplacez-vous dans votre répertoire de travail pour cette 
 $ cd /shared/projects/2501_duo/$USER/intro-git
 ```
 
-Clonez le dépôt distant de votre projet (qui est sur GitHub) sur le JupyterLab de l'IFB :
+Clonez le dépôt distant de votre projet (qui est sur GitHub) sur le cluster IFB :
 
 ```bash
-$ git clone git@github...
+$ git clone git@github:...
 ```
 
-où `git@github...` est l'adresse de votre dépôt distant que vous avez copiée précédemment.
+où `git@github:...` est l'adresse de votre dépôt distant que vous avez copiée précédemment. Il doit bien sûr être le même pour tous les membres de l’équipe.
 
 Déplacez-vous ensuite dans le répertoire créé.
 
@@ -71,17 +77,17 @@ Déplacez-vous ensuite dans le répertoire créé.
 
 Réalisez maintenant ces actions dans l’ordre en vous répartissant les différents rôles :
 
-1. Un 1er membre de l’équipe crée un fichier `README.md` avec simplement le titre du projet. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
+1. Un 1er membre de l’équipe crée un fichier `test.md` avec simplement le titre du projet. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
 2. Vérifiez que les modifications sont bien sur GitHub.
-3. Les autres membres de l’équipe récupèrent les modifications dans le JupyterLab (`git pull`).
-4. Un 2e membre de l’équipe modifie le fichier `README.md`. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
+3. Les autres membres de l’équipe récupèrent les modifications dans JupyterLab (`git pull`).
+4. Un 2e membre de l’équipe modifie le fichier `test.md`. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
 5. Vérifiez que les modifications sont bien sur GitHub.
-6. Les autres membres de l’équipe récupèrent les modifications dans le JupyterLab (`git pull`).
-7. Un éventuel 3e membre de l’équipe modifie le fichier `README.md`. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
+6. Les autres membres de l’équipe récupèrent les modifications dans JupyterLab (`git pull`).
+7. Un éventuel 3e membre de l’équipe modifie le fichier `test.md`. Il ajoute (`git add`), enregistre (`git commit`) puis envoie ses modifications sur GitHub (`git push`).
 8. Vérifiez que les modifications sont bien sur GitHub.
-9. Les autres membres de l’équipe récupèrent les modifications dans le JupyterLab (`git pull`).
+9. Les autres membres de l’équipe récupèrent les modifications dans JupyterLab (`git pull`).
 
-Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de **toujours** récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLab). C’est à dire qu’il faut toujours lancer la commande `git pull` avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (`git push`).
+Une règle pratique, qu’il est indispensable de respecter quand on travaille à plusieurs sur un même dépôt, est de **toujours** récupérer les modifications distantes (sur GitHub) localement (dans le JupyterLab sur le cluster IFB). Pratiquement, cela signifie qu'il faut toujours lancer la commande `git pull` avant de modifier localement les fichiers et avant d’envoyer les modifications sur GitHub (`git push`).
 
 Normalement, si vous avez respecté la séquence d’actions ci-dessus, tout s’est bien passé. 
 
@@ -99,7 +105,7 @@ Habituellement, vous ne travaillez pas en alternance dans la même pièce. Il es
 
 ## GitHub flow
 
-Avec la méthode de travail précédente, tous les co-équipiers travaillent dans la même branche (*master*). Chacun modifie les fichiers qu’il veut sans que les autres soient nécessairement d’accord.
+Avec la méthode de travail précédente, tous les co-équipiers travaillent dans la même branche (*main*). Chacun modifie les fichiers qu’il veut sans que les autres soient nécessairement d’accord.
 
 Il existe une méthodologie plus sophistiquée et plus inclusive appelée [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow) qui permet de discuter des différentes modifications apportées.
 
@@ -113,3 +119,6 @@ Il existe une méthodologie plus sophistiquée et plus inclusive appelée [GitHu
 - Enfin, localement, récupérer les modifications depuis GitHub avec `git pull` et supprimer la branche fusionnée.
 
 ![](img/github-flow.png)
+
+
+Cette méthode de travail demande un peu de pratique, mais est très efficace pour travailler en équipe. Elle permet de discuter des modifications avant de les intégrer dans la branche principale du projet.
