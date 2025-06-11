@@ -8,24 +8,24 @@ Dans l'interface de GitHub, tout en haut à droite, cliquez sur le symbole `+` p
 
 Ensuite :
 
-- Indiquez ensuite *duo-test* comme « *Repository name* ».
+- Indiquez *duo-test* comme « *Repository name* ».
 - Cochez la case « Add a README file »
 - Ajoutez un fichier `.gitignore` en choisissant « Python » dans la liste déroulante de la section « Add .gitignore ».
 
-Puis cliquez sur le bouton vert « *Create repository* ».
+Puis cliquez sur le bouton vert « *Create repository* » :
 
 ![](img/github_create_repo2.png)
 
-Enfin, cliquez sur le bouton « Code » et copiez l'adresse de connexion de votre dépôt qui débute par `git@github.com`, vous en aurez besoin pour la suite :
+Enfin, cliquez sur le bouton « Code » et copiez l'adresse de connexion de votre dépôt qui débute par `git@github.com:...`, vous en aurez besoin pour la suite :
 
 ![](img/github_create_repo3.png)
 
 
 ```{warning}
-Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `https://github.com` alors cliquez sur le bouton gris « *SSH* » pour obtenir l'adresse qui débute par `git@github.com`
+Si l'adresse de votre dépôt ne débute pas par `git@github.com` mais par `https://github.com` alors cliquez sur « *SSH* » pour obtenir l'adresse qui débute par `git@github.com:...`
 ```
 
-## Connexion du dépôt distant (sur GitHub) au serveur de l'IFB
+## Connexion du dépôt distant (sur GitHub) au cluster de l'IFB
 
 Depuis un terminal dans l'application JupyterLab de l'IFB, vérifiez que vous êtes dans le bon répertoire de travail :
 
@@ -45,7 +45,7 @@ $ git clone git@github.com:LOGIN-GITHUB/duo-test.git
 où `LOGIN-GITHUB` est votre identifiant GitHub (pas celui de l'IFB).
 
 ```{note}
-- L'adresse de votre dépôt distant doit commencer par `git@github.com`
+- L'adresse de votre dépôt distant doit commencer par `git@github.com:...`
 ```
 
 Déplacez-vous maintenant dans le répertoire créé et qui correspond à votre dépôt git :
@@ -63,7 +63,7 @@ $ ls -al
 ```
 
 ```{note}
-L'option `-a` de la commande `ls` affiche tous les fichiers et répertoires d'un répertoire, y compris les fichiers et répertoires cachés qui débutent par un point.
+L'option `-a` de la commande `ls` affiche tous les fichiers et sous-répertoires d'un répertoire, y compris les fichiers et répertoires cachés qui débutent par un point.
 ```
 
 Le fichier `.gitignore` est un fichier caché qui contient la liste des fichiers et répertoires à ignorer par git. Par exemple, les fichiers temporaires créés par l'éditeur de texte ou les fichiers de configuration de l'environnement Python. Ne vous en occupez pas pour l'instant.
@@ -117,15 +117,14 @@ Si vous tapez maintenant la commande `git status` pour savoir ce qui se passe, v
 
 ```
 $ git status
-Sur la branche main
+On branch main
+Your branch is up to date with 'origin/main'.
 
-Aucun commit
-
-Fichiers non suivis:
-  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
         test1.txt
 
-aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 Le fichier `test1.txt` existe bien, mais il n'est pas encore pris en charge par git. Pour cela, il faut utiliser la commande `git add` :
@@ -138,13 +137,12 @@ Un nouveau `git status` renvoie :
 
 ```
 $ git status
-Sur la branche main
+On branch main
+Your branch is up to date with 'origin/main'.
 
-Aucun commit
-
-Modifications qui seront validées :
-  (utilisez "git rm --cached <fichier>..." pour désindexer)
-        nouveau fichier : test1.txt
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   test1.txt
 ```
 
 `test1.txt` est désormais pris en compte par git et ses modifications sont prêtes à être validées. Pour cela, nous allons créer un *commit*, c'est-à-dire une photo des fichiers :
@@ -157,7 +155,7 @@ Vous devriez obtenir un résultat du type :
 
 ```bash
 $ git commit -m "Premier commit"
-[main (commit racine) a7b7006] Premier commit
+[main 0add960] Premier commit
  1 file changed, 1 insertion(+)
  create mode 100644 test1.txt
 ```
@@ -166,12 +164,14 @@ Parfait ! Il est maintenant temps d'envoyer ce premier *commit* sur GitHub :
 
 ```bash
 $ git push
-Énumération des objets: 3, fait.
-Décompte des objets: 100% (3/3), fait.
-Écriture des objets: 100% (3/3), 236 octets | 236.00 Kio/s, fait.
-Total 3 (delta 0), réutilisés 0 (delta 0)
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 256 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 334 bytes | 167.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
 To github.com:pierrepo/duo-test.git
- * [new branch]      main -> main
+   eeb37d5..0add960  main -> main
 ```
 
 Retournez maintenant sur la page de votre dépôt sur GitHub (a priori `https://github.com/LOGIN-GITHUB/duo-test` avec `LOGIN-GITHUB` votre identifiant GitHub) et rafraichissez-la.
@@ -200,7 +200,7 @@ Exemple de résultat :
 ```bash
 $ git diff
 diff --git a/test1.txt b/test1.txt
-index 0d8e693..f9f2480 100644
+index 0d8e693..c16a7f4 100644
 --- a/test1.txt
 +++ b/test1.txt
 @@ -1 +1,2 @@
@@ -219,12 +219,15 @@ Et envoyez ce nouveau *commit* sur Github :
 
 ```bash
 $ git push
-Énumération des objets: 5, fait.
-Décompte des objets: 100% (5/5), fait.
-Écriture des objets: 100% (3/3), 305 octets | 305.00 Kio/s, fait.
-Total 3 (delta 0), réutilisés 0 (delta 0)
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 256 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 309 bytes | 154.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 To github.com:pierrepo/duo-test.git
-   404b6ff..5adb360  master -> master
+   0add960..6f72848  main -> main
 ```
 
 Retournez sur GitHub pour observer ce nouveau *commit* :
@@ -236,17 +239,23 @@ Depuis le terminal, affichez l'historique (le journal des actions réalisées su
 
 ```bash
 $ git log
-commit 5adb360b9682320e4fe32382d79d9b9454d657b3 (HEAD -> master, origin/master)
+commit 6f7284840f9c7eafb4278684e8491589698aba3e (HEAD -> main, origin/main, origin/HEAD)
 Author: Pierre Poulain <pierre.poulain@cupnet.net>
-Date:   Tue Apr 6 21:00:36 2021 +0200
+Date:   Wed Jun 11 10:50:58 2025 +0200
 
     Ajout d'un nouveau message
 
-commit 404b6ff031bd9ba0daa586c7a524eb8ef409ec1c
+commit 0add960d4bbfcb88a3e1db902296c44c83c71ba6
 Author: Pierre Poulain <pierre.poulain@cupnet.net>
-Date:   Tue Apr 6 20:52:47 2021 +0200
+Date:   Wed Jun 11 10:47:42 2025 +0200
 
     Premier commit
+
+commit eeb37d5969c35c8a885f0697fecd9bdf5da3b873
+Author: Pierre Poulain <pierre.poulain@cupnet.net>
+Date:   Tue Jun 10 19:17:35 2025 +0200
+
+    Initial commit
 ```
 
 Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.
@@ -254,17 +263,23 @@ Si besoin, pressez la touche <kbd>q</kbd> pour quitter le journal de git.
 Vous constatez que git mémorise :
 
 - **qui** a créé le *commit* (par exemple : *Pierre Poulain <pierre.poulain@cupnet.net>*) ;
-- **quand** le *commit* a été créé (par exemple : *Tue Apr 6 21:00:36 2021 +0200*) ;
+- **quand** le *commit* a été créé (par exemple : *Wed Jun 11 10:50:58 2025 +0200*) ;
 - et **pourquoi** il a été créé (par exemple : *Ajout d'un nouveau message*).
 
 Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard comment les retrouver.
 
-De plus, git attribue un identifiant à chaque *commit* (ici : `404b6ff031bd9ba0daa586c7a524eb8ef409ec1c`). Cet identifiant est unique et permet de retrouver un *commit* particulier.
+De plus, git attribue un identifiant à chaque *commit* (ici : `6f7284840f9c7eafb4278684e8491589698aba3e`). Cet identifiant est unique et permet de retrouver un *commit* particulier.
+
+```{note}
+git vous présente 3 commits alors que vous n'en avez créé que 2. Le premier commit (avec pour message *Initial commit*) est celui créé automatiquement par GitHub lors de la création du dépôt. Il contient le fichier `README.md` et le fichier `.gitignore`.
+```
 
 
 ## Modification d'un fichier depuis GitHub
 
-Depuis l'interface de GitHub, cliquez sur le bouton vert « *Add a README* »
+Depuis l'interface de GitHub, cliquez sur le crayon à droite de « *README* » :
+
+![](img/github_readme_0.png)
 
 Dans l'éditeur en ligne, ajoutez le texte suivant :
 
@@ -276,7 +291,7 @@ Dépôt git de test pour le **DU omiques**.
 
 ![](img/github_readme_1.png)
 
-En haut à droite de la page, cliquez sur le bouton vert *Commit changes* puis dans la nouvelle fenêtre, indiquez comme titre de *commit* : « Création README.md » (sans les guillemets), et enfin cliquez sur le bouton vert « *Commit new file* ».
+En haut à droite de la page, cliquez sur le bouton vert *Commit changes...* puis dans la nouvelle fenêtre, indiquez comme titre de *commit message* : « Mise-à-jour README.md » (sans les guillemets), et enfin cliquez sur le bouton vert « *Commit changes* ».
 
 ![](img/github_readme_2.png)
 
@@ -284,29 +299,32 @@ Bravo ! Vous avez créé un nouveau *commit*, mais cette fois directement depuis
 
 ![](img/github_readme_3.png)
 
+Pour revenir à la base de votre dépôt, cliquez sur le nom du dépôt en haut à gauche de la page.
 
 Retournez dans le terminal et synchronisez votre dépôt git local avec GitHub :
 
 ```bash
 $ git pull
-remote: Enumerating objects: 4, done.
-remote: Counting objects: 100% (4/4), done.
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
 remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Dépaquetage des objets: 100% (3/3), 716 octets | 358.00 Kio/s, fait.
-Depuis github.com:pierrepo/duo-test
-   5adb360..4c65a31  master     -> origin/master
-Mise à jour 5adb360..4c65a31
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1022 bytes | 146.00 KiB/s, done.
+From github.com:pierrepo/duo-test
+   6f72848..720cb52  main       -> origin/main
+Updating 6f72848..720cb52
 Fast-forward
- README.md | 3 +++
- 1 file changed, 3 insertions(+)
- create mode 100644 README.md
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 ```
 
-Vérifiez que le fichier `README.md` est bien présent avec la commande `ls` puis affichez son contenu :
+Vérifiez que le fichier `README.md` a bien été modifié en affichant son contenu :
 
 ```bash
 $ cat README.md
+# duo-test
+
+Dépôt git de test pour le **DU omiques**.
 ```
 
 Vérifiez également que le *commit* créé sur GitHub est bien enregistré dans l'historique :
