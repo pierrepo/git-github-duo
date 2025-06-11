@@ -139,7 +139,7 @@ $ git log | grep -c commit
 
 Mais la nombre de *commits* visibles sur le [dépôt GitHub](https://github.com/pierrepo/autoclasswrapper) du projet est 306. Effectivement, le tout premier *commit* contenant dans le message associé aussi le mot « *commit* ». Ce n'est donc pas la bonne stratégie.
 
-On peut plutôt compter le nombre de fois que l'expression « `Author:` » (avec la majuscule et les deux points) car chaque commit est associé à un auteur :
+On peut plutôt compter le nombre de fois que l'expression « `Author:` » (avec la majuscule et les deux points) car chaque *commit* est associé à un auteur :
 
 ```bash
 $ git log | grep -c "Author:"
@@ -209,7 +209,7 @@ avec `IDENTIFIANT-DU-COMMIT` l'identifiant du *commit* intéressant.
 
 Aide :
 
-- L'identifiant du commit débute par `2d1c...`.
+- L'identifiant du *commit* débute par `2d1c...`.
 - Vous n'avez pas besoin d'entrer l'identifiant complet, les 6 premiers caractères devraient suffire.
 
 ````{admonition} Cliquez pour afficher la solution

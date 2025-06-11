@@ -271,7 +271,7 @@ Git mémorise aussi quels fichiers ont été modifiés. Nous verrons plus tard c
 De plus, git attribue un identifiant à chaque *commit* (ici : `6f7284840f9c7eafb4278684e8491589698aba3e`). Cet identifiant est unique et permet de retrouver un *commit* particulier.
 
 ```{note}
-git vous présente 3 commits alors que vous n'en avez créé que 2. Le premier commit (avec pour message *Initial commit*) est celui créé automatiquement par GitHub lors de la création du dépôt. Il contient le fichier `README.md` et le fichier `.gitignore`.
+git vous présente 3 *commits* alors que vous n'en avez créé que 2. Le premier *commit* (avec pour message *Initial commit*) est celui créé automatiquement par GitHub lors de la création du dépôt. Il contient le fichier `README.md` et le fichier `.gitignore`.
 ```
 
 
