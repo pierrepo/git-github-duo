@@ -287,4 +287,6 @@ index b04bf2a..996b3d0 100644
 [...]
 ```
 
+N'oubliez pas de presser la touche <kbd>q</kbd> pour quitter la sortie de la commande `git show`.
+
 ````
