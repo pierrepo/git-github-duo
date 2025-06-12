@@ -65,13 +65,13 @@ Le caractère `~` en Bash désigne votre répertoire personnel, qui correspond �
 
 Dans ce répertoire `~/.ssh/`, vous devriez trouver :
 
-- Le fichier `ed25519` : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.
-- Le fichier `ed25519.pub` : votre clé publique, que vous allez déposer sur le site de GitHub.
+- Le fichier `id_ed25519` : votre clé privée. À ne communiquer à personne ! Cette clé doit rester secrète.
+- Le fichier `id_ed25519.pub` : votre clé publique, que vous allez déposer sur le site de GitHub.
 
-Toujours dans votre terminal, affichez à l'écran le contenu du fichier `ed25519.pub` :
+Toujours dans votre terminal, affichez à l'écran le contenu du fichier `id_ed25519.pub` :
 
 ```bash
-$ cat ~/.ssh/id_rsa.pub
+$ cat ~/.ssh/id_ed25519.pub
 ```
 
 Vous devriez obtenir une clé qui ressemble à cela :
